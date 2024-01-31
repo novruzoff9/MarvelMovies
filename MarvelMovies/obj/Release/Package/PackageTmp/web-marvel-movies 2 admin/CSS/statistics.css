@@ -1,0 +1,35 @@
+#statistics{
+    display: flex;
+    flex-direction: row;
+    margin: 20px 0 0 20px;
+}
+#statistics div:first-child{
+    margin-right: 10px;
+}
+#statistics div:nth-child(n+2){
+    margin: 0 10px;
+}
+#active_user{
+    display: flex;
+    flex-direction: column;
+}
+#now_active_user{
+    margin-bottom: 10px;
+}
+#daily_active_user{
+    margin-top: 10px;
+}
+.active_user_a{
+    margin-left: 20px;
+    background-color: #282828;
+    font-size: 34px;
+    text-align: center;
+    padding: 20px;
+    color: white;
+    font-weight: 600;
+    width: 400px;
+    height: 240px;
+}
+#active_user p:nth-child(2){
+    font-size: 40px;
+}

@@ -1,0 +1,35 @@
+﻿@using DataAccessLayer.Concrete
+@using BusinessLayer.Concrete;
+@using DataAccessLayer.EntityFrameWork;
+@using EntityLayer.Concrete
+@model List<Serie>
+@{
+    Context c = new Context();
+}
+
+@foreach (var x in Model)
+{
+    <div class="mediaitem">
+        <img src="@x.Image" class="mediaimg" alt="@x.Name">
+        <div class="hd">
+            <a href="/SerieDetails/Serie/@x.ID" class="movielink">
+                <h2 class="mediah">@x.Name</h2>
+            </a>
+            <p class="medidesc">
+                @x.Description
+            </p>
+        </div>
+        <div class="about">
+            <h3>@x.Producer</h3>
+            <div class="ictxt">
+                <i class="fas fa-calendar-alt"></i>
+                <h4>@(((DateTime)x.ReleaseDate).ToString("dd MMMM yyyy"))</h4>
+            </div>
+            <div class="ictxt">
+                <i class="fab fa-imdb"></i>
+                <h4>@x.IMDB</h4>
+            </div>
+        </div>
+
+    </div>
+}

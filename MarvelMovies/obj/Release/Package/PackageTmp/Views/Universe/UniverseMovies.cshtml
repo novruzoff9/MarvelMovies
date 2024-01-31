@@ -1,0 +1,144 @@
+﻿@using EntityLayer.Concrete
+@using BusinessLayer.Concrete;
+@using DataAccessLayer.Concrete;
+@using DataAccessLayer.EntityFrameWork;
+@model List<Movie>
+@{
+    FavoriteManager favorite = new FavoriteManager(new EfFavoritesDal());
+    var usersfavorites = favorite.GetList();
+    Context c = new Context();
+}
+
+<style>
+    .favorite a, .infavorite a {
+        color: white;
+    }
+
+    .infavorite {
+        background-color: #ee171f;
+    }
+</style>
+
+@foreach (var x in Model)
+{
+    <div class="mediaitem">
+        <img src="@x.Image" class="mediaimg" alt="@x.Name">
+        <div class="hd">
+            <a href="/MovieDetails/Movie/@x.ID" class="movielink">
+                <h2 class="mediah">@x.Name</h2>
+            </a>
+            <p class="medidesc">
+                @x.Description.ToString()
+            </p>
+        </div>
+        <div class="about">
+            <h3>@x.Producer</h3>
+            <div class="ictxt">
+                <i class="fas fa-calendar-alt"></i>
+                <h4>@(((DateTime)x.ReleaseDate).ToString("dd MMMM yyyy"))</h4>
+            </div>
+            <div class="ictxt">
+                <i class="fab fa-imdb"></i>
+                <h4>@x.IMDB</h4>
+            </div>
+        </div>
+        @if (User.Identity.IsAuthenticated)
+        {
+            try
+            {
+                int userid = (int)Session["UserID"];
+                usersfavorites = usersfavorites.FindAll(y => y.UserID == userid);
+                if (usersfavorites.Any(y => y.MovieID == x.ID))
+                {
+                    <div class="button">
+                        @*<button class="watch">
+                                <i class="fas fa-plus"></i>İzləmə siyahısına artır
+                            </button>*@
+                        @*<a href="/MovieDetails/DeleteFavorite/@x.ID"><button class="infavorite"><i class="fas fa-heart"></i>Sevimli</button></a>*@
+                        <button value="@x.ID" class="movie favorite infavorite"><i class="fas fa-heart"></i>Sevimli</button>
+                    </div>
+                }
+                else
+                {
+                    <div class="button">
+                        @*<button class="watch">
+                                <i class="fas fa-plus"></i>İzləmə siyahısına artır
+                            </button>*@
+                        @*<a href="/MovieDetails/AddFavorite/@x.ID"><button class="favorite"><i class="far fa-heart"></i>Sevimlilərə artır</button></a>*@
+                        <button value="@x.ID" id="addfavorite" class="movie favorite addfavorite">
+                            <i class="far fa-heart"></i>Sevimlilərə artır
+                        </button>
+                    </div>
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+    </div>
+}
+
+<script>
+    $(function () {
+        $(".favorite").click(function () {
+            var movie = $(this).attr("value");
+            if ($(this).hasClass("infavorite")) {
+                if ($(this).hasClass("movie")) {
+                    DeleteFavoriteMovie(movie);
+                }
+                else {
+                    DeleteFavoriteSerie(movie);
+                }
+            }
+            else {
+                if ($(this).hasClass("movie")) {
+                    AddFavoriteMovie(movie);
+                }
+                else {
+                    AddFavoriteSerie(movie);
+                }
+            }
+        });
+        $(".favorite").click(function () {
+            if ($(this).hasClass("addfavorite")) {
+                $(this).html('<i class="fas fa-heart"></i>Sevimli');
+                $(this).removeClass("addfavorite");
+                $(this).addClass("infavorite");
+            }
+            else {
+                $(this).html('<i class="far fa-heart"></i>Sevimlilərə artır');
+                $(this).removeClass("infavorite");
+                $(this).addClass("addfavorite");
+            }
+        });
+        $("#marvelbtn").click(function () {
+            $("#tabmovie").empty();
+            $.getJSON("/Universe/Movies", null, function (data) {
+                $.each(data, function (i, item) {
+                    if (item.Universe == "Marvel") {
+                        $("#tabmovie").append(
+                            '<div class="mediaitem">' +
+                            '<img src="' + item.Image + '" class="mediaimg" alt="' + item.Name + '">' +
+                            '<div class="hd">' +
+                            '<a href="/MovieDetails/Movie/' + item.ID + '" class="movielink">' +
+                            '<h2 class="mediah">' + item.Name + '</h2>' +
+                            '</a>' +
+                            '<p class="medidesc">' + item.Description + '</p>' +
+                            '</div>' +
+                            '<div class="about">' +
+                            '<h3>' + item.Producer + '</h3>' +
+                            '<div class="ictxt">' +
+                            '<i class="fab fa-imdb"></i>' +
+                            '<h4>' + item.IMDB + '</h4>' +
+                            '</div>' +
+                            '</div>' +
+                            '</div>'
+                        );
+                    }
+                });
+            });
+        });
+    });
+</script>

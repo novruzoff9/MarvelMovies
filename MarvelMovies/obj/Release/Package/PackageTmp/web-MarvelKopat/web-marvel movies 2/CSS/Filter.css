@@ -1,0 +1,88 @@
+﻿#filter {
+    outline: none;
+    border: none;
+    width: 110px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: red;
+    color: white;
+    padding: 5px 10px;
+    height: 40px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+#filters {
+    display: none;
+    height: 200px;
+    width: 1500px;
+    padding: 20px;
+    background-color: black;
+}
+
+#universe, #sort, #producer, .ranges, #buttons {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    height: 160px;
+}
+
+#universe, #sort, #producer {
+    width: 280px;
+}
+
+.ranges {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.rangetxt {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.table {
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+    .table input[type="radio"] {
+        display: none;
+    }
+
+    .table input[type="checkbox"] {
+        display: none;
+    }
+
+.tabledata {
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    height: 32px;
+    width: 140px;
+    border: 1px solid #393939;
+}
+
+    .tabledata:checked + label {
+        background-color: #393939;
+        color: #ee171f;
+    }
+
+    .tabledata:hover {
+        background-color: #393939;
+        color: #ee171f;
+    }
+
+.ranges input {
+    accent-color: #244bf7;
+}
+
+#buttons {
+    flex-direction: column-reverse;
+}

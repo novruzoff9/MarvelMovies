@@ -1,0 +1,22 @@
+﻿#writeblog {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 700px;
+}
+
+#BlogHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#writeblog textarea {
+    min-height: 70px;
+    height: 400px;
+}
+
+#writeblog button {
+    font-weight: 500;
+    margin-top: 10px;
+}

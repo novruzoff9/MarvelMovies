@@ -1,0 +1,120 @@
+﻿@model EntityLayer.Concrete.Movie
+@{
+    ViewBag.Title = "UpdateMovie";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<link href="~/web-MarvelKopat/web-marvel-movies 2 admin/CSS/changedb.css" rel="stylesheet" />
+
+<style>
+    
+    #films {
+        display: block;
+    }
+
+    #moviep {
+        list-style: none;
+        margin: 10px 0;
+        font-size: 26px;
+        border-right: 2px solid #ee171f;
+        background-color: rgba(156, 156, 156, 0.2);
+        color: white;
+    }
+
+    #moviep a {
+        color: white;
+    }
+</style>
+
+<h2>Filmi Yenilə</h2>
+
+@using (Html.BeginForm("UpdateMovie", "Movie", FormMethod.Post, new { enctype = "multipart/form-data"}))
+{
+
+    <div id="id">
+        @Html.Label("Film ID:")
+        @Html.DisplayTextFor(x => x.ID)
+    </div>
+
+    <div id="changedb">
+
+        @Html.TextBoxFor(x => x.Image, new
+        {
+            @type = "file",
+            @id = "mediaimg",
+       @accept = "image/jpeg, image/png"
+        })
+        @Html.ValidationMessageFor(x => x.Image, "", new { @class = "validation" })
+        <label id="mediaimgl" for="mediaimg"><i class="fas fa-image"></i></label>
+
+        <div id="mediahd">
+            <div class="labelinpt">
+                @Html.Label("Adı:")
+                @Html.TextBoxFor(x => x.Name, new { @class = "blackinput" })
+                @Html.ValidationMessageFor(x => x.Name, "", new { @class = "validation" })
+            </div>
+            <div class="labelinpt">
+                @Html.Label("Haqqında:")
+                @Html.TextAreaFor(x => x.Description, new { @id = "mediadesc" })
+                @Html.ValidationMessageFor(x => x.Description, "", new { @class = "validation" })
+            </div>
+        </div>
+        <div id="mediaabout">
+            <div id="company">
+                @Html.Label("Şirkət")
+                @Html.TextBoxFor(x => x.Producer, new { @class = "blackinput" })
+                @Html.ValidationMessageFor(x => x.Producer, "", new { @class = "validation" })
+            </div>
+            <div class="mediaictxt">
+                <i class="fas fa-calendar-alt"></i>
+                @Html.TextBoxFor(x => x.ReleaseDate, "{0:yyyy-MM-dd}", new { @type = "date", @class = "blackinput" })
+                @Html.ValidationMessageFor(x => x.ReleaseDate, "", new { @class = "validation" })
+            </div>
+            <div class="mediaictxt">
+                <i class="far fa-clock"></i>
+                @Html.TextBoxFor(x => x.Duration, new { @class = "blackinput" })
+                @Html.ValidationMessageFor(x => x.Duration, "", new { @class = "validation" })
+            </div>
+            <div class="mediaictxt">
+                <i class="fab fa-imdb"></i>
+                @Html.TextBoxFor(x => x.IMDB, new { @class = "blackinput" })
+                @Html.ValidationMessageFor(x => x.IMDB, "", new { @class = "validation" })
+            </div>
+        </div>
+        <div id="other">
+            <div id="mediauniverse">
+                <label for="universe">Dünya:</label>
+                <select id="universe" name="Universe" class="blackinput">
+                    <option hidden selected>@Model.Universe</option>
+                    <option>Marvel</option>
+                    <option>X-Men</option>
+                    <option>Sony</option>
+                    <option>Other</option>
+                </select>
+            </div>
+            <div id="future">
+                @Html.CheckBoxFor(x => x.Broadcast, new { @id = "futurecheck" })
+                <label for="futurecheck">Yayımlanıb</label>
+            </div>
+        </div>
+        <div id="trailerlink">
+            <div class="labelinpt">
+                <label>Treyler 1:</label>
+                @Html.TextBoxFor(x => x.Trailer1, new { @class = "blackinput" })
+            </div>
+            <div class="labelinpt">
+                <label>Treyler 2:</label>
+                @Html.TextBoxFor(x => x.Trailer2, new { @class = "blackinput" })
+            </div>
+            <div class="labelinpt">
+                <label>Treyler 3:</label>
+                @Html.TextBoxFor(x => x.Trailer3, new { @class = "blackinput" })
+            </div>
+        </div>
+
+    </div>
+    <div id="buttons">
+        <button class="successbtn">Yenilə</button>
+        <a href="/Movie/MoviesList" class="cancelbtn">Ləğv et</a>
+    </div>
+}

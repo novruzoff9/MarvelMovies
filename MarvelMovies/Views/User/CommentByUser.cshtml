@@ -1,0 +1,90 @@
+﻿@using DataAccessLayer.Concrete
+@{
+    ViewBag.Title = "CommentByUser";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@{
+    Context c = new Context();
+    int id = ViewBag.id;
+    int moviec = c.MovieComments.Where(x => x.UserID == id).Count();
+    int movieans = c.MovieCommentAnswers.Where(x => x.UserId == id).Count();
+    int seriec = c.SerieComments.Where(x => x.UserID == id).Count();
+    int serieans = c.SerieCommentAnswers.Where(x => x.UserId == id).Count();
+}
+
+<style>
+    .commentlitsbtn:hover {
+        cursor: pointer;
+    }
+
+    .commentlist {
+        display: none;
+    }
+
+    #statistics{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+</style>
+
+<h2>&#64;@ViewBag.username</h2>
+<div>
+    <h2 class="commentlitsbtn">Film Rəyləri (@moviec) <i class="fas fa-chevron-down"></i></h2>
+    <div class="commentlist">
+        @Html.Action("MovieCommentsByUser", "MovieComment", new { @id = id })
+    </div>
+</div>
+<br />
+
+<div>
+    <h2 class="commentlitsbtn">Film Rəyi Cavabları (@movieans) <i class="fas fa-chevron-down"></i></h2>
+    <div class="commentlist">
+        @Html.Action("MovieCommentAnswersByUser", "MovieComment", new { @id = id })
+    </div>
+</div>
+<br />
+
+<div>
+    <h2 class="commentlitsbtn">Serial Rəyləri (@seriec) <i class="fas fa-chevron-down"></i></h2>
+    <div class="commentlist">
+        @Html.Action("SerieCommentsByUser", "SerieComment", id)
+    </div>
+</div>
+<br />
+
+<div>
+    <h2 class="commentlitsbtn">Serial Rəyi Cavabları (@serieans) <i class="fas fa-chevron-down"></i></h2>
+    <div class="commentlist">
+        @Html.Action("SerieCommentAnswersByUser", "SerieComment", new { @id = id })
+    </div>
+</div>
+<br />
+
+
+<div id="statistics">
+    @Html.Action("CommentCount", "User", new { @id = id })
+@Html.Action("CommentPercentage", "User", new { @id = id })
+</div>
+<br />
+
+<a href="/User/UserList" class="cancelbtn">Çıxış</a>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(function () {
+        $(".commentlitsbtn").click(function () {
+            if ($(".commentlitsbtn > i").hasClass("rotate-180")) {
+                $(this).siblings(".commentlist").slideUp(700);
+                $(".commentlitsbtn > i").removeClass("rotate-180");
+                $(".commentlitsbtn > i").toggleClass("rotate--180");
+            }
+            else {
+                $(this).siblings(".commentlist").slideDown(700);
+                $(this).children("i").removeClass("rotate--180");
+                $(this).children("i").toggleClass("rotate-180");
+            }
+        });
+    })
+</script>

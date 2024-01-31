@@ -1,0 +1,1050 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>D:\Downloads\MarvelKopat</_PublishTargetUrl>
+    <History>True|2022-03-28T19:39:24.9869603Z;True|2022-03-15T23:33:09.6889309+04:00;True|2022-03-13T13:49:05.9183914+04:00;True|2022-02-23T13:56:09.6277896+04:00;True|2022-02-22T16:46:55.9311554+04:00;True|2022-02-19T23:49:49.0399152+04:00;True|2022-02-19T23:47:52.3218498+04:00;True|2022-02-14T02:35:14.7357579+04:00;True|2022-02-13T02:07:54.9102168+04:00;True|2022-02-06T23:29:29.4719075+04:00;True|2022-02-06T13:01:15.3303174+04:00;True|2022-02-06T00:18:46.7531063+04:00;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/Antlr3.Runtime.dll">
+      <publishTime>09/10/2013 17:29:20</publishTime>
+    </File>
+    <File Include="bin/Antlr3.Runtime.pdb">
+      <publishTime>09/10/2013 17:29:20</publishTime>
+    </File>
+    <File Include="bin/BusinessLayer.dll">
+      <publishTime>03/28/2022 23:39:18</publishTime>
+    </File>
+    <File Include="bin/BusinessLayer.dll.config">
+      <publishTime>10/16/2021 20:49:22</publishTime>
+    </File>
+    <File Include="bin/BusinessLayer.pdb">
+      <publishTime>03/28/2022 23:39:18</publishTime>
+    </File>
+    <File Include="bin/DataAccessLayer.dll">
+      <publishTime>03/28/2022 23:39:18</publishTime>
+    </File>
+    <File Include="bin/DataAccessLayer.dll.config">
+      <publishTime>10/10/2021 16:56:57</publishTime>
+    </File>
+    <File Include="bin/DataAccessLayer.pdb">
+      <publishTime>03/28/2022 23:39:18</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>04/17/2020 00:38:42</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.SqlServer.dll">
+      <publishTime>04/17/2020 00:38:56</publishTime>
+    </File>
+    <File Include="bin/EntityLayer.dll">
+      <publishTime>02/21/2022 02:01:08</publishTime>
+    </File>
+    <File Include="bin/EntityLayer.dll.config">
+      <publishTime>10/10/2021 16:46:50</publishTime>
+    </File>
+    <File Include="bin/EntityLayer.pdb">
+      <publishTime>02/21/2022 02:01:08</publishTime>
+    </File>
+    <File Include="bin/FluentValidation.dll">
+      <publishTime>08/24/2021 21:43:38</publishTime>
+    </File>
+    <File Include="bin/MarvelMovies.dll">
+      <publishTime>03/28/2022 23:39:19</publishTime>
+    </File>
+    <File Include="bin/MarvelMovies.pdb">
+      <publishTime>03/28/2022 23:39:19</publishTime>
+    </File>
+    <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
+      <publishTime>09/05/2018 16:10:50</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>07/25/2012 12:48:56</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>04/22/2019 01:06:16</publishTime>
+    </File>
+    <File Include="bin/PagedList.dll">
+      <publishTime>09/30/2013 22:36:38</publishTime>
+    </File>
+    <File Include="bin/PagedList.Mvc.dll">
+      <publishTime>09/30/2013 23:15:20</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe">
+      <publishTime>08/08/2018 05:38:48</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe.config">
+      <publishTime>08/08/2018 12:18:12</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.rsp">
+      <publishTime>08/08/2018 12:09:42</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.exe">
+      <publishTime>08/08/2018 05:38:48</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.exe.config">
+      <publishTime>08/08/2018 12:18:34</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.rsp">
+      <publishTime>08/08/2018 12:09:56</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
+      <publishTime>08/08/2018 05:38:48</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>08/08/2018 05:38:48</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.Scripting.dll">
+      <publishTime>08/08/2018 05:38:48</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
+      <publishTime>08/08/2018 05:38:48</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.Scripting.dll">
+      <publishTime>08/08/2018 05:38:48</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
+      <publishTime>08/08/2018 05:38:48</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
+      <publishTime>08/08/2018 12:09:42</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.amd64.dll">
+      <publishTime>12/05/2017 09:36:44</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.x86.dll">
+      <publishTime>12/05/2017 09:36:44</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Managed.Core.targets">
+      <publishTime>08/08/2018 12:09:42</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
+      <publishTime>08/08/2018 12:09:42</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Win32.Primitives.dll">
+      <publishTime>11/05/2016 18:55:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.AppContext.dll">
+      <publishTime>11/05/2016 18:55:34</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Collections.Immutable.dll">
+      <publishTime>05/16/2018 03:29:34</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Console.dll">
+      <publishTime>11/05/2016 18:55:48</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Diagnostics.DiagnosticSource.dll">
+      <publishTime>11/05/2016 18:55:52</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Diagnostics.FileVersionInfo.dll">
+      <publishTime>11/05/2016 18:55:56</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Diagnostics.StackTrace.dll">
+      <publishTime>11/05/2016 18:55:52</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Globalization.Calendars.dll">
+      <publishTime>11/05/2016 18:56:02</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.Compression.dll">
+      <publishTime>11/05/2016 18:56:08</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.Compression.ZipFile.dll">
+      <publishTime>11/05/2016 18:56:04</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.FileSystem.dll">
+      <publishTime>11/05/2016 18:56:08</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.FileSystem.Primitives.dll">
+      <publishTime>11/05/2016 18:56:08</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Net.Http.dll">
+      <publishTime>11/05/2016 18:56:30</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Net.Sockets.dll">
+      <publishTime>11/05/2016 18:56:34</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Reflection.Metadata.dll">
+      <publishTime>05/16/2018 03:29:44</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Runtime.InteropServices.RuntimeInformation.dll">
+      <publishTime>11/05/2016 18:57:00</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Cryptography.Algorithms.dll">
+      <publishTime>11/05/2016 18:57:14</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Cryptography.Encoding.dll">
+      <publishTime>11/05/2016 18:57:08</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Cryptography.Primitives.dll">
+      <publishTime>11/05/2016 18:57:18</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Cryptography.X509Certificates.dll">
+      <publishTime>11/05/2016 18:57:18</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Text.Encoding.CodePages.dll">
+      <publishTime>11/05/2016 18:57:20</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Threading.Tasks.Extensions.dll">
+      <publishTime>11/05/2016 18:57:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.ValueTuple.dll">
+      <publishTime>11/05/2016 18:57:30</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Xml.ReaderWriter.dll">
+      <publishTime>11/05/2016 18:57:36</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Xml.XmlDocument.dll">
+      <publishTime>11/05/2016 18:57:34</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Xml.XPath.dll">
+      <publishTime>11/05/2016 18:57:40</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Xml.XPath.XDocument.dll">
+      <publishTime>11/05/2016 18:57:34</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe">
+      <publishTime>08/08/2018 05:38:48</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe.config">
+      <publishTime>08/08/2018 12:18:18</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.rsp">
+      <publishTime>08/08/2018 12:09:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe">
+      <publishTime>08/08/2018 05:38:48</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe.config">
+      <publishTime>08/08/2018 12:18:16</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>11/28/2018 13:04:24</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>11/28/2018 12:59:46</publishTime>
+    </File>
+    <File Include="bin/System.Web.Optimization.dll">
+      <publishTime>02/11/2014 15:26:04</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>11/28/2018 13:00:12</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.dll">
+      <publishTime>11/28/2018 13:04:24</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>11/28/2018 13:04:24</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.dll">
+      <publishTime>11/28/2018 13:04:24</publishTime>
+    </File>
+    <File Include="bin/tr/System.Web.Helpers.resources.dll">
+      <publishTime>11/28/2018 17:04:48</publishTime>
+    </File>
+    <File Include="bin/tr/System.Web.Mvc.resources.dll">
+      <publishTime>11/28/2018 17:00:10</publishTime>
+    </File>
+    <File Include="bin/tr/System.Web.Optimization.resources.dll">
+      <publishTime>02/11/2014 19:28:44</publishTime>
+    </File>
+    <File Include="bin/tr/System.Web.Razor.resources.dll">
+      <publishTime>11/28/2018 17:00:34</publishTime>
+    </File>
+    <File Include="bin/tr/System.Web.WebPages.Deployment.resources.dll">
+      <publishTime>11/28/2018 17:04:48</publishTime>
+    </File>
+    <File Include="bin/tr/System.Web.WebPages.Razor.resources.dll">
+      <publishTime>11/28/2018 17:04:48</publishTime>
+    </File>
+    <File Include="bin/tr/System.Web.WebPages.resources.dll">
+      <publishTime>11/28/2018 17:04:48</publishTime>
+    </File>
+    <File Include="bin/WebGrease.dll">
+      <publishTime>01/23/2014 13:57:34</publishTime>
+    </File>
+    <File Include="Content/bootstrap-theme.css">
+      <publishTime>10/09/2021 16:36:56</publishTime>
+    </File>
+    <File Include="Content/bootstrap-theme.css.map">
+      <publishTime>10/09/2021 16:36:56</publishTime>
+    </File>
+    <File Include="Content/bootstrap-theme.min.css">
+      <publishTime>10/09/2021 16:36:56</publishTime>
+    </File>
+    <File Include="Content/bootstrap-theme.min.css.map">
+      <publishTime>10/09/2021 16:36:56</publishTime>
+    </File>
+    <File Include="Content/bootstrap.css">
+      <publishTime>10/09/2021 16:36:56</publishTime>
+    </File>
+    <File Include="Content/bootstrap.css.map">
+      <publishTime>10/09/2021 16:36:56</publishTime>
+    </File>
+    <File Include="Content/bootstrap.min.css">
+      <publishTime>10/09/2021 16:36:56</publishTime>
+    </File>
+    <File Include="Content/bootstrap.min.css.map">
+      <publishTime>10/09/2021 16:36:56</publishTime>
+    </File>
+    <File Include="Content/PagedList.css">
+      <publishTime>12/24/2021 22:49:29</publishTime>
+    </File>
+    <File Include="Content/Site.css">
+      <publishTime>10/09/2021 16:36:51</publishTime>
+    </File>
+    <File Include="favicon.ico">
+      <publishTime>10/09/2021 16:36:51</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.eot">
+      <publishTime>10/09/2021 16:36:56</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.svg">
+      <publishTime>10/09/2021 16:36:56</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>10/09/2021 16:36:56</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.woff">
+      <publishTime>10/09/2021 16:36:56</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.woff2">
+      <publishTime>10/09/2021 16:36:56</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>10/09/2021 16:36:51</publishTime>
+    </File>
+    <File Include="Logo.png">
+      <publishTime>02/18/2022 15:37:26</publishTime>
+    </File>
+    <File Include="MarvelIcon.png">
+      <publishTime>11/21/2021 15:07:56</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.js">
+      <publishTime>10/09/2021 16:36:56</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.min.js">
+      <publishTime>10/09/2021 16:36:56</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.4.1.js">
+      <publishTime>10/09/2021 16:36:56</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.4.1.min.js">
+      <publishTime>10/09/2021 16:36:56</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.4.1.min.map">
+      <publishTime>10/09/2021 16:36:56</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.4.1.slim.js">
+      <publishTime>10/09/2021 16:36:56</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.4.1.slim.min.js">
+      <publishTime>10/09/2021 16:36:56</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.4.1.slim.min.map">
+      <publishTime>10/09/2021 16:36:56</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.js">
+      <publishTime>10/09/2021 16:36:58</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.min.js">
+      <publishTime>10/09/2021 16:36:58</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.js">
+      <publishTime>10/09/2021 16:36:58</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.min.js">
+      <publishTime>10/09/2021 16:36:58</publishTime>
+    </File>
+    <File Include="Scripts/modernizr-2.8.3.js">
+      <publishTime>10/09/2021 16:36:58</publishTime>
+    </File>
+    <File Include="statistics.html">
+      <publishTime>10/19/2021 22:04:20</publishTime>
+    </File>
+    <File Include="Views/Admin/AddMovie.cshtml">
+      <publishTime>10/23/2021 09:31:25</publishTime>
+    </File>
+    <File Include="Views/Admin/MoviesList.cshtml">
+      <publishTime>10/23/2021 09:18:37</publishTime>
+    </File>
+    <File Include="Views/Admin/UpdateMovie.cshtml">
+      <publishTime>10/23/2021 09:30:59</publishTime>
+    </File>
+    <File Include="Views/Animation/AddAnimation.cshtml">
+      <publishTime>01/22/2022 23:16:47</publishTime>
+    </File>
+    <File Include="Views/Animation/AnimationsList.cshtml">
+      <publishTime>01/22/2022 23:13:53</publishTime>
+    </File>
+    <File Include="Views/Animation/UpdateAnimation.cshtml">
+      <publishTime>01/22/2022 23:15:33</publishTime>
+    </File>
+    <File Include="Views/AnimationComment/AnimationCommentsByUser.cshtml">
+      <publishTime>01/01/2022 12:48:09</publishTime>
+    </File>
+    <File Include="Views/AnimationComment/AnimationCommentsList.cshtml">
+      <publishTime>01/22/2022 23:19:38</publishTime>
+    </File>
+    <File Include="Views/AnimationComment/CommentByAnimation.cshtml">
+      <publishTime>01/01/2022 12:44:54</publishTime>
+    </File>
+    <File Include="Views/Blog/BlogDetails.cshtml">
+      <publishTime>02/20/2022 22:56:48</publishTime>
+    </File>
+    <File Include="Views/Blog/Blogs.cshtml">
+      <publishTime>02/21/2022 23:46:13</publishTime>
+    </File>
+    <File Include="Views/Blog/RecommendedBlogs.cshtml">
+      <publishTime>02/20/2022 22:47:21</publishTime>
+    </File>
+    <File Include="Views/Blog/WriteBlog.cshtml">
+      <publishTime>02/20/2022 18:59:55</publishTime>
+    </File>
+    <File Include="Views/Contact/MessageDetails.cshtml">
+      <publishTime>11/28/2021 12:25:18</publishTime>
+    </File>
+    <File Include="Views/Contact/MessagesList.cshtml">
+      <publishTime>11/28/2021 12:19:12</publishTime>
+    </File>
+    <File Include="Views/Contact/MessagesPanel.cshtml">
+      <publishTime>11/28/2021 11:51:27</publishTime>
+    </File>
+    <File Include="Views/DirectMessage/Chats.cshtml">
+      <publishTime>03/20/2022 21:22:48</publishTime>
+    </File>
+    <File Include="Views/DirectMessage/Direct.cshtml">
+      <publishTime>03/24/2022 13:50:39</publishTime>
+    </File>
+    <File Include="Views/DirectMessage/EmptyDirect.cshtml">
+      <publishTime>02/05/2022 04:58:13</publishTime>
+    </File>
+    <File Include="Views/DirectMessage/NewChat.cshtml">
+      <publishTime>02/04/2022 04:28:32</publishTime>
+    </File>
+    <File Include="Views/DirectMessage/WriteMessage.cshtml">
+      <publishTime>03/20/2022 13:19:05</publishTime>
+    </File>
+    <File Include="Views/DirectMessage/WriteNewChat.cshtml">
+      <publishTime>02/04/2022 04:22:52</publishTime>
+    </File>
+    <File Include="Views/Filter/FilterResultMovies.cshtml">
+      <publishTime>02/06/2022 23:23:02</publishTime>
+    </File>
+    <File Include="Views/Filter/FilterResults.cshtml">
+      <publishTime>02/05/2022 02:45:56</publishTime>
+    </File>
+    <File Include="Views/Filter/FilterResultSeries.cshtml">
+      <publishTime>02/06/2022 23:23:24</publishTime>
+    </File>
+    <File Include="Views/Filter/Filters.cshtml">
+      <publishTime>02/19/2022 22:29:58</publishTime>
+    </File>
+    <File Include="Views/Home/About.cshtml">
+      <publishTime>10/09/2021 16:36:51</publishTime>
+    </File>
+    <File Include="Views/Home/Contact.cshtml">
+      <publishTime>10/09/2021 16:36:51</publishTime>
+    </File>
+    <File Include="Views/Home/Index.cshtml">
+      <publishTime>10/09/2021 16:36:51</publishTime>
+    </File>
+    <File Include="Views/Login/AdminLogin.cshtml">
+      <publishTime>02/20/2022 22:59:08</publishTime>
+    </File>
+    <File Include="Views/Login/UserLogin.cshtml">
+      <publishTime>01/22/2022 12:18:42</publishTime>
+    </File>
+    <File Include="Views/Message/Inbox.cshtml">
+      <publishTime>12/25/2021 13:24:35</publishTime>
+    </File>
+    <File Include="Views/Message/InboxMessageDetails.cshtml">
+      <publishTime>11/28/2021 12:39:34</publishTime>
+    </File>
+    <File Include="Views/Message/Sendbox.cshtml">
+      <publishTime>11/28/2021 12:40:28</publishTime>
+    </File>
+    <File Include="Views/Message/SendboxMessageDetails.cshtml">
+      <publishTime>11/28/2021 12:40:03</publishTime>
+    </File>
+    <File Include="Views/Message/WriteMessage.cshtml">
+      <publishTime>12/25/2021 13:08:38</publishTime>
+    </File>
+    <File Include="Views/Movie/AddMovie.cshtml">
+      <publishTime>02/19/2022 22:00:26</publishTime>
+    </File>
+    <File Include="Views/Movie/DetailsMovie.cshtml">
+      <publishTime>01/22/2022 23:16:13</publishTime>
+    </File>
+    <File Include="Views/Movie/MovieDetails.cshtml">
+      <publishTime>02/19/2022 22:01:36</publishTime>
+    </File>
+    <File Include="Views/Movie/MoviesList.cshtml">
+      <publishTime>02/15/2022 23:10:40</publishTime>
+    </File>
+    <File Include="Views/Movie/UpdateMovie.cshtml">
+      <publishTime>03/17/2022 21:56:33</publishTime>
+    </File>
+    <File Include="Views/MovieComment/AddMovieComment.cshtml">
+      <publishTime>02/19/2022 21:55:23</publishTime>
+    </File>
+    <File Include="Views/MovieComment/AnswersByMovie.cshtml">
+      <publishTime>02/08/2022 03:31:14</publishTime>
+    </File>
+    <File Include="Views/MovieComment/CommentByMovie.cshtml">
+      <publishTime>02/19/2022 21:40:49</publishTime>
+    </File>
+    <File Include="Views/MovieComment/MovieCommentAnswersByUser.cshtml">
+      <publishTime>02/02/2022 16:51:31</publishTime>
+    </File>
+    <File Include="Views/MovieComment/MovieCommentsByUser.cshtml">
+      <publishTime>02/02/2022 16:33:42</publishTime>
+    </File>
+    <File Include="Views/MovieComment/MovieCommentsList.cshtml">
+      <publishTime>02/19/2022 21:49:52</publishTime>
+    </File>
+    <File Include="Views/MovieDetails/AnswerComment.cshtml">
+      <publishTime>02/19/2022 22:42:47</publishTime>
+    </File>
+    <File Include="Views/MovieDetails/Movie.cshtml">
+      <publishTime>03/27/2022 00:58:14</publishTime>
+    </File>
+    <File Include="Views/MovieDetails/MovieComments.cshtml">
+      <publishTime>03/27/2022 00:57:27</publishTime>
+    </File>
+    <File Include="Views/MovieDetails/WriteComment.cshtml">
+      <publishTime>02/19/2022 22:50:31</publishTime>
+    </File>
+    <File Include="Views/Profile/AllComments.cshtml">
+      <publishTime>02/05/2022 04:21:14</publishTime>
+    </File>
+    <File Include="Views/Profile/AllFavorites.cshtml">
+      <publishTime>03/25/2022 01:19:48</publishTime>
+    </File>
+    <File Include="Views/Profile/FavoriteMovies.cshtml">
+      <publishTime>03/25/2022 01:20:27</publishTime>
+    </File>
+    <File Include="Views/Profile/FavoriteSeries.cshtml">
+      <publishTime>03/25/2022 01:17:32</publishTime>
+    </File>
+    <File Include="Views/Profile/FavoritesList.cshtml">
+      <publishTime>02/05/2022 04:56:15</publishTime>
+    </File>
+    <File Include="Views/Profile/MyComments.cshtml">
+      <publishTime>02/06/2022 22:45:08</publishTime>
+    </File>
+    <File Include="Views/Profile/MyProfile.cshtml">
+      <publishTime>02/17/2022 13:44:36</publishTime>
+    </File>
+    <File Include="Views/Profile/SearchResults.cshtml">
+      <publishTime>03/15/2022 13:49:24</publishTime>
+    </File>
+    <File Include="Views/Profile/SearchUser.cshtml">
+      <publishTime>03/20/2022 21:19:02</publishTime>
+    </File>
+    <File Include="Views/Profile/UpdateMovieComment.cshtml">
+      <publishTime>12/05/2021 11:10:53</publishTime>
+    </File>
+    <File Include="Views/Profile/UpdateProfile.cshtml">
+      <publishTime>02/19/2022 22:25:42</publishTime>
+    </File>
+    <File Include="Views/Profile/UserComments.cshtml">
+      <publishTime>02/06/2022 22:45:32</publishTime>
+    </File>
+    <File Include="Views/Profile/UserFavoritesList.cshtml">
+      <publishTime>02/05/2022 01:50:06</publishTime>
+    </File>
+    <File Include="Views/Profile/UserProfile.cshtml">
+      <publishTime>02/06/2022 22:47:07</publishTime>
+    </File>
+    <File Include="Views/Serie/AddSerie.cshtml">
+      <publishTime>02/19/2022 22:03:02</publishTime>
+    </File>
+    <File Include="Views/Serie/DetailsSerie.cshtml">
+      <publishTime>01/22/2022 23:17:03</publishTime>
+    </File>
+    <File Include="Views/Serie/SerieDetails.cshtml">
+      <publishTime>02/08/2022 02:59:41</publishTime>
+    </File>
+    <File Include="Views/Serie/SeriesList.cshtml">
+      <publishTime>02/08/2022 02:55:14</publishTime>
+    </File>
+    <File Include="Views/Serie/UpdateSerie.cshtml">
+      <publishTime>02/19/2022 22:03:23</publishTime>
+    </File>
+    <File Include="Views/SerieComment/AddSerieComment.cshtml">
+      <publishTime>02/19/2022 21:57:34</publishTime>
+    </File>
+    <File Include="Views/SerieComment/CommentBySerie.cshtml">
+      <publishTime>02/19/2022 21:39:59</publishTime>
+    </File>
+    <File Include="Views/SerieComment/SerieCommentAnswersByUser.cshtml">
+      <publishTime>02/02/2022 16:37:16</publishTime>
+    </File>
+    <File Include="Views/SerieComment/SerieCommentsByUser.cshtml">
+      <publishTime>02/02/2022 16:38:15</publishTime>
+    </File>
+    <File Include="Views/SerieComment/SerieCommentsList.cshtml">
+      <publishTime>02/19/2022 21:36:23</publishTime>
+    </File>
+    <File Include="Views/SerieDetails/AnswerComment.cshtml">
+      <publishTime>02/19/2022 22:43:19</publishTime>
+    </File>
+    <File Include="Views/SerieDetails/Serie.cshtml">
+      <publishTime>03/27/2022 00:40:29</publishTime>
+    </File>
+    <File Include="Views/SerieDetails/SerieComments.cshtml">
+      <publishTime>03/27/2022 00:38:17</publishTime>
+    </File>
+    <File Include="Views/SerieDetails/WriteComment.cshtml">
+      <publishTime>02/19/2022 22:50:51</publishTime>
+    </File>
+    <File Include="Views/Shared/Error.cshtml">
+      <publishTime>10/09/2021 16:36:51</publishTime>
+    </File>
+    <File Include="Views/Shared/_AdminLayout.cshtml">
+      <publishTime>02/19/2022 10:37:06</publishTime>
+    </File>
+    <File Include="Views/Shared/_Layout.cshtml">
+      <publishTime>10/09/2021 16:36:51</publishTime>
+    </File>
+    <File Include="Views/Shared/_UserLayout.cshtml">
+      <publishTime>03/26/2022 18:11:57</publishTime>
+    </File>
+    <File Include="Views/Statistics/CommentPercentage.cshtml">
+      <publishTime>02/07/2022 23:53:31</publishTime>
+    </File>
+    <File Include="Views/Statistics/DailyUserCount.cshtml">
+      <publishTime>02/09/2022 00:17:43</publishTime>
+    </File>
+    <File Include="Views/Statistics/MovieCommentsCount.cshtml">
+      <publishTime>02/01/2022 19:00:56</publishTime>
+    </File>
+    <File Include="Views/Statistics/MoviePercentage.cshtml">
+      <publishTime>12/27/2021 21:11:23</publishTime>
+    </File>
+    <File Include="Views/Statistics/SerieCommentsCount.cshtml">
+      <publishTime>02/02/2022 15:54:19</publishTime>
+    </File>
+    <File Include="Views/Statistics/Statistics.cshtml">
+      <publishTime>02/02/2022 16:08:43</publishTime>
+    </File>
+    <File Include="Views/Universe/AddMovieComment.cshtml">
+      <publishTime>02/06/2022 12:41:01</publishTime>
+    </File>
+    <File Include="Views/Universe/AddSerieComment.cshtml">
+      <publishTime>01/20/2022 22:08:27</publishTime>
+    </File>
+    <File Include="Views/Universe/AnswerMovieComment.cshtml">
+      <publishTime>02/06/2022 12:42:09</publishTime>
+    </File>
+    <File Include="Views/Universe/DetailsAnimation.cshtml">
+      <publishTime>01/22/2022 22:44:56</publishTime>
+    </File>
+    <File Include="Views/Universe/DetailsMovie.cshtml">
+      <publishTime>02/19/2022 22:39:31</publishTime>
+    </File>
+    <File Include="Views/Universe/DetailsSerie.cshtml">
+      <publishTime>01/22/2022 22:44:12</publishTime>
+    </File>
+    <File Include="Views/Universe/FoxUniverse.cshtml">
+      <publishTime>12/07/2021 20:08:31</publishTime>
+    </File>
+    <File Include="Views/Universe/MarvelMovies.cshtml">
+      <publishTime>02/06/2022 22:39:33</publishTime>
+    </File>
+    <File Include="Views/Universe/MarvelSeries.cshtml">
+      <publishTime>02/06/2022 22:42:46</publishTime>
+    </File>
+    <File Include="Views/Universe/MarvelUniverse.cshtml">
+      <publishTime>03/24/2022 23:40:56</publishTime>
+    </File>
+    <File Include="Views/Universe/MovieComments.cshtml">
+      <publishTime>02/05/2022 02:07:54</publishTime>
+    </File>
+    <File Include="Views/Universe/OtherMovies.cshtml">
+      <publishTime>02/06/2022 22:40:44</publishTime>
+    </File>
+    <File Include="Views/Universe/OtherSeries.cshtml">
+      <publishTime>02/06/2022 22:42:28</publishTime>
+    </File>
+    <File Include="Views/Universe/OtherUniverse.cshtml">
+      <publishTime>03/25/2022 01:53:58</publishTime>
+    </File>
+    <File Include="Views/Universe/Search.cshtml">
+      <publishTime>02/05/2022 03:00:03</publishTime>
+    </File>
+    <File Include="Views/Universe/SearchMovies.cshtml">
+      <publishTime>02/05/2022 03:00:08</publishTime>
+    </File>
+    <File Include="Views/Universe/SearchSeries.cshtml">
+      <publishTime>02/05/2022 03:02:52</publishTime>
+    </File>
+    <File Include="Views/Universe/SerieComments.cshtml">
+      <publishTime>01/01/2022 15:06:09</publishTime>
+    </File>
+    <File Include="Views/Universe/SonyMovies.cshtml">
+      <publishTime>02/06/2022 22:40:36</publishTime>
+    </File>
+    <File Include="Views/Universe/SonySeries.cshtml">
+      <publishTime>02/06/2022 22:42:36</publishTime>
+    </File>
+    <File Include="Views/Universe/SonyUniverse.cshtml">
+      <publishTime>03/25/2022 01:54:06</publishTime>
+    </File>
+    <File Include="Views/Universe/UniverseMovies.cshtml">
+      <publishTime>03/25/2022 00:55:49</publishTime>
+    </File>
+    <File Include="Views/Universe/UniverseSeries.cshtml">
+      <publishTime>03/25/2022 01:17:09</publishTime>
+    </File>
+    <File Include="Views/Universe/XMenMovies.cshtml">
+      <publishTime>02/06/2022 22:40:31</publishTime>
+    </File>
+    <File Include="Views/Universe/XMenSeries.cshtml">
+      <publishTime>02/06/2022 22:42:41</publishTime>
+    </File>
+    <File Include="Views/Universe/XMenUniverse.cshtml">
+      <publishTime>03/25/2022 01:53:48</publishTime>
+    </File>
+    <File Include="Views/User/AllFavorites.cshtml">
+      <publishTime>02/09/2022 15:46:31</publishTime>
+    </File>
+    <File Include="Views/User/CommentByUser.cshtml">
+      <publishTime>02/09/2022 15:41:11</publishTime>
+    </File>
+    <File Include="Views/User/CommentCount.cshtml">
+      <publishTime>02/10/2022 13:24:23</publishTime>
+    </File>
+    <File Include="Views/User/CommentPercentage.cshtml">
+      <publishTime>02/09/2022 15:39:41</publishTime>
+    </File>
+    <File Include="Views/User/FavoriteMovies.cshtml">
+      <publishTime>02/06/2022 23:02:28</publishTime>
+    </File>
+    <File Include="Views/User/FavoriteSeries.cshtml">
+      <publishTime>02/06/2022 23:03:45</publishTime>
+    </File>
+    <File Include="Views/User/UserDetails.cshtml">
+      <publishTime>02/06/2022 23:27:51</publishTime>
+    </File>
+    <File Include="Views/User/UserList.cshtml">
+      <publishTime>02/14/2022 02:33:26</publishTime>
+    </File>
+    <File Include="Views/UserMessage/ByStatus.cshtml">
+      <publishTime>01/02/2022 22:22:47</publishTime>
+    </File>
+    <File Include="Views/UserMessage/Inbox.cshtml">
+      <publishTime>01/27/2022 23:22:13</publishTime>
+    </File>
+    <File Include="Views/UserMessage/InboxMessageDetails.cshtml">
+      <publishTime>01/01/2022 17:13:34</publishTime>
+    </File>
+    <File Include="Views/UserMessage/MessagesPanel.cshtml">
+      <publishTime>01/03/2022 14:19:48</publishTime>
+    </File>
+    <File Include="Views/UserMessage/Select.cshtml">
+      <publishTime>01/03/2022 14:19:33</publishTime>
+    </File>
+    <File Include="Views/UserMessage/Sendbox.cshtml">
+      <publishTime>01/03/2022 14:19:36</publishTime>
+    </File>
+    <File Include="Views/UserMessage/SendboxMessageDetails.cshtml">
+      <publishTime>01/01/2022 17:13:45</publishTime>
+    </File>
+    <File Include="Views/UserMessage/Trash.cshtml">
+      <publishTime>01/03/2022 14:19:34</publishTime>
+    </File>
+    <File Include="Views/UserMessage/WriteMessage.cshtml">
+      <publishTime>12/25/2021 13:08:42</publishTime>
+    </File>
+    <File Include="Views/Web.config">
+      <publishTime>10/09/2021 16:36:51</publishTime>
+    </File>
+    <File Include="Views/_ViewStart.cshtml">
+      <publishTime>10/09/2021 16:36:51</publishTime>
+    </File>
+    <File Include="web-marvel-movies 2 admin/addmedia.html">
+      <publishTime>10/19/2021 22:26:06</publishTime>
+    </File>
+    <File Include="web-marvel-movies 2 admin/CSS/AdminLogin.css">
+      <publishTime>11/28/2021 18:52:39</publishTime>
+    </File>
+    <File Include="web-marvel-movies 2 admin/CSS/ChangeDb2.css">
+      <publishTime>12/08/2021 16:55:10</publishTime>
+    </File>
+    <File Include="web-marvel-movies 2 admin/CSS/formfw.css">
+      <publishTime>10/19/2021 22:26:06</publishTime>
+    </File>
+    <File Include="web-marvel-movies 2 admin/CSS/MessageDetails.css">
+      <publishTime>11/28/2021 12:27:38</publishTime>
+    </File>
+    <File Include="web-marvel-movies 2 admin/CSS/Messages2.css">
+      <publishTime>11/28/2021 11:51:05</publishTime>
+    </File>
+    <File Include="web-marvel-movies 2 admin/CSS/statistics.css">
+      <publishTime>10/19/2021 22:26:06</publishTime>
+    </File>
+    <File Include="web-marvel-movies 2 admin/CSS/style.css">
+      <publishTime>11/28/2021 18:36:19</publishTime>
+    </File>
+    <File Include="web-marvel-movies 2 admin/CSS/StyleSheet1.css">
+      <publishTime>11/06/2021 11:49:45</publishTime>
+    </File>
+    <File Include="web-marvel-movies 2 admin/CSS/WebStyle.css">
+      <publishTime>11/03/2021 16:31:24</publishTime>
+    </File>
+    <File Include="web-marvel-movies 2 admin/CSS/WriteMessage.css">
+      <publishTime>11/28/2021 18:28:09</publishTime>
+    </File>
+    <File Include="web-marvel-movies 2 admin/Images/Captain_America_Civil_War_poster.jpg">
+      <publishTime>10/19/2021 22:26:06</publishTime>
+    </File>
+    <File Include="web-marvel-movies 2 admin/Images/Daredevil_TV_Series-563047573-large.jpg">
+      <publishTime>10/19/2021 22:26:06</publishTime>
+    </File>
+    <File Include="web-marvel-movies 2 admin/Images/endgame.jpg">
+      <publishTime>10/19/2021 22:26:06</publishTime>
+    </File>
+    <File Include="web-marvel-movies 2 admin/Images/Infinity-war.jpg">
+      <publishTime>10/19/2021 22:26:06</publishTime>
+    </File>
+    <File Include="web-marvel-movies 2 admin/Images/Marvel_Logo.svg.png">
+      <publishTime>10/19/2021 22:26:06</publishTime>
+    </File>
+    <File Include="web-marvel-movies 2 admin/Images/PPnew.jpg">
+      <publishTime>10/19/2021 22:26:06</publishTime>
+    </File>
+    <File Include="web-marvel-movies 2 admin/Images/the-defenders.jpg">
+      <publishTime>10/19/2021 22:26:06</publishTime>
+    </File>
+    <File Include="web-marvel-movies 2 admin/index.html">
+      <publishTime>10/19/2021 22:26:06</publishTime>
+    </File>
+    <File Include="web-marvel-movies 2 admin/Script/moviespercent.js">
+      <publishTime>10/19/2021 22:26:06</publishTime>
+    </File>
+    <File Include="web-marvel-movies 2 admin/Script/user.js">
+      <publishTime>10/19/2021 22:26:06</publishTime>
+    </File>
+    <File Include="web-marvel-movies 2 admin/statistics.html">
+      <publishTime>10/19/2021 22:26:06</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel movies 2/CSS/BlogDetails.css">
+      <publishTime>02/20/2022 19:02:30</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel movies 2/CSS/Blogs.css">
+      <publishTime>02/20/2022 18:31:36</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel movies 2/CSS/Chat.css">
+      <publishTime>02/23/2022 00:15:14</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel movies 2/CSS/comment.css">
+      <publishTime>02/05/2022 01:50:34</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel movies 2/CSS/Direct.css">
+      <publishTime>02/21/2022 02:49:49</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel movies 2/CSS/Filter.css">
+      <publishTime>01/05/2022 16:56:13</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel movies 2/CSS/FormFW.css">
+      <publishTime>02/08/2022 01:08:51</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel movies 2/CSS/Login.css">
+      <publishTime>12/04/2021 16:53:37</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel movies 2/CSS/Message.css">
+      <publishTime>01/03/2022 14:23:39</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel movies 2/CSS/messages.css">
+      <publishTime>02/05/2022 00:47:05</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel movies 2/CSS/MovieDetails.css">
+      <publishTime>02/01/2022 22:07:19</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel movies 2/CSS/ProfileStyle.css">
+      <publishTime>12/11/2021 14:57:35</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel movies 2/CSS/SignModal.css">
+      <publishTime>02/23/2022 13:10:21</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel movies 2/CSS/signup.css">
+      <publishTime>12/04/2021 16:53:37</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel movies 2/CSS/Style.css">
+      <publishTime>02/19/2022 14:46:19</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel movies 2/CSS/StyleSheet.css">
+      <publishTime>02/23/2022 13:14:29</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel movies 2/CSS/StyleSheetUniverse.css">
+      <publishTime>02/23/2022 13:55:06</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel movies 2/CSS/updateprofile.css">
+      <publishTime>12/26/2021 16:13:57</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel movies 2/CSS/UserComment.css">
+      <publishTime>02/05/2022 01:51:13</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel movies 2/CSS/UserLayout.css">
+      <publishTime>03/07/2022 11:32:14</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel movies 2/CSS/UserLogin.css">
+      <publishTime>12/11/2021 11:27:57</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel movies 2/CSS/UserPage.css">
+      <publishTime>12/04/2021 16:53:37</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel movies 2/CSS/UserParameters.css">
+      <publishTime>12/04/2021 16:53:37</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel movies 2/CSS/WriteBlog.css">
+      <publishTime>02/20/2022 18:47:16</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel movies 2/Images/Captain_America_Civil_War_poster.jpg">
+      <publishTime>12/04/2021 16:53:37</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel movies 2/Images/Daredevil_TV_Series-563047573-large.jpg">
+      <publishTime>12/04/2021 16:53:37</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel movies 2/Images/endgame.jpg">
+      <publishTime>12/04/2021 16:53:37</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel movies 2/Images/Infinity-war.jpg">
+      <publishTime>12/04/2021 16:53:37</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel movies 2/Images/Jessica Jones season 1.jpg">
+      <publishTime>12/04/2021 16:53:37</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel movies 2/Images/Marvel_Logo.svg.png">
+      <publishTime>12/04/2021 16:53:37</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel movies 2/Images/PPnew.jpg">
+      <publishTime>12/04/2021 16:53:37</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel movies 2/Images/Spider-man into the spider-verse.jpg">
+      <publishTime>12/04/2021 16:53:37</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel movies 2/Images/the-defenders.jpg">
+      <publishTime>12/04/2021 16:53:37</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel movies 2/Images/Venom  2.jpg">
+      <publishTime>12/04/2021 16:53:37</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel movies 2/Images/Venom.jpg">
+      <publishTime>12/04/2021 16:53:37</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel movies 2/Images/X-men 2.jpg">
+      <publishTime>12/04/2021 16:53:37</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel movies 2/Images/X-Men%282000%29.jpg">
+      <publishTime>12/04/2021 16:53:37</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel movies 2/index.html">
+      <publishTime>12/04/2021 16:53:37</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel movies 2/Login.html">
+      <publishTime>12/04/2021 16:53:37</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel movies 2/Media.html">
+      <publishTime>12/04/2021 16:53:38</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel movies 2/profile.html">
+      <publishTime>12/04/2021 16:53:38</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel movies 2/Script/Login.js">
+      <publishTime>01/22/2022 12:21:05</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel movies 2/signup.html">
+      <publishTime>12/04/2021 16:53:38</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel movies 2/UserPage.html">
+      <publishTime>12/04/2021 16:53:38</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel movies 2/UserParameters.html">
+      <publishTime>12/04/2021 16:53:38</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel-movies 2 admin/addmedia.html">
+      <publishTime>11/20/2021 15:17:43</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel-movies 2 admin/comments.html">
+      <publishTime>11/20/2021 15:17:43</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel-movies 2 admin/CSS/AdminLogin.css">
+      <publishTime>02/19/2022 23:46:15</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel-movies 2 admin/CSS/changedb.css">
+      <publishTime>02/08/2022 01:27:09</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel-movies 2 admin/CSS/comment.css">
+      <publishTime>01/01/2022 11:36:38</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel-movies 2 admin/CSS/formfw.css">
+      <publishTime>02/08/2022 01:33:44</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel-movies 2 admin/CSS/MovieDetails.css">
+      <publishTime>02/08/2022 02:48:10</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel-movies 2 admin/CSS/ProfileStyle.css">
+      <publishTime>11/20/2021 18:36:40</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel-movies 2 admin/CSS/statistics.css">
+      <publishTime>11/20/2021 15:17:44</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel-movies 2 admin/CSS/style.css">
+      <publishTime>02/18/2022 15:51:50</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel-movies 2 admin/CSS/StyleSheet.css">
+      <publishTime>02/18/2022 15:52:17</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel-movies 2 admin/Images/BatmanArkhamKnight - Köçür %282%29.jpg">
+      <publishTime>11/20/2021 15:17:44</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel-movies 2 admin/Images/Captain_America_Civil_War_poster.jpg">
+      <publishTime>11/20/2021 15:17:44</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel-movies 2 admin/Images/Daredevil_TV_Series-563047573-large.jpg">
+      <publishTime>11/20/2021 15:17:44</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel-movies 2 admin/Images/endgame.jpg">
+      <publishTime>11/20/2021 15:17:44</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel-movies 2 admin/Images/Infinity-war.jpg">
+      <publishTime>11/20/2021 15:17:44</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel-movies 2 admin/Images/Marvel_Logo.svg.png">
+      <publishTime>11/20/2021 15:17:44</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel-movies 2 admin/Images/PPnew.jpg">
+      <publishTime>11/20/2021 15:17:44</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel-movies 2 admin/Images/The-Art-Of-Batman-Arkham-Knight-1 %282%29.jpg">
+      <publishTime>11/20/2021 15:17:44</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel-movies 2 admin/Images/the-defenders.jpg">
+      <publishTime>11/20/2021 15:17:44</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel-movies 2 admin/index.html">
+      <publishTime>11/20/2021 15:17:44</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel-movies 2 admin/profiles.html">
+      <publishTime>11/20/2021 15:17:44</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel-movies 2 admin/Script/Accordion.js">
+      <publishTime>11/20/2021 15:17:44</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel-movies 2 admin/Script/moviespercent.js">
+      <publishTime>11/20/2021 15:17:44</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel-movies 2 admin/Script/user.js">
+      <publishTime>11/20/2021 15:17:44</publishTime>
+    </File>
+    <File Include="web-MarvelKopat/web-marvel-movies 2 admin/statistics.html">
+      <publishTime>11/20/2021 15:17:44</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>02/22/2022 16:46:52</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

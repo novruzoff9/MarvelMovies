@@ -1,0 +1,120 @@
+.labelinpt{
+    display: flex;
+    flex-direction: column;
+}
+label {
+    color: white;
+    font-size: 20px;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+input, textarea, select, option{
+    font-weight: 500;
+}
+select, option, input{
+    font-size: 20px;
+}
+#changedb{
+    display: flex;
+    flex-direction: row;
+    margin: 10px 0 0 0;
+}
+#id {
+    font-size: 20px;
+    color: #ffffff;
+    font-weight: 600;
+}
+#mediaimg{
+    display: none;
+}
+#mediaimgl {
+    border: 1px solid #393939;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 60px;
+    width: 200px;
+    height: 300px;
+    background-color: black;
+    color: white;
+}
+#mediahd{
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#mediadesc {
+    margin-bottom: 0;
+    width: 500px;
+    height: 150px;
+    outline: none;
+    border-radius: 8px;
+    padding: 10px;
+    border: 1px solid #393939;
+    background-color: black;
+    color: white;
+}
+#mediaabout{
+    width: 240px;
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: white;
+}
+.mediaictxt{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.mediaictxt input{
+    margin-left: 10px;
+}
+input[type = "date"]::-webkit-calendar-picker-indicator {
+    background-color: white;
+}
+#mediaabout i{
+    font-size: 32px;
+}
+#other{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#mediauniverse{
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+}
+#future{
+    margin-left: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+#future input {
+    width: 20px;
+    height: 20px;
+    accent-color: black;
+}
+#future label{
+    color: white;
+    font-size: 20px;
+    margin-left: 5px;
+    font-weight: 600;
+}
+
+#trailerlink {
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#buttons{
+    margin-top: 10px;
+}
+.validation {
+    color: #ffffff;
+}

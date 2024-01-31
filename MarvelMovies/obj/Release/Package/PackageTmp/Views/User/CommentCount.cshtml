@@ -1,0 +1,83 @@
+﻿@{ 
+    int id = ViewBag.userid;
+}
+<div id="Linechart_comment_div"></div>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+        $(document).ready(function () {
+            $.ajax({
+                type: "POST",
+                dataType: "json",
+                contentType: "application/json",
+                url: '@Url.Action("CommentChart", "User", new { @id = id })',
+                success: function (result) {
+                    google.charts.load('current', {
+                        'packages': ['corechart']
+                    });
+                    google.charts.setOnLoadCallback(function () {
+                        drawUserLineChart(result)
+                    });
+                }
+            });
+        });
+
+    function drawUserLineChart(result) {
+        var UserLineChartdata = new google.visualization.DataTable();
+        UserLineChartdata.addColumn('string', 'Tarix');
+        UserLineChartdata.addColumn('number', 'Rəy Sayı');
+        var dataArray = [];
+
+        $.each(result, function (i, obj) {
+            dataArray.push([obj.Date, obj.Item1Count]);
+        });
+        UserLineChartdata.addRows(dataArray);
+
+        var UserLineChartOptions = {
+            width: 870,
+            height: 500,
+            backgroundColor: '#282828',
+            title: 'Gündəlik Rəy Sayı',
+            //Basliq
+            titleTextStyle: {
+                color: "#ffffff",
+                fontSize: 34
+            },
+            curveType: 'function',
+            colors: ['#244bf7'/*, '#ee171f', '#eeb71f', '#006200'*/],
+            //Xett adlari
+            legend: {
+                position: 'bottom',
+                textStyle: {
+                    fontSize: 18,
+                    color: '#ffffff'
+                }
+            },
+            hAxis: {
+                width: 100,
+                titleTextStyle: {
+                    color: "#ffffff",
+                    fontSize: 16,
+                    fontWeight: 600
+                },
+                format: 'M/d/yy',
+                gridlines: { count: 15 },
+                textStyle: {
+                    fontSize: 16,
+                    color: '#ffffff'
+                },
+            },
+            axes: {
+                x: {
+                    0: { side: 'bottom' } // Top x-axis.
+                },
+            },
+        };
+
+        var DailyUserCountChart = new google.visualization.LineChart(document
+            .getElementById('Linechart_comment_div'));
+
+        DailyUserCountChart.draw(UserLineChartdata, UserLineChartOptions);
+        }
+</script>

@@ -1,0 +1,77 @@
+#profile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #ee171f;
+    outline: none;
+    width: 80px;
+    padding: 5px;
+    font-size: 20px;
+    border-radius: 10px;
+    color: #ee171f;
+    background-color: transparent;
+    transition: .2s;
+}
+#profile:hover{
+    background-color: #ee171f;
+    color: white;
+    cursor: pointer;
+}
+#userabout{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#UserCard{
+    display: flex;
+    color: white;
+}
+.UserImage{
+    object-fit: cover;
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
+}
+.mainabout{
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: white;
+}
+.UserName{
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+.UserName h3{
+    color: white;
+}
+.UserName h5{
+    color: rgb(151, 151, 151);
+}
+.UserLists{
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: white;
+}
+.changeuserabout{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: 8px;
+    width: inherit;
+    font-size: 18px;
+    font-weight: 500;
+    color: rgb(238, 183, 31);
+    border: 2px solid rgb(238, 183, 31);
+    transition: .3s;
+}
+.changeuserabout:hover{
+    color: white;
+    background-color: rgb(238, 183, 31);
+}

@@ -1,0 +1,56 @@
+﻿#writemessage {
+    margin-left: 20px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.msginput input{
+    font-weight: 500;
+    width: 600px;
+    outline: none;
+    border-radius: 8px;
+    padding: 10px;
+    border: 1px solid gainsboro;
+    background-color: black;
+    color: white;
+}
+
+.msginput textarea {
+    font-weight: 500;
+    width: 600px;
+    outline: none;
+    border-radius: 8px;
+    padding: 10px;
+    border: 1px solid gainsboro;
+    background-color: black;
+    color: white;
+}
+textarea {
+    min-height: 240px;
+}
+
+.msginput {
+    display: flex;
+    flex-direction: column;
+}
+
+    .msginput label {
+        color: white;
+        font-size: 20px;
+        margin-bottom: 5px;
+        font-weight: 600;
+    }
+
+#send {
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    width: 80px;
+    height: 40px;
+    font-weight: 500;
+    font-size: 18px;
+    color: white;
+    background-color: #244bf7;
+}

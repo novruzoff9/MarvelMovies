@@ -1,0 +1,35 @@
+﻿@using EntityLayer.Concrete
+@model List<Favorites>
+@{bool f = false;}
+
+<style>
+    .nullfavorites {
+        width: 1440px;
+        height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+<div id="favorites">
+    <div id="favh">
+        <h2>Sevimlilər</h2>
+    </div>
+
+    <div class="movies">
+        @foreach (var x in Model.Take(6))
+        {
+            <div class="movie">
+                <img src="@x.Movie.Image" class="MovieImg">
+                <h2 class="noselect">@x.Movie.Name</h2>
+            </div>
+            f = true;
+        }
+        @if (f == false)
+        {
+            <div class="nullfavorites">
+                <h2>Hələki Sevimli film seçilməyib</h2>
+            </div>
+        }
+    </div>
+</div>

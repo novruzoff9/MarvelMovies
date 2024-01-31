@@ -1,0 +1,51 @@
+﻿@using DataAccessLayer.EntityFrameWork
+@using BusinessLayer.Concrete
+@using EntityLayer.Concrete
+@model List<MovieCommentAnswer>
+@{
+    int id = ViewBag.id;
+    ViewBag.Title = "AnswersByMovie";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    .moviedate {
+        width: 400px !important;
+    }
+</style>
+
+<h2>@ViewBag.name Cavabları</h2>
+
+<link href="~/web-MarvelKopat/web-marvel-movies 2 admin/CSS/comment.css" rel="stylesheet" />
+
+
+@foreach (var x in Model)
+{
+    <div class="comment">
+        <div class="id">
+            @x.MovieCommentID
+        </div>
+        @{
+            UserManager user = new UserManager(new EfUserDal());
+            var writer = user.GetById(x.UserId);
+        }
+        <img src="@writer.UserImage" class="ProfImg">
+        <div class="UserNameComTxt">
+            <h2>@writer.UserName</h2>
+            <p>
+                @x.AnswerText
+            </p>
+        </div>
+        <div class="moviedate">
+            <h3>@(((DateTime)x.AnswerDate).ToString("dd.MM.yyyy"))</h3>
+            <h3>@x.AnswerStatus</h3>
+        </div>
+        <div class="detdel">
+            <a href="/MovieComment/ActiveAnswerByMovie/@x.AnswerID" class="btn btn-primary">Aktiv et</a>
+            <a href="/MovieComment/DelAnswerByMovie/@x.AnswerID" class="cancelbtn">Passiv et</a>
+        </div>
+    </div>
+}
+<br />
+<a href="/Movie/MoviesDetails/@id" class="cancelbtn">Çıxış</a>
+

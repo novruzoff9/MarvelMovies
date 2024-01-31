@@ -1,0 +1,143 @@
+﻿.form-item {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    height: 40px;
+    padding: 5px;
+    font-size: 20px;
+    border-bottom: 2px solid #313131;
+    color: white;
+}
+
+.blackinput {
+    outline: none;
+    border: 1px solid #393939;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 10px;
+}
+
+.successbtn {
+    border: none;
+    outline: none;
+    color: white;
+    background-color: #006200;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.primarybtn {
+    border: none;
+    outline: none;
+    color: white;
+    background-color: #244bf7;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.cancelbtn {
+    border: none;
+    outline: none;
+    color: white;
+    background-color: #ee171f;
+    border-radius: 8px;
+    padding: 10px;
+}
+.cancelbtn:hover, .primarybtn:hover, .successbtn:hover{
+    color: white;
+}
+/*Input focus effect*/
+.effect-16 {
+    border: 0;
+    padding: 4px 0;
+    border-bottom: 2px solid #313131;
+    background-color: transparent;
+}
+
+.effect-16 ~ .focus-border {
+    position: absolute;
+    top: 38px;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #ee171f;
+    transition: 0.4s;
+}
+
+.effect-16:focus ~ .focus-border,
+.has-content.effect-16 ~ .focus-border {
+    width: 285%;
+}
+
+.effect-16 ~ label {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    color: #313131;
+    transition: 0.3s;
+    z-index: -1;
+    letter-spacing: 0.5px;
+}
+
+.effect-16:focus ~ label, .has-content.effect-16 ~ label {
+    font-size: 12px;
+    color: #ee171f;
+    transition: 0.3s;
+}
+
+.col-3 {
+    float: left;
+    width: 150px;
+    position: relative;
+}
+/*Tab page type*/
+#typetab {
+    width: 80vw;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+    #typetab input[type="radio"] {
+        display: none;
+    }
+
+    #typetab label {
+        margin-right: 20px;
+        color: rgb(151, 151, 151);
+        font-weight: bold;
+        font-size: 26px;
+    }
+
+.tab {
+    color: white;
+    display: none;
+    order: 1;
+}
+
+#tabmovie {
+    display: block;
+}
+
+#typetab input[type='radio']:checked + label {
+    color: white;
+}
+/*Trailer*/
+#trailer input[type = "radio"] {
+    display: none;
+    order: 1;
+}
+
+#trailer label {
+    margin-right: 20px;
+    color: rgb(151, 151, 151);
+    font-weight: bold;
+    font-size: 26px;
+}
+
+#trailer input[type = "radio"]:checked + label {
+    color: white;
+}

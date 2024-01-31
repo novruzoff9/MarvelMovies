@@ -1,0 +1,18 @@
+﻿@*@model EntityLayer.Concrete.ChatMessage
+@using (Html.BeginForm("WriteMessage", "DirectMessage", FormMethod.Post,
+    new { onsubmit = "return AddMessage(this);" }))
+{
+    <div id="writemessage">
+        <textarea id="messageinput" type="text" class="blackinput"
+                  placeholder="Mesaj yaz..." name="Message"></textarea>
+        <input type="hidden" name="ChatID" value="@ViewBag.chatid"/>
+        <button id="sendmessage"><i class="fas fa-chevron-circle-right"></i></button>
+    </div>
+}*@
+
+<div id="writemessage">
+    <textarea id="messageinput" type="text" class="blackinput"
+              placeholder="Mesaj yaz..." name="Message"></textarea>
+    <input type="hidden" id="ChatId" name="ChatID" value="@ViewBag.chatid" />
+    <button id="sendmessage"><i class="fas fa-chevron-circle-right"></i></button>
+</div>

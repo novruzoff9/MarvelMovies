@@ -1,0 +1,53 @@
+﻿@using EntityLayer.Concrete
+@model List<Movie>
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<link href="~/web-MarvelKopat/web-marvel movies 2/CSS/Style.css" rel="stylesheet" />
+<style>
+    .favorite a, .infavorite a {
+        color: white;
+    }
+
+    .infavorite {
+        background-color: #ee171f;
+    }
+    a {
+        color: white;
+    }
+
+        a :hover {
+            color: white;
+        }
+</style>
+
+<div id="article">
+    <div id="articlehead">
+        <div id="typetab">
+            <input type="radio" id="movietab" name="typetab" checked="checked">
+            <label for="movietab">Film</label>
+
+            <input type="radio" id="seriestab" name="typetab">
+            <label for="seriestab">Serial</label>
+
+        </div>
+        <button class="form-item" id="filter"><i class="fas fa-filter"></i>Filtrlər</button>
+    </div>
+
+    @Html.Action("Filters", "Filter")
+
+    <div id="media">
+        <div class="tab" id="tabmovie">
+            @Html.Action("SearchMovies", "Universe")
+
+        </div>
+
+        <div class="tab" id="tabseries">
+            @Html.Action("SearchSeries", "Universe")
+
+        </div>
+    </div>
+</div>
+

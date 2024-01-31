@@ -1,0 +1,156 @@
+﻿@using DataAccessLayer.Concrete;
+@{
+    Context c = new Context();
+    ViewBag.Title = "SearchUser";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+<style>
+    #searchuserinput {
+        width: 400px;
+    }
+
+    #usersearch {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    label {
+        color: white;
+        font-size: 20px;
+        font-weight: 600;
+    }
+</style>
+<style>
+    .UserImg {
+        width: 120px;
+        height: 120px;
+        border-radius: 60px;
+    }
+
+    .userprofile {
+        display: flex;
+        flex-direction: row;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #393939;
+        margin-left: 20px;
+    }
+
+    .UserNameComTxt h3 {
+        color: white;
+    }
+
+        .UserNameComTxt h3:hover {
+            color: #ee171f;
+        }
+
+    .UserNameComTxt {
+        margin-left: 20px;
+        width: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        color: rgb(131, 131, 131);
+    }
+
+    .datelike {
+        width: 140px;
+        margin-left: 20px;
+        text-align: justify;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .likedislike {
+        font-size: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .like, .dislike {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        color: white;
+    }
+
+        .like i, .dislike i {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+    .likedislike :hover {
+        color: white;
+        cursor: pointer;
+    }
+
+    #searchuserinput {
+        margin-top: 20px;
+        width: 400px;
+    }
+
+    #usersearch {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+<div id="usersearch">
+    <label>İstifadəçi axtar:</label>
+    <br />
+    <input id="searchuserinput" name="searchuser" class="blackinput" autocomplete="off"/>
+</div>
+
+<div id="users">
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(function () {
+
+        $("#searchuserinput").keyup(function () {
+            $("#users").empty();
+            if ($(this).val().length > 0) {
+                var search = $(this).val();
+                $.ajax(
+                    {
+                        type: 'POST',
+                        dataType: 'JSON',
+                        url: '/Profile/Users',
+                        data: { search: search},
+                        success:
+                            function (data) {
+                                $.each(data, function (i, item) {
+                                    $("#users").append(
+                                        '<div class="userprofile">' +
+                                        '<img src="' + item.UserImage + '" class="UserImg" alt="' + item.UserName + '">' +
+                                        '<div class="UserNameComTxt">' +
+                                        '<a href="/Profile/UserProfile/' + item.UserID + '">' +
+                                        '<h3>' + item.UserName + '</h3>' +
+                                        '</a>' +
+                                        '</div>' +
+                                        '</div>'
+                                    );
+                                });
+                            },
+                        error:
+                            function (response) {
+                                alert("Error: " + response);
+                            }
+                    });
+            }
+        });
+    });
+</script>

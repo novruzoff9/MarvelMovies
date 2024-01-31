@@ -1,0 +1,113 @@
+﻿<link href="~/web-MarvelKopat/web-marvel movies 2/CSS/Filter.css" rel="stylesheet" />
+@using (Html.BeginForm("FilterResults", "Filter", FormMethod.Post))
+{
+    <div id="filters">
+        <div id="sort">
+            <h3>Sıralama:</h3>
+            <div class="table">
+                <input type="radio" class="tabledata" name="sortby" value="Date" id="ByDate" checked>
+                <label for="ByDate" class="tabledata">Çıxış tarixi</label>
+                <input type="radio" class="tabledata" name="sortby" value="Alphabet" id="ByAlphabet">
+                <label for="ByAlphabet" class="tabledata">Əlifba sırası</label>
+                <input type="radio" class="tabledata" name="sortby" value="Score" id="ByScore">
+                <label for="ByScore" class="tabledata">IMDB xalı</label>
+                <input type="radio" class="tabledata" name="sortby" value="Time" id="ByTime">
+                <label for="ByTime" class="tabledata">Müddəti</label>
+            </div>
+            <div class="table">
+                <input type="radio" class="tabledata" name="quantity" value="increase" id="Increase" checked>
+                <label for="Increase" class="tabledata">Artan</label>
+                <input type="radio" class="tabledata" name="quantity" value="decrase" id="Decrease">
+                <label for="Decrease" class="tabledata">Azalan</label>
+            </div>
+        </div>
+        <div id="universe">
+            <h3>Dünya:</h3>
+            <div class="table">
+                <input type="checkbox" class="tabledata" name="universe" value="Marvel" id="Marveluniverse">
+                <label for="Marveluniverse" class="tabledata">Marvel</label>
+                <input type="checkbox" class="tabledata" name="universe" value="Sony" id="Sonyuniverse">
+                <label for="Sonyuniverse" class="tabledata">Sony</label>
+                <input type="checkbox" class="tabledata" name="universe" value="X-Men" id="XMenuniverse">
+                <label for="XMenuniverse" class="tabledata">X-Men</label>
+                <input type="checkbox" class="tabledata" name="universe" value="Other" id="Otheruniverse">
+                <label for="Otheruniverse" class="tabledata">Digər</label>
+            </div>
+        </div>
+        @*<div id="producer">
+            <h3>İstehsalçı:</h3>
+            <div class="table">
+                <input type="checkbox" class="tabledata" name="producer" value="Marvel" id="MarvelCompany">
+                <label for="MarvelCompany" class="tabledata">Marvel</label>
+                <input type="checkbox" class="tabledata" name="producer" value="Fox" id="FoxCompany">
+                <label for="FoxCompany" class="tabledata">Fox</label>
+                <input type="checkbox" class="tabledata" name="producer" value="Sony" id="SonyCompany">
+                <label for="SonyCompany" class="tabledata">Sony</label>
+                <input type="checkbox" class="tabledata" name="producer" value="Disney" id="DisneyCompany">
+                <label for="DisneyCompany" class="tabledata">Disney</label>
+                <input type="checkbox" class="tabledata" name="producer" value="Netflix" id="NetflixCompany">
+                <label for="NetflixCompany" class="tabledata">Netflix</label>
+            </div>
+        </div>*@
+        <div class="ranges" id="imdb">
+            <h3>IMDB aralığı:</h3>
+            <input id="imdb1range" type="range" name="imdb1" min="0" max="9" value="0" step="0.1">
+            <input id="imdb2range" type="range" name="imdb2" min="1" max="10" value="10" step="0.1">
+            <p class="rangetxt">
+                <span id="imdb1value">1</span>&nbsp;ilə&nbsp;<span id="imdb2value">7</span>&nbsp;arası
+            </p>
+        </div>
+        <div class="ranges" id="date">
+            <h3>Tarix aralığı:</h3>
+            <input id="date1range" type="range" name="date1" min="1998" max="2021" value="1998">
+            <input id="date2range" type="range" name="date2" min="1999" max="2022" value="2022">
+            <p class="rangetxt">
+                <span id="date1value">1</span>&nbsp;ilə&nbsp;<span id="date2value">7</span>&nbsp;arası
+            </p>
+        </div>
+        <div id="buttons">
+            <button class="successbtn">Axtar</button>
+        </div>
+    </div>
+}
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(function () {
+        $("#filter").click(function () {
+            $("#filters").slideToggle(500);
+            $("#filters").css({
+                "display": "flex",
+                "flex- direction": "row",
+                "justify-content": "space-between"
+            });
+        });
+        $('#imdb1value').html($('#imdb1range').val());
+        $('#imdb2value').html($('#imdb2range').val());
+        $('#date1value').html($('#date1range').val());
+        var thisyear = new Date().getFullYear();
+        $('#date2range').attr("max", (parseInt(thisyear - 1)));
+        $('#date2range').attr("max", thisyear);
+        $('#date2range').val(thisyear);
+        $('#date2value').html($('#date2range').val());
+
+        $(document).on('input', '#imdb1range', function () {
+            $('#imdb1value').html($(this).val());
+            var min = (parseInt($('#imdb1range').val()) + 1);
+            $('#imdb2range').attr("min", (parseInt($(this).val()) + 1));
+        });
+        $(document).on('input', '#imdb2range', function () {
+            $('#imdb2value').html($(this).val());
+            $('#imdb1range').attr("max", (parseInt($(this).val()) - 1));
+        });
+        $(document).on('input', '#date1range', function () {
+            $('#date1value').html($(this).val());
+            $('#date2range').attr("min", (parseInt($(this).val()) + 1));
+        });
+        $(document).on('input', '#date2range', function () {
+            $('#date2value').html($(this).val());
+            $('#date1range').attr("max", (parseInt($(this).val()) - 1));
+        });
+    });
+</script>

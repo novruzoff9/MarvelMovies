@@ -1,0 +1,257 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+
+#body {
+    background-color: #202020;
+}
+
+h2 {
+    color: white;
+}
+
+#logo {
+    display: block;
+    margin: 20px auto 40px auto;
+    width: 15vw;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+#container {
+    display: flex;
+}
+
+#sidebar {
+    position: sticky;
+    top: 20px;
+    width: 220px;
+}
+
+#menuhead {
+    list-style: none;
+    margin: 0 0 30px 0;
+    color: white;
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.menuitem {
+    list-style: none;
+    margin: 10px 0;
+    color: white;
+    font-size: 26px;
+}
+
+    .menuitem a {
+        width: initial;
+        height: inherit;
+        color: rgb(151, 151, 151);
+    }
+
+.activemenuitem {
+    list-style: none;
+    margin: 10px 0;
+    font-size: 26px;
+    border-right: 2px solid #ee171f;
+    background-color: rgba(156, 156, 156, 0.2);
+}
+
+    .activemenuitem a {
+        color: white;
+        padding-right: 10px;
+    }
+
+.menuitem a:hover {
+    color: #ee171f;
+}
+
+.activemenuitem a:hover {
+    color: white;
+    cursor: default;
+}
+
+#header {
+    display: flex;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    height: 81px;
+    width: 80vw;
+    padding: 20px 20px 20px 20px;
+    background-color: #202020;
+    border-bottom: 1px solid #393939;
+}
+
+option {
+    background-color: black;
+}
+
+#searchtext {
+    position: absolute;
+    display: inline-block;
+    color: white;
+    font-size: 26px;
+}
+
+#searchinpt {
+    margin-left: 90px;
+}
+
+#signup {
+    border: 2px solid rgb(238, 183, 31);
+    outline: none;
+    margin-right: 5px;
+    width: 100px;
+    height: 60px;
+    padding: 5px;
+    font-size: 20px;
+    border-radius: 10px;
+    color: rgb(238, 183, 31);
+    background-color: transparent;
+    transition: .2s;
+}
+
+    #signup:hover {
+        background-color: rgb(238, 183, 31);
+        color: white;
+        cursor: pointer;
+    }
+
+#login {
+    border: 2px solid #ee171f;
+    outline: none;
+    margin-left: 5px;
+    width: 80px;
+    height: 60px;
+    padding: 5px;
+    font-size: 20px;
+    border-radius: 10px;
+    color: #ee171f;
+    background-color: transparent;
+    transition: .2s;
+}
+
+    #login:hover {
+        background-color: #ee171f;
+        color: white;
+        cursor: pointer;
+    }
+
+#content {
+    border-left: 1px solid #393939;
+    display: block;
+}
+
+#article {
+    width: 80vw;
+    padding: 20px;
+}
+
+#articlehead {
+    position: sticky;
+    top: 81px;
+    background-color: #202020;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0 20px 0;
+    border-bottom: 1px solid #393939;
+}
+
+.mediaitem {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.mediaimg {
+    width: 200px;
+    height: 300px;
+}
+
+.hd {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.movielink :hover {
+    color: #ee171f;
+}
+
+.medidesc {
+    margin-bottom: 0;
+    width: 500px;
+    color: rgb(131, 131, 131);
+    font-size: 20px;
+}
+
+.about {
+    width: 240px;
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.ictxt {
+    display: flex;
+    flex-direction: row;
+}
+
+    .ictxt h4 {
+        margin-left: 10px;
+    }
+
+.about i {
+    font-size: 32px;
+}
+
+.button {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+    .button button {
+        outline: none;
+        border: none;
+        width: 215px;
+        color: white;
+        padding: 5px;
+        height: 40px;
+        border-radius: 8px;
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+        .button button i {
+            margin-right: 10px;
+        }
+
+.watch {
+    background-color: #244bf7;
+}
+
+.favorite {
+    background-color: rgb(238, 183, 31);
+}
+
+#up {
+    position: fixed;
+    display: none;
+    bottom: 40px;
+    right: 40px;
+    width: 40px;
+    height: 40px;
+    background-color: #ee171f;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+}

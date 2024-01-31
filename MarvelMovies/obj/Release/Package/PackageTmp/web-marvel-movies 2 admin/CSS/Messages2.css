@@ -1,0 +1,108 @@
+﻿#pagecontent {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+}
+
+#panel {
+    padding: 10px;
+    background-color: #393939;
+    color: white;
+    width: 280px;
+}
+
+#panelcontent > ul {
+    padding-left: 0;
+}
+
+#sendmessage {
+    padding: 5px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    font-weight: 600;
+    border-radius: 10px;
+    color: white;
+    background-color: #244bf7;
+}
+
+    #sendmessage i {
+        margin-right: 10px;
+    }
+
+#panelcontent {
+    margin-top: 20px;
+}
+
+.panelitem {
+    padding: 5px 10px 0 0;
+    font-weight: 600;
+    font-size: 24px;
+    list-style: none;
+}
+
+    .panelitem a {
+        color: white;
+    }
+
+    .panelitem i {
+        margin-right: 10px;
+    }
+
+    .panelitem a:hover {
+        color: #ee171f;
+    }
+
+#messages {
+    margin-left: 20px;
+}
+
+#messagesheader {
+    padding: 0 5px;
+}
+
+.message {
+    width: 1100px;
+    height: 50px;
+    padding: 10px 0;
+    border-top: 1px solid #393939;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+.messagelink {
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    width: 1000px;
+    height: 50px;
+}
+
+    .messagelink:hover {
+        text-decoration: none;
+        color: white;
+        background-color: #393939;
+    }
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    font-size: 20px;
+}
+
+    .buttons i {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+    }
+
+    .buttons > i:hover {
+        background-color: #393939;
+    }

@@ -1,0 +1,112 @@
+﻿#content {
+    display: flex;
+    flex-direction: column;
+}
+
+#ProfCom {
+    display: flex;
+    flex-direction: row;
+}
+
+#profile {
+    margin-top: 20px;
+    margin-left: 20px;
+    height: 520px;
+    width: 400px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #393939;
+}
+
+    #profile * {
+        margin-top: 10px;
+    }
+
+.ProfImg {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+}
+
+.signdate, .email, .countcomment, .countfavorites, .countwatchlater {
+    width: 380px;
+    /*color: rgb(131, 131, 131);*/
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.updateprofile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 40px;
+    padding: 10px;
+    color: white;
+    font-size: 20px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+}
+
+.updateprofile {
+    background-color: #244bf7;
+}
+
+#comments, #favorites, #watchlater {
+    margin-top: 20px;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+#comments {
+    margin-left: 50px;
+}
+
+#favwl {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 1460px;
+    margin-bottom: 20px;
+}
+
+#favh, #wlh {
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid #393939;
+    margin-bottom: 20px;
+}
+
+.movies {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.movie {
+    width: 200px;
+    height: 300px;
+}
+
+    .movie h2 {
+        text-align: center;
+        position: relative;
+        color: whitesmoke;
+        bottom: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: none;
+    }
+
+    .movie .MovieImg {
+        width: 200px;
+        height: 300px;
+    }

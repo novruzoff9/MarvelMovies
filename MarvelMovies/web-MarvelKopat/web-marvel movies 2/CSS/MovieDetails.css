@@ -1,0 +1,327 @@
+﻿#contentheader {
+    width: 80vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 20px;
+    border-bottom: 1px solid #393939;
+}
+
+.header_icons {
+    width: 240px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+    .header_icons i {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 32px;
+        border-radius: 10px;
+    }
+
+    .header_icons > i:hover {
+        background-color: #393939;
+        cursor: pointer;
+    }
+
+.headerscore {
+    width: 120px;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.8rem;
+    font-weight: 500;
+    display: flex;
+    flex-direction: row;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    font-size: 20px;
+}
+
+    .buttons i {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+    }
+
+    .buttons > i:hover {
+        background-color: #393939;
+    }
+
+.rotate-180 {
+    transform: rotate(180deg);
+    transition: .7s;
+}
+
+.rotate--180 {
+    transform: rotate(0deg);
+    transition: .7s;
+}
+
+#aboutheader {
+    cursor: pointer;
+}
+
+#abouttext {
+    display: none;
+}
+
+#mediaabout {
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 80vw;
+    color: white;
+}
+
+#contentfiles {
+    width: 80vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.about {
+    height: 300px;
+}
+
+#trailer {
+    background-color: #393939;
+    width: 39vw;
+    height: 300px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#trailerselect {
+    margin-left: 20px;
+    padding: 50px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.video {
+    display: none;
+    width: 560px;
+    height: 300px;
+}
+
+#video1 {
+    display: block;
+}
+
+#moviecomments {
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.UserImg {
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
+}
+
+.moviecomment {
+    display: flex;
+    flex-direction: row;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #393939;
+}
+
+.spoilercomment {
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+}
+
+.readspoiler {
+    position: absolute;
+}
+
+.addcomment > label {
+    color: white;
+    font-size: 1.75rem;
+    font-weight: 500;
+}
+
+.addcomment {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: rgb(131, 131, 131);
+}
+
+#addcommenttxt {
+    width: 700px;
+    height: 95px;
+    resize: none;
+}
+
+#addcommentbuttons {
+    margin-top: 10px;
+    width: 700px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.commentspoiler {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+    .commentspoiler input {
+        margin-right: 5px;
+        width: 20px;
+        height: 20px;
+        accent-color: #244bf7;
+    }
+
+    .commentspoiler :hover {
+        cursor: pointer;
+    }
+
+.commentanswer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 20px;
+    color: white;
+}
+
+.replycomment {
+    display: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #393939;
+}
+
+.answers {
+    padding-left: 120px;
+    display: none;
+}
+
+.showanswers:hover {
+    cursor: pointer;
+}
+
+.UserNameComTxt h3 {
+    color: white;
+}
+
+.UserNameComTxt {
+    margin-left: 20px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: rgb(131, 131, 131);
+}
+
+.commentreply {
+    width: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+    .commentreply:hover {
+        cursor: pointer;
+    }
+
+.datelike {
+    width: 140px;
+    margin-left: 20px;
+    text-align: justify;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.likedislike {
+    font-size: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.like, .dislike {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+    .like i, .dislike i {
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+.likedislike :hover {
+    color: white;
+    cursor: pointer;
+}
+
+#moviecommentsheader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 700px;
+}
+
+#SortBtn:hover {
+    cursor: pointer;
+}
+
+#SortBy {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background-color: #393939;
+    width: 170px;
+    display: none;
+}
+
+    #SortBy label:hover {
+        color: #ee171f;
+        cursor: pointer;
+    }
+
+    #SortBy label {
+        color: white;
+        font-size: 20px;
+        margin-left: 5px;
+        font-weight: 600;
+    }
+
+.SortCommentBy {
+    display: none;
+}

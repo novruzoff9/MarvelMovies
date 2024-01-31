@@ -1,0 +1,206 @@
+﻿@using DataAccessLayer.Concrete
+@{
+    Context c = new Context();
+    ViewBag.Title = "AllComments";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+@{
+    int id = ViewBag.id;
+}
+
+<link href="~/web-MarvelKopat/web-marvel movies 2/CSS/comment.css" rel="stylesheet" />
+
+<style>
+    #allcomments{
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+    .exit {
+        margin-left: 20px;
+        margin-bottom: 20px;
+    }
+</style>
+
+<div id="allcomments">
+    <h2>Film Rəyləri</h2>
+    @foreach (var x in c.MovieComments.Where(x => x.UserID == id).ToList())
+    {
+        <div class="comment">
+            <img src="@x.Movie.Image" alt="@x.Movie.Name" class="MovieImg">
+            <div class="MovieNameComTxt">
+                <h3>@x.Movie.Name</h3>
+                <p>
+                    @x.MovieCommentText
+                </p>
+            </div>
+            <div class="date">
+                @{
+                    //Saati duzelt
+                    DateTime now = DateTime.Now;
+                    TimeSpan time = now - x.CommentDate;
+                    string str;
+                    int day = time.Days;
+                    if (day > 365)
+                    {
+                        str = day / 365 + " il";
+                    }
+                    else if (day > 30)
+                    {
+                        str = day / 30 + " ay";
+                    }
+                    else if (day > 0)
+                    {
+                        str = day + " gün";
+                    }
+                    else
+                    {
+                        str = "bu gün";
+                    }
+                    if (str != "bu gün")
+                    {
+                        str += " əvvəl";
+                    }
+                }
+                <h4>@str</h4>
+            </div>
+        </div>
+    }
+    <br />
+
+    <h2>Serial Rəyləri</h2>
+    @foreach (var x in c.SerieComments.Where(x => x.UserID == id).ToList())
+    {
+        <div class="comment">
+            <img src="@x.Serie.Image" alt="@x.Serie.Name" class="MovieImg">
+            <div class="MovieNameComTxt">
+                <h3>@x.Serie.Name</h3>
+                <p>
+                    @x.SerieCommentText
+                </p>
+            </div>
+            <div class="date">
+                @{
+                    //Saati duzelt
+                    DateTime now = DateTime.Now;
+                    TimeSpan time = now - x.CommentDate;
+                    string str;
+                    int day = time.Days;
+                    if (day > 365)
+                    {
+                        str = day / 365 + " il";
+                    }
+                    else if (day > 30)
+                    {
+                        str = day / 30 + " ay";
+                    }
+                    else if (day > 0)
+                    {
+                        str = day + " gün";
+                    }
+                    else
+                    {
+                        str = "bu gün";
+                    }
+                    if (str != "bu gün")
+                    {
+                        str += " əvvəl";
+                    }
+                }
+                <h4>@str</h4>
+            </div>
+        </div>
+    }
+    <br />
+
+    <h2>Film Rəyi Cavabları</h2>
+    @foreach (var x in c.MovieCommentAnswers.Where(x => x.UserId == id).ToList())
+    {
+        <div class="comment">
+            <div class="MovieNameComTxt">
+                <h3>@x.MovieComment.User.UserName</h3>
+                <p>
+                    @x.AnswerText
+                </p>
+            </div>
+            <div class="date">
+                @{
+                    //Saati duzelt
+                    DateTime now = DateTime.Now;
+                    TimeSpan time = now - x.AnswerDate;
+                    string str;
+                    int day = time.Days;
+                    if (day > 365)
+                    {
+                        str = day / 365 + " il";
+                    }
+                    else if (day > 30)
+                    {
+                        str = day / 30 + " ay";
+                    }
+                    else if (day > 0)
+                    {
+                        str = day + " gün";
+                    }
+                    else
+                    {
+                        str = "bu gün";
+                    }
+                    if (str != "bu gün")
+                    {
+                        str += " əvvəl";
+                    }
+                }
+                <h4>@str</h4>
+            </div>
+        </div>
+    }
+    <br />
+
+    <h2>Serial Rəyi Cavabları</h2>
+    @foreach (var x in c.SerieCommentAnswers.Where(x => x.UserId == id).ToList())
+    {
+        <div class="comment">
+            <div class="MovieNameComTxt">
+                <h3>@x.SerieComment.User.UserName</h3>
+                <p>
+                    @x.AnswerText
+                </p>
+            </div>
+            <div class="date">
+                @{
+                    //Saati duzelt
+                    DateTime now = DateTime.Now;
+                    TimeSpan time = now - x.AnswerDate;
+                    string str;
+                    int day = time.Days;
+                    if (day > 365)
+                    {
+                        str = day / 365 + " il";
+                    }
+                    else if (day > 30)
+                    {
+                        str = day / 30 + " ay";
+                    }
+                    else if (day > 0)
+                    {
+                        str = day + " gün";
+                    }
+                    else
+                    {
+                        str = "bu gün";
+                    }
+                    if (str != "bu gün")
+                    {
+                        str += " əvvəl";
+                    }
+                }
+                <h4>@str</h4>
+            </div>
+        </div>
+    }
+    <br />
+</div>
+
+<a href="/Profile/MyProfile" class="exit btn btn-danger">Çıxış</a>
+

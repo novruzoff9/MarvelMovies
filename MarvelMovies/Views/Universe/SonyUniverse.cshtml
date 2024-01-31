@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "SonyUniverse";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<style>
+    #sonyp {
+        list-style: none;
+        margin: 10px 0;
+        font-size: 26px;
+        border-right: 2px solid #ee171f;
+        background-color: rgba(156, 156, 156, 0.2);
+    }
+
+        #sonyp a {
+            color: white;
+            padding-right: 10px;
+        }
+
+            #sonyp a:hover {
+                color: white;
+                cursor: default;
+            }
+</style>
+
+
+
+<div id="article">
+    <div id="articlehead">
+        <div id="typetab">
+            <input type="radio" id="movietab" name="typetab" checked="checked">
+            <label for="movietab">Film</label>
+
+            <input type="radio" id="seriestab" name="typetab">
+            <label for="seriestab">Serial</label>
+
+        </div>
+        <button class="form-item" id="filter"><i class="fas fa-filter"></i>Filtrlər</button>
+    </div>
+
+    @Html.Action("Filters", "Filter")
+    <div id="media">
+        <div class="tab" id="tabmovie">
+            @Html.Action("UniverseMovies", "Universe", new { @universe = "Sony" })
+
+        </div>
+
+        <div class="tab" id="tabserie">
+            @Html.Action("UniverseSeries", "Universe", new { @universe = "Sony" })
+        </div>
+    </div>
+</div>
+

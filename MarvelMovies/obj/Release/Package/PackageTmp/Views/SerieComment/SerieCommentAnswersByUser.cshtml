@@ -1,0 +1,26 @@
+﻿@using EntityLayer.Concrete
+@model List<SerieCommentAnswer>
+@foreach (var x in Model)
+{
+    <div class="comment">
+        <img src="@x.SerieComment.Serie.Image" alt="@x.SerieComment.Serie.Name" class="MovieImg">
+        <div class="MovieNameComTxt">
+            <h3>@x.SerieComment.Serie.Name</h3>
+            @if (x.AnswerText.Length > 320)
+            {
+                <p>@x.AnswerText.Substring(0, 320)...</p>
+            }
+            else
+            {
+                <p>@x.AnswerText</p>
+            }
+        </div>
+        <div class="date">
+            <h4>@(((DateTime)x.AnswerDate).ToString("dd.MM.yyyy"))</h4>
+        </div>
+        <div class="detdel">
+            <button class="det">Tam bax</button>
+            <button class="del">Sil</button>
+        </div>
+    </div>
+}

@@ -1,0 +1,32 @@
+﻿<link href="~/web-MarvelKopat/web-marvel movies 2/CSS/Message.css" rel="stylesheet" />
+<div id="panel" style="margin-left:20px">
+    <div>
+        <a href="/UserMessage/WriteMessage" id="sendmessage">
+            <i class="fas fa-pen-fancy"></i>
+            Mesaj yaz
+        </a>
+    </div>
+    <div id="panelcontent">
+        <ul>
+            <li class="panelitem"><a href="/UserMessage/Inbox"><i class="fas fa-envelope"></i>Gələnlər</a></li>
+            <li class="panelitem"><a href="/UserMessage/Sendbox"><i class="fas fa-paper-plane"></i>Göndərilənlər</a></li>
+            <li class="panelitem"><a href="/UserMessage/Select"><i class="fas fa-bookmark"></i>Seçilmişlər</a></li>
+            <li class="panelitem"><a href="/UserMessage/Trash"><i class="fas fa-trash-alt"></i>Zibil qutusu</a></li>
+        </ul>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+        $(function () {
+            $(".select").click(function () {
+                if ($(this).hasClass("far")) {
+                    $(this).addClass("fas");
+                    $(this).removeClass("far");
+                }
+                else {
+                    $(this).addClass("far");
+                    $(this).removeClass("fas");
+                }
+            });
+        });
+</script>

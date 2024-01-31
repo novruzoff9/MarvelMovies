@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F47982C4-382D-4D6F-89C1-A0F35DE57FC3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DataAccessLayer</RootNamespace>
+    <AssemblyName>DataAccessLayer</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abstract\IAdminDal.cs" />
+    <Compile Include="Abstract\IAdminMessageDal.cs" />
+    <Compile Include="Abstract\IAnimationCommentDal.cs" />
+    <Compile Include="Abstract\IAnimationDal.cs" />
+    <Compile Include="Abstract\IMessageDal.cs" />
+    <Compile Include="Abstract\IMovieCommentDal.cs" />
+    <Compile Include="Abstract\IMovieCommentReactionDal.cs" />
+    <Compile Include="Abstract\IMovieDal.cs" />
+    <Compile Include="Abstract\IRepository.cs" />
+    <Compile Include="Abstract\ISerieCommentDal.cs" />
+    <Compile Include="Abstract\ISerieDal.cs" />
+    <Compile Include="Abstract\IUserDal.cs" />
+    <Compile Include="Concrete\Context.cs" />
+    <Compile Include="Concrete\Repositories\GenericRepository.cs" />
+    <Compile Include="EntityFrameWork\EfAdminDal.cs" />
+    <Compile Include="EntityFrameWork\EfAdminMessageDal.cs" />
+    <Compile Include="EntityFrameWork\EfAnimationCommentDal.cs" />
+    <Compile Include="EntityFrameWork\EfAnimationDal.cs" />
+    <Compile Include="EntityFrameWork\EfBlogDal.cs" />
+    <Compile Include="EntityFrameWork\EfChatDal.cs" />
+    <Compile Include="EntityFrameWork\EfChatMessageDal.cs" />
+    <Compile Include="EntityFrameWork\EfFavoritesDal.cs" />
+    <Compile Include="EntityFrameWork\EfFavoriteSerieDal.cs" />
+    <Compile Include="EntityFrameWork\EfMessageDal.cs" />
+    <Compile Include="EntityFrameWork\EfMovieCommentAnswerDal.cs" />
+    <Compile Include="EntityFrameWork\EfMovieCommentAnswerReactionDal.cs" />
+    <Compile Include="EntityFrameWork\EfMovieCommentDal.cs" />
+    <Compile Include="EntityFrameWork\EfMovieCommentReactionDal.cs" />
+    <Compile Include="EntityFrameWork\EfMovieDal.cs" />
+    <Compile Include="EntityFrameWork\EfSerieCommentAnswerDal.cs" />
+    <Compile Include="EntityFrameWork\EfSerieCommentAnswerReactionDal.cs" />
+    <Compile Include="EntityFrameWork\EfSerieCommentDal.cs" />
+    <Compile Include="EntityFrameWork\EfSerieCommentReactionDal.cs" />
+    <Compile Include="EntityFrameWork\EfSerieDal.cs" />
+    <Compile Include="EntityFrameWork\EfUserDal.cs" />
+    <Compile Include="Migrations\202111270817386_add_usermessage_class.cs" />
+    <Compile Include="Migrations\202111270817386_add_usermessage_class.designer.cs">
+      <DependentUpon>202111270817386_add_usermessage_class.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111271322150_update_Adminmessages_date.cs" />
+    <Compile Include="Migrations\202111271322150_update_Adminmessages_date.designer.cs">
+      <DependentUpon>202111271322150_update_Adminmessages_date.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111281353570_add_admins.cs" />
+    <Compile Include="Migrations\202111281353570_add_admins.designer.cs">
+      <DependentUpon>202111281353570_add_admins.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112011454367_add_adminmail.cs" />
+    <Compile Include="Migrations\202112011454367_add_adminmail.designer.cs">
+      <DependentUpon>202112011454367_add_adminmail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112041326073_update_movie_date.cs" />
+    <Compile Include="Migrations\202112041326073_update_movie_date.designer.cs">
+      <DependentUpon>202112041326073_update_movie_date.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112041349198_add-migain temizleme.cs" />
+    <Compile Include="Migrations\202112041349198_add-migain temizleme.designer.cs">
+      <DependentUpon>202112041349198_add-migain temizleme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112081236505_add_animation.cs" />
+    <Compile Include="Migrations\202112081236505_add_animation.designer.cs">
+      <DependentUpon>202112081236505_add_animation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112111927064_add_user_role.cs" />
+    <Compile Include="Migrations\202112111927064_add_user_role.designer.cs">
+      <DependentUpon>202112111927064_add_user_role.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201011254294_add_usermessage_status.cs" />
+    <Compile Include="Migrations\202201011254294_add_usermessage_status.designer.cs">
+      <DependentUpon>202201011254294_add_usermessage_status.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201221703111_add_movie_trailers.cs" />
+    <Compile Include="Migrations\202201221703111_add_movie_trailers.designer.cs">
+      <DependentUpon>202201221703111_add_movie_trailers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201311049327_update_moviecomment.cs" />
+    <Compile Include="Migrations\202201311049327_update_moviecomment.designer.cs">
+      <DependentUpon>202201311049327_update_moviecomment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EntityLayer\EntityLayer.csproj">
+      <Project>{B64818ED-7828-4111-950E-65ABF274C55E}</Project>
+      <Name>EntityLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202111270817386_add_usermessage_class.resx">
+      <DependentUpon>202111270817386_add_usermessage_class.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111271322150_update_Adminmessages_date.resx">
+      <DependentUpon>202111271322150_update_Adminmessages_date.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111281353570_add_admins.resx">
+      <DependentUpon>202111281353570_add_admins.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112011454367_add_adminmail.resx">
+      <DependentUpon>202112011454367_add_adminmail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112041326073_update_movie_date.resx">
+      <DependentUpon>202112041326073_update_movie_date.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112041349198_add-migain temizleme.resx">
+      <DependentUpon>202112041349198_add-migain temizleme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112081236505_add_animation.resx">
+      <DependentUpon>202112081236505_add_animation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112111927064_add_user_role.resx">
+      <DependentUpon>202112111927064_add_user_role.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201011254294_add_usermessage_status.resx">
+      <DependentUpon>202201011254294_add_usermessage_status.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201221703111_add_movie_trailers.resx">
+      <DependentUpon>202201221703111_add_movie_trailers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201311049327_update_moviecomment.resx">
+      <DependentUpon>202201311049327_update_moviecomment.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Bu proje bu bilgisayarda olmayan NuGet paketlerine başvuru yapıyor. Bunları indirmek için NuGet Paket Geri Yükleme'yi kullanın. Daha fazla bilgi için, bkz. http://go.microsoft.com/fwlink/?LinkID=322105. Eksik dosya: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+</Project>

@@ -1,0 +1,82 @@
+﻿<div id="Barchart_comment_div"></div>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+        $(document).ready(function () {
+            $.ajax({
+                type: "POST",
+                dataType: "json",
+                contentType: "application/json",
+                url: '@Url.Action("CommentCountBar", "Statistics")',
+                success: function (result) {
+                    google.charts.load('current', {
+                        'packages': ['corechart']
+                    });
+                    google.charts.setOnLoadCallback(function () {
+                        drawCommentCountChart(result)
+                    });
+                }
+            });
+        });
+
+    function drawCommentCountChart(result) {
+        var CommentCountdata = new google.visualization.DataTable();
+        CommentCountdata.addColumn('string', 'Film');
+        CommentCountdata.addColumn('number', 'Ümumi Rəy Sayı');
+        CommentCountdata.addColumn('number', 'Film Rəyi Sayı');
+        CommentCountdata.addColumn('number', 'Cavab Rəyi Sayı');
+        var dataArray = [];
+
+        $.each(result, function (i, obj) {
+            dataArray.push([obj.MovieName, obj.CommentCount, obj.MovieComment, obj.AnswerComment]);
+        });
+        CommentCountdata.addRows(dataArray);
+
+        var CommentCountChartOptions = {
+            width: 870,
+            height: 500,
+            backgroundColor: '#282828',
+            title: 'Ən çox rəy alan 5 film',
+            //Basliq
+            titleTextStyle: {
+                color: "#ffffff",
+                fontSize: 34
+            },
+            curveType: 'function',
+            colors: ['#244bf7', '#ee171f', '#eeb71f'],
+            //Xett adlari
+            legend: {
+                position: 'right',
+                textStyle: {
+                    fontSize: 18,
+                    color: '#ffffff'
+                }
+            },
+            bars: 'horizontal',
+            vAxis: {
+                width: 100,
+                title: 'Film',
+                titleTextStyle: {
+                    color: "#ffffff",
+                    fontSize: 16,
+                    fontWeight: 600
+                },
+                textStyle: {
+                    fontSize: 16,
+                    color: '#ffffff'
+                },
+            },
+            axes: {
+                x: {
+                    0: { side: 'bottom' } // Top x-axis.
+                },
+            },
+            };
+
+            var CommentCountChart = new google.visualization.BarChart(document
+                .getElementById('Barchart_comment_div'));
+
+            CommentCountChart.draw(CommentCountdata, CommentCountChartOptions);
+        }
+</script>

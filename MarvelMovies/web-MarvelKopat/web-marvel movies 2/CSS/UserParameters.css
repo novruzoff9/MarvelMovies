@@ -1,0 +1,32 @@
+.ChangeImage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#UserImageChange{
+    display: none;
+}
+#UserImageChangeL{
+    color: white;
+    font-weight: 500;
+    margin-top: 10px;
+    width: 100px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(151, 151, 151);
+}
+.ChangeInput{
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.ChangeInput label{
+    font-weight: 500;
+}
+.ID{
+    display: none;
+}

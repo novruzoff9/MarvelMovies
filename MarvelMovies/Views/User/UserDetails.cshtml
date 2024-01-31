@@ -1,0 +1,75 @@
+﻿@model EntityLayer.Concrete.User
+@{
+    ViewBag.Title = "UserDetails";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<link href="~/web-MarvelKopat/web-marvel movies 2/CSS/ProfileStyle.css" rel="stylesheet" />
+<style>
+    #profile {
+        margin: 0;
+    }
+    .btn-danger{
+        margin-top: 20px;
+    }
+</style>
+<div id="ProfCom">
+    <div id="profile">
+        <img src="@Model.UserImage" class="ProfImg">
+        <h2>@Model.UserName</h2>
+        <div class="signdate">
+            <h4>Qeydiyyat tarixi</h4>
+            <h4>@(((DateTime)Model.UserSignDate).ToString("dd.MM.yyyy"))</h4>
+        </div>
+        <div class="email">
+            <h4>E-Mail</h4>
+            <h4>@Model.UserMail.ToString().Remove(13).Insert(13, "...")</h4>
+        </div>
+        <div class="countcomment">
+            <h4>Şifrə</h4>
+            <h4>@Model.UserPassword</h4>
+        </div>
+        <div class="countcomment">
+            <h4>Rəy sayı</h4>
+            <h4>@ViewBag.commentscount</h4>
+        </div>
+        <div class="countfavorites">
+            <h4>Sevimli siyahısı</h4>
+            <h4>@ViewBag.favoritescount</h4>
+        </div>
+        @*<div class="countwatchlater">
+                <h4>Sonra izlə siyahısı</h4>
+                <h4>10</h4>
+            </div>
+            <button class="updateprofile">XXXXX</button>*@
+    </div>
+    <div id="comments">
+        <div id="commentshead">
+            <h2>E-Mail:</h2>
+            <h2>@Model.UserMail</h2>
+            <br />
+            <h2>Şifrə:</h2>
+            <h2>@Model.UserPassword</h2>
+        </div>
+
+        @*<div class="comment">
+                <img src="Images/Venom  2.jpg" alt="Venom2" class="MovieImg">
+                <div class="MovieNameComTxt">
+                    <h3>Venom 2</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla doloremque corporis saepe
+                        officia
+                        in vitae nobis placeat doloribus rem enim.
+                    </p>
+                </div>
+                <div class="date">
+                    <h4>07.11.2021</h4>
+                </div>
+                <div class="detdel">
+                    <button class="det">Tam bax</button>
+                    <button class="del">Sil</button>
+                </div>
+            </div>*@
+    </div>
+</div>
+
+<a href="/User/UserList" class="btn btn-danger">Çıxış</a>

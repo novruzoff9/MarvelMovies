@@ -1,0 +1,131 @@
+﻿.mediaitem {
+    display: flex;
+    flex-direction: row;
+}
+
+.mediaimg {
+    width: 200px;
+    height: 300px;
+}
+
+.hd {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.movielink :hover {
+    color: #ee171f;
+}
+
+.medidesc {
+    margin-bottom: 0;
+    width: 500px;
+    color: rgb(131, 131, 131);
+    font-size: 20px;
+}
+
+.about {
+    width: 240px;
+    margin-left: 50px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.universe {
+    width: 240px;
+    margin-left: 50px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#trailerlink {
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.labelinpt {
+    display: flex;
+    flex-direction: column;
+}
+
+    .labelinpt label {
+        color: white;
+        font-size: 20px;
+        margin-bottom: 5px;
+        font-weight: 600;
+    }
+
+.ictxt {
+    display: flex;
+    flex-direction: row;
+    color: white;
+}
+
+    .ictxt h4 {
+        margin-left: 10px;
+    }
+
+    .ictxt i {
+        font-size: 32px;
+    }
+
+#properties {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.propertyofmovie {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 50px;
+    align-items: center;
+    font-size: 60px;
+    background-color: transparent;
+    width: 250px;
+    height: 150px;
+    border-radius: 25px;
+    font-weight: 600;
+}
+
+#comments {
+    color: #244bf7;
+    border: 2px solid #244bf7;
+}
+
+    #comments:hover {
+        background-color: #244bf7;
+        color: white;
+        cursor: pointer;
+    }
+
+#favorites {
+    color: #ee171f;
+    border: 2px solid #ee171f;
+}
+
+    #favorites:hover {
+        background-color: #ee171f;
+        color: white;
+        cursor: pointer;
+    }
+
+#answers {
+    color: #eeb71f;
+    border: 2px solid #eeb71f;
+}
+
+    #answers:hover {
+        background-color: #eeb71f;
+        color: white;
+        cursor: pointer;
+    }

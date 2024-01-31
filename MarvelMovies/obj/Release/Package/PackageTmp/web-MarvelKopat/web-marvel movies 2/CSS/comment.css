@@ -1,0 +1,114 @@
+#commentshead {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #393939;
+}
+
+.comment {
+    display: flex;
+    flex-direction: row;
+    height: 200px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #393939;
+}
+
+    .comment .MovieImg {
+        width: 120px;
+        height: 180px;
+    }
+
+.MovieNameComTxt {
+    margin-left: 20px;
+    width: 400px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: rgb(131, 131, 131);
+}
+
+    .MovieNameComTxt h3 {
+        color: white;
+    }
+
+.moviedate {
+    margin-left: 20px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: white;
+}
+
+.date {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column-reverse;
+    color: white;
+}
+
+.datelike {
+    width: 150px;
+    margin-left: 20px;
+    text-align: justify;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.likedislike {
+    font-size: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.like, .dislike {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+    .like i, .dislike i {
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+.detdel {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.det {
+    width: 80px;
+    height: 40px;
+    background-color: rgb(238, 183, 31);
+    color: white;
+    border-radius: 10px;
+    font-size: 20px;
+    border: none;
+    outline: none;
+}
+
+.del {
+    width: 80px;
+    height: 40px;
+    background-color: #ee171f;
+    color: white;
+    border-radius: 10px;
+    font-size: 20px;
+    border: none;
+    outline: none;
+}

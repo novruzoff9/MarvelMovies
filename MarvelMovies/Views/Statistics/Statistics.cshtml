@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Statistics";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    #statisticsp {
+        list-style: none;
+        margin: 10px 0;
+        font-size: 26px;
+        border-right: 2px solid #ee171f;
+        background-color: rgba(156, 156, 156, 0.2);
+        color: white;
+    }
+
+    #statisticsp a {
+        color: white;
+    }
+    #Charts{
+        z-index: -1;
+        display:flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+</style>
+
+<div id="Charts">
+    <div>
+        @Html.Action("DailyUserCount", "Statistics")
+        <br />
+        @Html.Action("MovieCommentsCount", "Statistics")
+        <br />
+        @Html.Action("SerieCommentsCount", "Statistics")
+    </div>
+    <br />
+    <div>
+        @Html.Action("CommentPercentage", "Statistics")
+        <br />
+        @Html.Action("MoviePercentage", "Statistics")
+    </div>
+</div>

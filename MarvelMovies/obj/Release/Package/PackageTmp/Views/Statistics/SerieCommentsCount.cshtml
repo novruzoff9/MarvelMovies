@@ -1,0 +1,82 @@
+﻿<div id="Barchart_comment_div2"></div>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+        $(document).ready(function () {
+            $.ajax({
+                type: "POST",
+                dataType: "json",
+                contentType: "application/json",
+                url: '@Url.Action("CommentCountBar2", "Statistics")',
+                success: function (result) {
+                    google.charts.load('current', {
+                        'packages': ['corechart']
+                    });
+                    google.charts.setOnLoadCallback(function () {
+                        drawCommentCountChart2(result)
+                    });
+                }
+            });
+        });
+
+    function drawCommentCountChart2(result) {
+        var CommentCountdata2 = new google.visualization.DataTable();
+        CommentCountdata2.addColumn('string', 'Serial');
+        CommentCountdata2.addColumn('number', 'Ümumi Rəy Sayı');
+        CommentCountdata2.addColumn('number', 'Serial Rəyi Sayı');
+        CommentCountdata2.addColumn('number', 'Cavab Rəyi Sayı');
+        var dataArray = [];
+
+        $.each(result, function (i, obj) {
+            dataArray.push([obj.MovieName, obj.CommentCount, obj.MovieComment, obj.AnswerComment]);
+        });
+        CommentCountdata2.addRows(dataArray);
+
+        var CommentCountChartOptions2 = {
+            width: 870,
+            height: 500,
+            backgroundColor: '#282828',
+            title: 'Ən çox rəy alan 5 serial',
+            //Basliq
+            titleTextStyle: {
+                color: "#ffffff",
+                fontSize: 34
+            },
+            curveType: 'function',
+            colors: ['#244bf7', '#ee171f', '#eeb71f'],
+            //Xett adlari
+            legend: {
+                position: 'right',
+                textStyle: {
+                    fontSize: 18,
+                    color: '#ffffff'
+                }
+            },
+            bars: 'horizontal',
+            vAxis: {
+                width: 100,
+                title: 'Serial',
+                titleTextStyle: {
+                    color: "#ffffff",
+                    fontSize: 16,
+                    fontWeight: 600
+                },
+                textStyle: {
+                    fontSize: 16,
+                    color: '#ffffff'
+                },
+            },
+            axes: {
+                x: {
+                    0: { side: 'bottom' } // Top x-axis.
+                },
+            },
+            };
+
+            var CommentCountChart2 = new google.visualization.BarChart(document
+                .getElementById('Barchart_comment_div2'));
+
+            CommentCountChart2.draw(CommentCountdata2, CommentCountChartOptions2);
+        }
+</script>

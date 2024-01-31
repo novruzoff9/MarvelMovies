@@ -1,0 +1,289 @@
+﻿@using System;
+@using System.Linq;
+@using EntityLayer.Concrete
+@using BusinessLayer.Concrete;
+@using DataAccessLayer.Concrete;
+@using DataAccessLayer.EntityFrameWork;
+@model List<SerieComment>
+@{
+    Context c = new Context();
+    bool f = false;
+    if (User.Identity.IsAuthenticated)
+    {
+        if (c.Users.FirstOrDefault(y => y.UserName == User.Identity.Name) != null)
+        {
+            f = true;
+        }
+    }
+
+}
+<link href="~/web-MarvelKopat/web-marvel movies 2/CSS/UserComment.css" rel="stylesheet" />
+<style>
+    .like {
+        background-color: transparent;
+        border: none;
+        outline: none;
+    }
+
+    .dislike {
+        background-color: transparent;
+        border: none;
+        outline: none;
+    }
+</style>
+
+@foreach (var x in Model)
+{
+    var commentHtml = x.SerieCommentText.Replace("\r\n", "<br />").Replace("\n", "<br />");
+    <div class="fullmoviecomment">
+        <div class="moviecomment">
+            <img src="@x.User.UserImage" alt="@x.User.UserName" class="UserImg">
+            <div class="UserNameComTxt">
+                <a href="/Profile/UserProfile/@x.User.UserID">
+                    <h3>@x.User.UserName</h3>
+                </a>
+                @if (x.Spoiler == false)
+                {
+                    <p>
+                        @Html.Raw(commentHtml)
+                    </p>
+                }
+                else
+                {
+                    <p class="spoilercomment">
+                        @Html.Raw(commentHtml)
+                    </p>
+                    <button class="primarybtn readspoiler">Spoylerli rəyi oxu</button>
+                }
+
+                <div class="commentanswer">
+                    @if (f == true)
+                    {
+                        <div class="commentreply">
+                            <i class="fas fa-reply"></i> Cavabla
+                        </div>
+
+                    }
+                    <div class="showanswers">
+                        <i class="fas fa-chevron-down answersbtn"></i> Cavablar (@c.SerieCommentAnswers.Where(z => z.SerieCommentID == x.SerieCommentID).Count())
+                    </div>
+                </div>
+
+            </div>
+            @{
+                //Saati duzelt
+                DateTime now = DateTime.Now;
+                TimeSpan time = now - x.CommentDate;
+                string str;
+                int day = time.Days;
+                if (day > 365)
+                {
+                    str = day / 365 + " il";
+                }
+                else if (day > 30)
+                {
+                    str = day / 30 + " ay";
+                }
+                else if (day > 0)
+                {
+                    str = day + " gün";
+                }
+                else { str = "bu gün"; }
+                if (str != "bu gün") { str += " əvvəl"; }
+            }
+            <div class="datelike">
+                <h4>@str</h4>
+                <div class="likedislike">
+                    @if (f == true)
+                    {
+                        try
+                        {
+                            SerieCommentReactionManager reactions = new SerieCommentReactionManager(new EfSerieCommentReactionDal());
+                            var usersreactions = reactions.GetList();
+                            int userid = (int)Session["UserID"];
+                            usersreactions = usersreactions.FindAll(y => y.UserId == userid && y.SerieCommentID == x.SerieCommentID);
+                            if (usersreactions.Count() == 0)
+                            {
+                                <button value="@x.SerieCommentID" class="like likecomment">
+                                    <i class="far fa-thumbs-up"></i>
+                                    <div class="likecount">@x.Like</div>
+                                </button>
+                                <button value="@x.SerieCommentID" class="dislike dislikecomment">
+                                    <i class="far fa-thumbs-down"></i>
+                                    <div class="dislikecount">@x.DisLike</div>
+                                </button>
+                            }
+                            else
+                            {
+                                var reaction = usersreactions.First();
+                                if (reaction.Reaction == "Like")
+                                {
+                                    <button value="@x.SerieCommentID" class="like likecomment">
+                                        <i class="fas fa-thumbs-up"></i>
+                                        <div class="likecount">@x.Like</div>
+                                    </button>
+                                    <button value="@x.SerieCommentID" class="dislike dislikecomment">
+                                        <i class="far fa-thumbs-down"></i>
+                                        <div class="dislikecount">@x.DisLike</div>
+                                    </button>
+                                }
+                                else if (reaction.Reaction == "Dislike")
+                                {
+                                    <button value="@x.SerieCommentID" class="like likecomment">
+                                        <i class="far fa-thumbs-up"></i>
+                                        <div class="likecount">@x.Like</div>
+                                    </button>
+                                    <button value="@x.SerieCommentID" class="dislike dislikecomment">
+                                        <i class="fas fa-thumbs-down"></i>
+                                        <div class="dislikecount">@x.DisLike</div>
+                                    </button>
+                                }
+                            }
+                        }
+                        catch (Exception)
+                        {
+
+                        }
+
+                    }
+                    else
+                    {
+                        //Giris etmek bildirisi gelsin
+                        <button value="@x.SerieCommentID" class="like">
+                            <i class="far fa-thumbs-up"></i>
+                            <div class="likecount">@x.Like</div>
+                        </button>
+                        <button value="@x.SerieCommentID" class="dislike">
+                            <i class="far fa-thumbs-down"></i>
+                            <div class="dislikecount">@x.DisLike</div>
+                        </button>
+                    }
+
+                </div>
+            </div>
+        </div>
+        @if (f == true)
+        {
+            @Html.Action("AnswerComment", new { id = x.SerieCommentID });
+
+        }
+        <div class="answers">
+            @foreach (var answer in c.SerieCommentAnswers.Where(z => z.SerieCommentID == x.SerieCommentID))
+            {
+                <div class="moviecomment">
+                    @{
+                        UserManager users = new UserManager(new EfUserDal());
+                        var AnswerWriter = users.GetById(answer.UserId);
+                        var answerHtml = answer.AnswerText.Replace("\r\n", "<br />").Replace("\n", "<br />");
+                    }
+                    <img src="@AnswerWriter.UserImage" alt="spider-verse" class="UserImg">
+                    <div class="UserNameComTxt">
+                        <a href="/Profile/UserProfile/@AnswerWriter.UserID">
+                            <h3>@AnswerWriter.UserName</h3>
+                        </a>
+                        @if (answer.Spoiler == true)
+                        {
+                            <p class="spoilercomment">
+                                @Html.Raw(answerHtml)
+                            </p>
+                            <button class="primarybtn readspoiler">Spoylerli Rəyi oxu</button>
+                        }
+                        else
+                        {
+                            <p>
+                                @Html.Raw(answerHtml)
+                            </p>
+                        }
+                    </div>
+                    <div class="datelike">
+                        @{
+                            //Saati duzelt
+                            TimeSpan answertime = now - answer.AnswerDate;
+                            string answerstr;
+                            int answerday = answertime.Days;
+                            if (answerday > 365)
+                            {
+                                answerstr = answerday / 365 + " il";
+                            }
+                            else if (answerday > 30)
+                            {
+                                answerstr = answerday / 30 + " ay";
+                            }
+                            else if (answerday > 0)
+                            {
+                                answerstr = answerday + " gün";
+                            }
+                            else { answerstr = "bu gün"; }
+                            if (answerstr != "bu gün") { answerstr += " əvvəl"; }
+                        }
+                        <h4>@answerstr</h4>
+                        <div class="likedislike">
+                            @if (f == true)
+                            {
+                                try
+                                {
+                                    SerieCommentAnswerReactionManager reactions = new SerieCommentAnswerReactionManager(new EfSerieCommentAnswerReactionDal());
+                                    var usersreactions = reactions.GetList();
+                                    int userid = (int)Session["UserID"];
+                                    usersreactions = usersreactions.FindAll(y => y.UserID == userid && y.AnswerID == answer.AnswerID);
+                                    if (usersreactions.Count() == 0)
+                                    {
+                                        <button value="@answer.AnswerID" class="like likeanswer">
+                                            <i class="far fa-thumbs-up"></i>
+                                            <div class="likecount">@answer.Like</div>
+                                        </button>
+                                        <button value="@answer.AnswerID" class="dislike dislikeanswer">
+                                            <i class="far fa-thumbs-down"></i>
+                                            <div class="dislikecount">@answer.DisLike</div>
+                                        </button>
+                                    }
+                                    else
+                                    {
+                                        var reaction = usersreactions.First();
+                                        if (reaction.Reaction == "Like")
+                                        {
+                                            <button value="@answer.AnswerID" class="like likeanswer">
+                                                <i class="fas fa-thumbs-up"></i>
+                                                <div class="likecount">@answer.Like</div>
+                                            </button>
+                                            <button value="@answer.AnswerID" class="dislike dislikeanswer">
+                                                <i class="far fa-thumbs-down"></i>
+                                                <div class="dislikecount">@answer.DisLike</div>
+                                            </button>
+                                        }
+                                        else if (reaction.Reaction == "Dislike")
+                                        {
+                                            <button value="@answer.AnswerID" class="like likeanswer">
+                                                <i class="far fa-thumbs-up"></i>
+                                                <div class="likecount">@answer.Like</div>
+                                            </button>
+                                            <button value="@answer.AnswerID" class="dislike dislikeanswer">
+                                                <i class="fas fa-thumbs-down"></i>
+                                                <div class="dislikecount">@answer.DisLike</div>
+                                            </button>
+                                        }
+                                    }
+                                }
+                                catch (Exception)
+                                {
+
+                                }
+
+                            }
+                            else
+                            {
+                                <a href="/SerieDetails/LikeCommentAnswer/@answer.AnswerID" class="like">
+                                    <i class="far fa-thumbs-up"></i> @answer.Like
+                                </a>
+                                <a href="/SerieDetails/DisLikeCommentAnswer/@answer.AnswerID" class="dislike">
+                                    <i class="far fa-thumbs-down"></i> @answer.DisLike
+                                </a>
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+}

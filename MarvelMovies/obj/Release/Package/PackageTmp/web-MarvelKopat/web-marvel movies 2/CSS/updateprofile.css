@@ -1,0 +1,22 @@
+#updateprofile{
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+
+}
+#updateprofile label{
+    color: white;
+    font-size: 20px;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+#updateprofile input{
+    font-weight: 500;
+    width: 400px;
+    outline: none;
+    border-radius: 8px;
+    padding: 10px;
+    border: 1px solid gainsboro;
+    background-color: black;
+    color: white;
+}

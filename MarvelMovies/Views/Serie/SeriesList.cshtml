@@ -1,0 +1,84 @@
+﻿@using EntityLayer.Concrete
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Serie>
+@{
+    ViewBag.Title = "SeriesList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<style>
+    th, td {
+        color: #ffffff;
+    }
+    #films {
+        display: block;
+    }
+    #seriep {
+        list-style: none;
+        margin: 10px 0;
+        font-size: 26px;
+        border-right: 2px solid #ee171f;
+        background-color: rgba(156, 156, 156, 0.2);
+        color: white;
+    }
+
+        #seriep a {
+            color: white;
+        }
+
+    #footer {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .page-link {
+        background-color: #393939;
+        color: red;
+    }
+</style>
+
+<h2>Serial Siyahısı</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Adı</th>
+        <th>Yayımlanma</th>
+        <th>Status</th>
+        <th>Tam Bax</th>
+        <th>Rəylər</th>
+        <th>Yenilə</th>
+        <th>Aktiv Et</th>
+        <th>Passiv Et</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <th>@x.ID</th>
+            <td>@x.Name</td>
+            <td>@x.Broadcast</td>
+            <td>@x.Status</td>
+            <td><a href="/Serie/SerieDetails/@x.ID" class="btn btn-outline-warning"><i class="fas fa-info"></i> Tam Bax</a></td>
+            <td><a href="/SerieComment/CommentBySerie/@x.ID" class="btn btn-outline-primary"><i class="fas fa-comments"></i> Rəylər</a></td>
+            <td><a href="/Serie/UpdateSerie/@x.ID" class="btn btn-outline-success"><i class="fas fa-edit"></i> Yenilə</a></td>
+            <td><a href="/Serie/ActiveSerie/@x.ID" class="btn btn-outline-info"><i class="fas fa-eye"></i> Aktiv Et</a></td>
+            <td><a href="/Serie/DeleteSerie/@x.ID" class="btn btn-outline-danger"><i class="fas fa-trash"></i> Passiv Et</a></td>
+        </tr>
+    }
+</table>
+<div id="footer">
+    <a href="/Serie/AddSerie" class="successbtn">Serial Artır</a>
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("SeriesList",
+    new { page }), new PagedListRenderOptions
+        {
+            DisplayEllipsesWhenNotShowingAllPageNumbers = true,
+        MaximumPageNumbersToDisplay = 3,
+        LiElementClasses = new List<String>
+        { "page-link" }
+    })
+</div>
+

@@ -1,0 +1,61 @@
+﻿@model EntityLayer.Concrete.MovieComment
+@{
+    ViewBag.Title = "AddMovieComment";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<link href="~/web-MarvelKopat/web-marvel-movies 2 admin/CSS/changedb.css" rel="stylesheet" />
+
+<style>
+    #id {
+        font-size: 20px;
+        color: #ffffff;
+        font-weight: 600;
+    }
+
+    #commenth label {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        color: #ffffff;
+        font-weight: 600;
+        font-size: 20px;
+        margin-bottom: 5px;
+    }
+
+    #changedb, #end {
+        margin-left: 0;
+    }
+</style>
+
+<h2>Filmə Rəy Artir</h2>
+
+@using (Html.BeginForm("AddMovieComment", "MovieComment", FormMethod.Post))
+{
+    <div id="changedb">
+
+        <div id="commenth">
+            <div class="labelinpt">
+                @Html.Label("Film:")
+                @Html.DropDownListFor(x => x.ID, (List<SelectListItem>)ViewBag.vlm, new
+                { @class = "blackinput" })
+            </div>
+            <br />
+            <div class="labelinpt">
+                @Html.Label("Rəy:")
+                @Html.TextAreaFor(x => x.MovieCommentText, new { @id = "mediadesc" })
+                @Html.ValidationMessageFor(x => x.MovieCommentText, "", new { @class = "validation" })
+            </div>
+        </div>
+        <div id="mediaabout">
+            <div class="labelinpt">
+                @Html.Label("İstifadəçi:")
+                @Html.DropDownListFor(x => x.UserID, (List<SelectListItem>)ViewBag.vlu, new
+                { @class = "blackinput" })
+            </div>
+        </div>
+    </div>
+    <br />
+    <button id="end" class="successbtn">Əlavə Et</button>
+}
+

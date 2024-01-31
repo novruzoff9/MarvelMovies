@@ -1,0 +1,26 @@
+﻿@model EntityLayer.Concrete.MovieComment
+
+@using (Html.BeginForm("WriteComment", "MovieDetails", FormMethod.Post))
+{
+    <div class="moviecomment">
+        <div class="addcomment">
+            <label for="addcommenttxt">Rəy artır:</label>
+            @Html.TextAreaFor(x => x.MovieCommentText, new
+            {
+            @id = "addcommenttxt",
+                @class = "blackinput"
+            })
+            <input type="hidden" name="ID" value="@ViewBag.movieid" />
+            <div id="addcommentbuttons">
+                <div class="commentspoiler">
+                    @Html.CheckBoxFor(x => x.Spoiler, new
+                    {
+                        @id = "commentspoiler"
+               })
+                    <label for="commentspoiler">Rəyinizdə Spoiler varmı?</label>
+                </div>
+                <button class="primarybtn">Paylaş</button>
+            </div>
+        </div>
+    </div>
+}

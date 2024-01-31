@@ -1,0 +1,26 @@
+﻿@model EntityLayer.Concrete.SerieComment
+
+@using (Html.BeginForm("WriteComment", "SerieDetails", FormMethod.Post))
+{
+    <div class="moviecomment">
+        <div class="addcomment">
+            <label for="addcommenttxt">Rəy artır:</label>
+            @Html.TextAreaFor(x=>x.SerieCommentText, new
+            {
+            @id = "addcommenttxt",
+                @class = "blackinput"
+            })
+            <input type="hidden" name="ID" value="@ViewBag.serieid" />
+            <div id="addcommentbuttons">
+                <div class="commentspoiler">
+                    @Html.CheckBoxFor(x=>x.Spoiler, new
+                    {
+                        @id = "commentspoiler"
+               })
+                    <label for="commentspoiler">Rəyinizdə Spoiler varmı?</label>
+                </div>
+                <button class="primarybtn">Paylaş</button>
+            </div>
+        </div>
+    </div>
+}

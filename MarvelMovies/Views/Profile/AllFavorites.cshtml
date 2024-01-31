@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewBag.Title = "AllFavorites";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<div id="article">
+    <div id="articlehead">
+        <div id="typetab">
+            <input type="radio" id="movietab" name="typetab" checked="checked">
+            <label for="movietab">Film</label>
+
+            <input type="radio" id="seriestab" name="typetab">
+            <label for="seriestab">Serial</label>
+
+        </div>
+    </div>
+
+    <div id="media">
+        <div class="tab" id="tabmovie">
+            @Html.Action("FavoriteMovies", "Profile")
+
+        </div>
+
+        <div class="tab" id="tabserie">
+            @Html.Action("FavoriteSeries", "Profile")
+
+        </div>
+    </div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(function () {
+        $(".favorite").click(function () {
+            var movie = $(this).attr("value");
+            if ($(this).hasClass("infavorite")) {
+                if ($(this).hasClass("movie")) {
+                    DeleteFavoriteMovie(movie);
+                }
+                else {
+                    DeleteFavoriteSerie(movie);
+                }
+            }
+            else {
+                if ($(this).hasClass("movie")) {
+                    AddFavoriteMovie(movie);
+                }
+                else {
+                    AddFavoriteSerie(movie);
+                }
+            }
+        });
+        $(".favorite").click(function () {
+            if ($(this).hasClass("addfavorite")) {
+                $(this).html('<i class="fas fa-heart"></i>Sevimli');
+                $(this).removeClass("addfavorite");
+                $(this).addClass("infavorite");
+            }
+            else {
+                $(this).html('<i class="far fa-heart"></i>Sevimlilərə artır');
+                $(this).removeClass("infavorite");
+                $(this).addClass("addfavorite");
+            }
+        });
+    });
+</script>

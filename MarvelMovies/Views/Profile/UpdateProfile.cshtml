@@ -1,0 +1,58 @@
+﻿@model EntityLayer.Concrete.User
+@{
+    ViewBag.Title = "UpdateProfile";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<link href="~/web-MarvelKopat/web-marvel movies 2/CSS/ProfileStyle.css" rel="stylesheet" />
+<link href="~/web-MarvelKopat/web-marvel movies 2/CSS/updateprofile.css" rel="stylesheet" />
+<style>
+    #updateprofile {
+        margin-top: 20px;
+    }
+</style>
+
+<div id="ProfCom">
+    <div id="profile">
+        <img src="@Model.UserImage" class="ProfImg">
+        <h2>@Model.UserName</h2>
+        <div class="signdate">
+            <h4>Qeydiyyat tarixi</h4>
+            <h4>@(((DateTime)Model.UserSignDate).ToString("dd.MM.yyyy"))</h4>
+        </div>
+        <div class="email">
+            <h4>E-Mail</h4>
+            <h4>@Model.UserMail.ToString().Remove(13).Insert(13, "...")</h4>
+        </div>
+        <div class="countcomment">
+            <h4>Rəy sayı</h4>
+            <h4>@ViewBag.commentscount</h4>
+        </div>
+        <div class="countfavorites">
+            <h4>Sevimli siyahısı</h4>
+            <h4>@ViewBag.favoritescount</h4>
+        </div>
+        @*<div class="countwatchlater">
+            <h4>Sonra izlə siyahısı</h4>
+            <h4>10</h4>
+        </div>*@
+    </div>
+    @using (Html.BeginForm("UpdateProfile", "Profile", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+    {
+        <div id="updateprofile">
+            @Html.HiddenFor(x => x.UserID)
+            <label for="profilemail">E-Mail</label>
+            @Html.TextBoxFor(x => x.UserMail, new { @id = "profilemail" })
+            <br>
+            <label for="profilepassword">Şifrə</label>
+            @Html.TextBoxFor(x => x.UserPassword, new { @type = "password", @class = "blackinpt", @id = "profilepassword" })
+            <br>
+            <label for="profileimg">Şəkil</label>
+            @Html.TextBoxFor(x => x.UserImage, new { @type = "file", @class = "blackinpt", @id = "profileimg" })
+            <br>
+            <button class="successbtn">Yenilə</button>
+        </div>
+    }
+
+</div>
+

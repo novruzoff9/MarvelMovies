@@ -1,0 +1,61 @@
+﻿@using EntityLayer.Concrete
+@model List<SerieComment>
+@{
+    ViewBag.Title = "SerieCommentsList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<link href="~/web-MarvelKopat/web-marvel-movies 2 admin/CSS/comment.css" rel="stylesheet" />
+<style>
+    hr {
+        color: #393939;
+    }
+
+    #seriecomp {
+        list-style: none;
+        margin: 10px 0;
+        font-size: 26px;
+        border-right: 2px solid #ee171f;
+        background-color: rgba(156, 156, 156, 0.2);
+        color: white;
+    }
+    #comments {
+        display: block;
+    }
+        #seriecomp a {
+            color: white;
+        }
+</style>
+
+<h2>Serial Rəyləri</h2>
+
+@foreach (var x in Model)
+{
+    <div class="comment">
+        <div class="id">
+            @x.SerieCommentID
+        </div>
+        <img src="@x.User.UserImage" class="ProfImg">
+        <div class="UserNameComTxt">
+            <h2>@x.User.UserName</h2>
+            <p>
+                @x.SerieCommentText
+            </p>
+        </div>
+        <img src="@x.Serie.Image" class="MovieImg">
+        <div class="moviedate">
+            <h2>@x.Serie.Name</h2>
+            <h3>@(((DateTime)x.CommentDate).ToString("dd.MM.yyyy"))</h3>
+        </div>
+        <div class="date">
+            <h3>@x.CommentStatus</h3>
+        </div>
+        <div class="detdel">
+            <a href="#" class="btn btn-warning">Tam bax</a>
+            <a href="/SerieComment/ActiveSerieComment/@x.SerieCommentID" class="btn btn-primary">Aktiv et</a>
+            <a href="/SerieComment/DelSerieComment/@x.SerieCommentID" class="btn btn-danger">Sil</a>
+        </div>
+    </div>
+}
+<br />
+<a href="/SerieComment/AddSerieComment" class="successbtn">Rəy Artır</a>

@@ -1,0 +1,78 @@
+﻿@using EntityLayer.Concrete
+@using BusinessLayer.Concrete;
+@using DataAccessLayer.Concrete;
+@using DataAccessLayer.EntityFrameWork;
+@model List<Serie>
+@{
+    FavoriteSerieManager favorite = new FavoriteSerieManager(new EfFavoriteSerieDal());
+    var usersfavorites = favorite.GetList();
+    Context c = new Context();
+}
+
+<style>
+    .favorite a, .infavorite a {
+        color: white;
+    }
+
+    .infavorite {
+        background-color: #ee171f;
+    }
+</style>
+
+@foreach (var x in Model)
+{
+    <div class="mediaitem">
+        <img src="@x.Image" class="mediaimg" alt="@x.Name">
+        <div class="hd">
+            <a href="/SerieDetails/Serie/@x.ID" class="movielink">
+                <h2 class="mediah">@x.Name</h2>
+            </a>
+            <p class="medidesc">
+                @x.Description.ToString()
+            </p>
+        </div>
+        <div class="about">
+            <h3>@x.Producer</h3>
+            <div class="ictxt">
+                <i class="fas fa-calendar-alt"></i>
+                <h4>@(((DateTime)x.ReleaseDate).ToString("dd MMMM yyyy"))</h4>
+            </div>
+            <div class="ictxt">
+                <i class="fab fa-imdb"></i>
+                <h4>@x.IMDB</h4>
+            </div>
+        </div>
+        @if (User.Identity.IsAuthenticated)
+        {
+            try
+            {
+                int userid = (int)Session["UserID"];
+                usersfavorites = usersfavorites.FindAll(y => y.UserID == userid);
+                if (usersfavorites.Any(y => y.SerieID == x.ID))
+                {
+                    <div class="button">
+                        @*<button class="watch"><i class="fas fa-plus"></i>İzləmə siyahısına artır</button>*@
+                        <button value="@x.ID" class="serie favorite infavorite">
+                            <i class="fas fa-heart"></i>Sevimli
+                        </button>
+                    </div>
+                }
+                else
+                {
+                    <div class="button">
+                        @*<button class="watch"><i class="fas fa-plus"></i>İzləmə siyahısına artır</button>*@
+                        
+                        <button value="@x.ID" id="addfavorite" class="serie favorite addfavorite">
+                            <i class="far fa-heart"></i>Sevimlilərə artır
+                        </button>
+                    </div>
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+    </div>
+}

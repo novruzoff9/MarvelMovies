@@ -1,0 +1,30 @@
+﻿@using EntityLayer.Concrete
+@model List<UserMessages>
+@{
+    ViewBag.Title = "Trash";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<div id="pagecontent">
+    @Html.Action("MessagesPanel", "UserMessage")
+    <div id="messages">
+        <div id="messagesheader">
+            <h2>Silinən mesajlar</h2>
+        </div>
+        @foreach (var x in Model)
+        {
+            <div class="message">
+                <a href="/UserMessage/InboxMessageDetails/@x.MessageID" class="messagelink">
+                    <h4>@x.SenderMail.ToString()</h4>
+                    <h4>@x.MessageHeader</h4>
+                    <h4>@(((DateTime)x.MessageDate).ToString("dd.MM.yyyy"))</h4>
+                </a>
+                <div class="buttons">
+                    <a href="/UserMessage/SelectMessage/@x.MessageID"><i class="far fa-bookmark select"></i></a>
+                    <a href="/UserMessage/ActiveMessage/@x.MessageID"><i class="fas fa-sync-alt"></i></a>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+

@@ -1,0 +1,43 @@
+﻿@model EntityLayer.Concrete.Blog
+@{
+    ViewBag.Title = "WriteBlog";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<style>
+    .labelinpt {
+        display: flex;
+        flex-direction: column;
+    }
+
+        .labelinpt label {
+            color: white;
+            font-size: 20px;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+</style>
+<link href="~/web-MarvelKopat/web-marvel movies 2/CSS/WriteBlog.css" rel="stylesheet" />
+<div id="article">
+    @using (Html.BeginForm("WriteBlog", "Blog", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div id="writeblog">
+            <div id="BlogHeader">
+                <div class="labelinpt">
+                    <label>Başlıq</label>
+                    @Html.TextBoxFor(x=>x.BlogName, new { @class = "blackinput" })
+                </div>
+                <div class="labelinpt">
+                    <label>Başlıq şəkli</label>
+                    @Html.TextBoxFor(x => x.BlogImage, new { @type="file", @class = "blackinput" })
+                </div>
+            </div>
+            <div class="labelinpt">
+                <label>Bloq</label>
+                @Html.TextAreaFor(x => x.BlogText, new { @class = "blackinput" })
+            </div>
+            <button class="primarybtn">Paylaş</button>
+        </div>
+    }
+</div>
+

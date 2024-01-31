@@ -1,0 +1,63 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marvel Filmleri</title>
+    <link href="~/web-MarvelKopat/web-marvel-movies 2 admin/CSS/StyleSheet.css" rel="stylesheet" />
+    <link href="~/web-MarvelKopat/web-marvel-movies 2 admin/CSS/FormFW.css" rel="stylesheet" />
+    <link href="~/web-MarvelKopat/web-marvel-movies 2 admin/CSS/adminlogin.css" rel="stylesheet" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+          integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
+</head>
+<body id="body">
+    @using (Html.BeginForm("AdminLogin", "Login", FormMethod.Post))
+    {
+        <div id="container">
+            <div class="inputlabel">
+                <label>Admin Adı:</label>
+                <input type="text" name="AdminName" autocomplete="off">
+            </div>
+            <div class="inputlabel">
+                <label>Parol:</label>
+                <div id="password">
+                    <input id="passwordinput" type="password" name="AdminPassword">
+                    <i class="fas fa-lock passwordlock"></i>
+                </div>
+            </div>
+            <button id="login">Giriş</button>
+        </div>
+    }
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $(".passwordlock").click(function () {
+                if ($(this).hasClass("fa-lock")) {
+                    $("#passwordinput").attr("type", "text");
+                    $(this).addClass("fa-unlock");
+                    $(this).removeClass("fa-lock");
+                }
+                else {
+                    $("#passwordinput").attr("type", "password");
+                    $(this).addClass("fa-lock");
+                    $(this).removeClass("fa-unlock");
+                }
+            })
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+﻿@using DataAccessLayer.EntityFrameWork
+@using EntityLayer.Concrete
+@using BusinessLayer.Concrete
+@model List<ChatMessage>
+@{
+    int userid = ViewBag.userid;
+    UserManager UserM = new UserManager(new EfUserDal());
+    ChatManager ChatM = new ChatManager(new EfChatDal());
+    var ChatUser = UserM.GetById(userid);
+}
+@{
+    ViewBag.Title = "NewChat";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<link href="~/web-MarvelKopat/web-marvel movies 2/CSS/messages.css" rel="stylesheet" />
+<div id="pagecontent">
+
+    <div id="direct">
+
+        @Html.Action("Chats", "DirectMessage")
+
+        <div id="messages">
+            <div>
+                <div id="messagesheader">
+                    <a href="#">
+                        <img src="@ChatUser.UserImage" alt="@ChatUser.UserName" class="UserImg">
+                        <h1>@ChatUser.UserName</h1>
+                    </a>
+                    <a href="#" id="chatinfo">
+                        <h1><i class="fas fa-info-circle"></i></h1>
+                    </a>
+                </div>
+                <div id="channel">
+
+                </div>
+            </div>
+            @{int User2 = ChatUser.UserID;}
+            @Html.Action("WriteNewChat", "DirectMessage", User2)
+        </div>
+    </div>
+
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $("#messageinput").keyup(function () {
+        if ($(this).val().length > 0) {
+            $("#sendmessage").css("display", "flex");
+        }
+        else {
+            $("#sendmessage").css("display", "none");
+        }
+    });
+</script>
+
+

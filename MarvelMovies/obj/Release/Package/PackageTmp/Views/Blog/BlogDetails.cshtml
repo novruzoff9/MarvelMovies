@@ -1,0 +1,82 @@
+﻿@model EntityLayer.Concrete.Blog
+@{
+    string role = Model.User.UserRole + "Role";
+    ViewBag.Title = "BlogDetails";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<link href="~/web-MarvelKopat/web-marvel movies 2/CSS/BlogDetails.css" rel="stylesheet" />
+<div id="article">
+    <div id="blog">
+        <div id="blogheader">
+            <div id="typetab">
+                <h2>@Model.BlogName</h2>
+            </div>
+            <div class="likedislike">
+                <a href="#" class="like">
+                    <i class="far fa-thumbs-up"></i> @Model.Like
+                </a>
+                <a href="#" class="dislike">
+                    <i class="far fa-thumbs-down"></i> @Model.DisLike
+                </a>
+            </div>
+        </div>
+        <div id="media">
+            <div id="mediaheader">
+                <img class="blogimg" src="@Model.BlogImage" alt="@Model.BlogName">
+                <div class="blogdetails">
+                    <a href="/Profile/UserProfile/@Model.UserID" class="ictxt">
+                        <img src="@Model.User.UserImage" alt="@Model.User.UserName">
+                        <h4 class="@role">@Model.User.UserName</h4>
+                    </a>
+                    <div class="ictxt">
+                        <i class="fas fa-calendar-alt"></i>
+                        <h4>@(((DateTime)Model.BlogDate).ToString("dd MMMM yyyy"))</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="blogtext">
+            @{
+                var BlogHtml = Model.BlogText.Replace("\r\n", "<br />").Replace("\n", "<br />");
+            }
+            <p>
+                @Html.Raw(BlogHtml)
+            </p>
+        </div>
+    </div>
+    <div id="recommendations">
+        @Html.Action("RecommendedBlogs", "Blog")
+    </div>
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+        $(function () {
+            $(".like").mouseenter(function () {
+                $(this).children("i").css("background-color", "#393939");
+            });
+            $(".like").mouseleave(function () {
+                $(this).children("i").css("background-color", "transparent");
+            });
+            $(".dislike").mouseenter(function () {
+                $(this).children("i").css("background-color", "#393939");
+            });
+            $(".dislike").mouseleave(function () {
+                $(this).children("i").css("background-color", "transparent");
+            });
+            $(".recommendedblog>a").mouseenter(function () {
+                $(this).parent().find("h4").css("color", "#ee171f");
+            })
+            $(".recommendedblog>a").mouseleave(function () {
+                $(this).parent().find("h4").css("color", "white");
+            })
+            $(".BlogName").mouseenter(function () {
+                $(this).parent().find("h4").css("color", "#ee171f");
+            })
+            $(".BlogName").mouseleave(function () {
+                $(this).parent().find("h4").css("color", "white");
+            })
+        });
+</script>

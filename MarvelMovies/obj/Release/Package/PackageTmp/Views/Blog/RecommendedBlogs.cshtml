@@ -1,0 +1,23 @@
+﻿@using EntityLayer.Concrete
+@model List<Blog>
+@foreach (var x in Model)
+{
+    string role = x.User.UserRole + "Role";
+    <div class="recommendedblog">
+        <a href="/Blog/BlogDetails/@x.BlogID">
+            <img src="@x.BlogImage" alt="@x.BlogName"
+                 class="blogimg">
+        </a>
+        <div class="recommendedblogdetails">
+            <img src="@x.User.UserImage" alt="@x.User.UserName">
+            <div class="BlogHeader">
+                <a href="/Blog/BlogDetails/@x.BlogID">
+                    <h4 class="BlogName">@x.BlogName</h4>
+                </a>
+                <a href="/Profile/UserProfile/@x.UserID">
+                    <h5 class="blogwriter @role">@x.User.UserName</h5>
+                </a>
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,149 @@
+﻿#article {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#blog {
+    width: 55vw;
+}
+
+#blogheader {
+    position: sticky;
+    top: 81px;
+    background-color: #202020;
+    display: flex;
+    padding: 20px 0;
+    justify-content: space-between;
+    border-bottom: 1px solid #393939;
+}
+
+.likedislike {
+    width: 210px;
+    font-size: 24px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.like, .dislike {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 500;
+    color: white;
+}
+
+    .like i, .dislike i {
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+.likedislike :hover {
+    color: white;
+    cursor: pointer;
+}
+
+#media {
+    display: flex;
+    margin-top: 20px;
+}
+
+#mediaheader {
+    width: 55vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.blogimg {
+    width: 480px;
+    height: 270px;
+}
+
+.blogdetails {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.ictxt {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: white;
+}
+
+    .ictxt:hover {
+        color: white;
+    }
+
+    .ictxt h4 {
+        margin-left: 10px;
+    }
+
+    .ictxt i {
+        font-size: 32px;
+    }
+
+    .ictxt img {
+        width: 50px;
+        height: 50px;
+        border-radius: 25px;
+    }
+
+#blogtext {
+    margin-top: 20px;
+    color: white;
+}
+
+/*Tovsiyyeler*/
+#recommendations {
+    display: flex;
+    flex-direction: column;
+}
+
+.recommendedblog {
+    width: 320px;
+    margin-top: 20px;
+}
+
+    .recommendedblog .blogimg {
+        width: 320px;
+        height: 180px;
+    }
+
+.recommendedblogdetails img {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+}
+
+.recommendedblogdetails {
+    width: 360px;
+    margin-top: 10px;
+    display: flex;
+}
+
+.BlogHeader {
+    margin-left: 10px;
+}
+
+    .BlogHeader h4 {
+        color: white;
+    }
+
+.blogwriter {
+    font-weight: 400;
+    color: rgb(151, 151, 151);
+}
+
+    .blogwriter:hover {
+        font-weight: 500;
+        color: white;
+    }

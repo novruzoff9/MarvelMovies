@@ -1,0 +1,71 @@
+﻿@{ 
+    int id = ViewBag.userid;
+}
+<div id="Comment_percentage_div"></div>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+        $(document).ready(function () {
+            $.ajax({
+                type: "POST",
+                dataType: "json",
+                contentType: "application/json",
+                url: '@Url.Action("CommentPercentageChart", "User", new { @id = id})',
+                success: function (result) {
+                    google.charts.load('current', {
+                        'packages': ['corechart']
+                    });
+                    google.charts.setOnLoadCallback(function () {
+                        drawCommentChart(result);
+                    });
+                }
+            });
+        });
+
+        function drawCommentChart(result) {
+            var Commentdata = new google.visualization.DataTable();
+            Commentdata.addColumn('string', 'Tip');
+            Commentdata.addColumn('number', 'Sayı');
+            var dataArray = [];
+
+            $.each(result, function (i, obj) {
+                dataArray.push([obj.Name, obj.Count]);
+            });
+            Commentdata.addRows(dataArray);
+
+            var CommentChartOptions = {
+                width: 570,
+                height: 500,
+                backgroundColor: '#282828',
+                title: 'Rəy nisbəti',
+                //Basliq
+                titleTextStyle: {
+                    color: "#ffffff",
+                    fontSize: 34
+                },
+                curveType: 'function',
+                colors: ['#244bf7', '#ee171f', '#eeb71f', '#006200'],
+                //Xett adlari
+                legend: {
+                    position: 'bottom',
+                    textStyle: {
+                        fontSize: 18,
+                        color: '#ffffff'
+                    }
+                },
+                //title: "Rəy Qrafiki",
+                //width: 600,
+                //height: 400,
+                //backgroundColor: 'transparent',
+                //titleTextStyle: {color: 'white', },
+                //legendTextStyle: {color: 'white', },
+                //bar: { groupWidth: "20%" },
+            };
+
+            var CommentChart = new google.visualization.PieChart(document
+                .getElementById('Comment_percentage_div'));
+
+            CommentChart.draw(Commentdata, CommentChartOptions);
+        }
+</script>

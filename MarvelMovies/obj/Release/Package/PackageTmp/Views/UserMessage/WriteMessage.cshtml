@@ -1,0 +1,41 @@
+﻿@model EntityLayer.Concrete.UserMessages
+@{
+    ViewBag.Title = "WriteMessage";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<link href="~/web-marvel-movies 2 admin/CSS/WriteMessage.css" rel="stylesheet" />
+
+<style>
+    .validation {
+        margin-left: 10px;
+        color: white;
+    }
+</style>
+<h2>Mesaj Göndər</h2>
+
+<div id="pagecontent">
+    @Html.Action("MessagesPanel", "UserMessage")
+
+    @using (Html.BeginForm("WriteMessage", "UserMessage", FormMethod.Post))
+    {
+        <div id="writemessage">
+            <div class="msginput">
+                @Html.Label("Kimə:")
+                @Html.TextBoxFor(x => x.ReceiverMail, new { @id = "msgusername" })
+                @Html.ValidationMessageFor(x => x.ReceiverMail, "", new { @class = "validation" })
+            </div>
+            <div class="msginput">
+                @Html.Label("Başlıq:")
+                @Html.TextBoxFor(x => x.MessageHeader, new { @id = "msgheader" })
+                @Html.ValidationMessageFor(x => x.MessageHeader, "", new { @class = "validation" })
+            </div>
+            <div class="msginput">
+                @Html.Label("Mesaj:")
+                @Html.TextAreaFor(x => x.MessageContent, new { @id = "msgtext" })
+                @Html.ValidationMessageFor(x => x.MessageContent, "", new { @class = "validation" })
+            </div>
+            <button id="send">Göndər</button>
+        </div>
+    }
+</div>

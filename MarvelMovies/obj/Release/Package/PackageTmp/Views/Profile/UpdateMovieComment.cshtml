@@ -1,0 +1,51 @@
+﻿@model EntityLayer.Concrete.MovieComment
+@{
+    ViewBag.Title = "UpdateMovieComment";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<link href="~/web-marvel-movies 2 admin/CSS/ChangeDb2.css" rel="stylesheet" />
+
+<style>
+    #id {
+        font-size: 20px;
+        color: #ffffff;
+        font-weight: 600;
+    }
+
+    #commenth label {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        color: #ffffff;
+        font-weight: 600;
+        font-size: 20px;
+        margin-bottom: 5px;
+    }
+</style>
+
+
+
+@using (Html.BeginForm("UpdateMovieComment", "Profile", FormMethod.Post))
+{
+    <div id="changedb">
+        <div id="commenth">
+            @Html.TextBoxFor(x=>x.CommentDate)
+            @Html.TextBoxFor(x=>x.UserID)
+            @Html.TextBoxFor(x=>x.ID)
+            @Html.DisplayTextFor(x=>x.MovieCommentID)
+            <div class="labelinpt">
+                <h2>Film:</h2>
+                <h2>@Model.Movie.Name</h2>
+            </div>
+            <div class="labelinpt">
+                @Html.Label("Comment:")
+                @Html.TextAreaFor(x => x.MovieCommentText, new { @id = "mediadesc" })
+                @Html.ValidationMessageFor(x => x.MovieCommentText, "", new { @class = "validation" })
+            </div>
+        </div>
+    </div>
+    <button id="end" class="btn btn-success">Yenile</button>
+}
+
+

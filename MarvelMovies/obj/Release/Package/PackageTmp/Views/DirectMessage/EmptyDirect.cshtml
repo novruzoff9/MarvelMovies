@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "EmptyDirect";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<link href="~/web-MarvelKopat/web-marvel movies 2/CSS/messages.css" rel="stylesheet" />
+<div id="pagecontent">
+
+    <div id="direct">
+
+        @Html.Action("Chats", "DirectMessage")
+
+        <div id="emptymessages">
+            <i class="fas fa-comments"></i>
+            <h2>Direkt Mesajları</h2>
+            <p>Dostlarınızla mesajlaşın. Gələcəkdə şəkil zadda paylaşmağda olacağ</p>
+            <p>Yeniki qaqas divijeniya olacag. Siz narahat olmuyun</p>
+        </div>
+    </div>
+
+</div>
+

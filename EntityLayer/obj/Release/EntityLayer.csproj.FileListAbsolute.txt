@@ -1,0 +1,12 @@
+D:\Visual studio fayllar\MarvelMovies\EntityLayer\bin\Release\EntityLayer.dll.config
+D:\Visual studio fayllar\MarvelMovies\EntityLayer\bin\Release\EntityLayer.dll
+D:\Visual studio fayllar\MarvelMovies\EntityLayer\bin\Release\EntityLayer.pdb
+D:\Visual studio fayllar\MarvelMovies\EntityLayer\bin\Release\EntityFramework.dll
+D:\Visual studio fayllar\MarvelMovies\EntityLayer\bin\Release\EntityFramework.SqlServer.dll
+D:\Visual studio fayllar\MarvelMovies\EntityLayer\bin\Release\EntityFramework.xml
+D:\Visual studio fayllar\MarvelMovies\EntityLayer\bin\Release\EntityFramework.SqlServer.xml
+D:\Visual studio fayllar\MarvelMovies\EntityLayer\obj\Release\EntityLayer.csproj.AssemblyReference.cache
+D:\Visual studio fayllar\MarvelMovies\EntityLayer\obj\Release\EntityLayer.csproj.CoreCompileInputs.cache
+D:\Visual studio fayllar\MarvelMovies\EntityLayer\obj\Release\EntityLayer.csproj.CopyComplete
+D:\Visual studio fayllar\MarvelMovies\EntityLayer\obj\Release\EntityLayer.dll
+D:\Visual studio fayllar\MarvelMovies\EntityLayer\obj\Release\EntityLayer.pdb

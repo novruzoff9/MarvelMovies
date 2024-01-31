@@ -1,0 +1,166 @@
+﻿@using EntityLayer.Concrete
+@using DataAccessLayer.Concrete
+@model List<MovieComment>
+@{
+    Context c = new Context();
+    int f = 0;}
+
+
+<style>
+    .nullcomments {
+        width: 785px;
+        height: 400px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+<div id="comments">
+    <div id="commentshead">
+        <h2>Rəylər</h2>
+    </div>
+    @foreach (var x in Model.Take(2))
+    {
+        <div class="comment">
+            <img src="@x.Movie.Image" alt="@x.Movie.Name" class="MovieImg">
+            <div class="MovieNameComTxt">
+                <h3>@x.Movie.Name</h3>
+                <p>
+                    @x.MovieCommentText
+                </p>
+            </div>
+            <div class="date">
+                @{
+                    //Saati duzelt
+                    DateTime now = DateTime.Now;
+                    TimeSpan time = now - x.CommentDate;
+                    string str;
+                    int day = time.Days;
+                    if (day > 365)
+                    {
+                        str = day / 365 + " il";
+                    }
+                    else if (day > 30)
+                    {
+                        str = day / 30 + " ay";
+                    }
+                    else if (day > 0)
+                    {
+                        str = day + " gün";
+                    }
+                    else
+                    {
+                        str = "bu gün";
+                    }
+                    if (str != "bu gün")
+                    {
+                        str += " əvvəl";
+                    }
+                }
+                <h4>@str</h4>
+            </div>
+        </div>
+        f++;
+    }
+    @if (f < 2)
+    {
+        int a = ViewBag.id;
+        foreach (var x in c.SerieComments.Where(x => x.UserID == a).ToList().Take(3))
+        {
+            <div class="comment">
+                <img src="@x.Serie.Image" alt="@x.Serie.Name" class="MovieImg">
+                <div class="MovieNameComTxt">
+                    <h3>@x.Serie.Name</h3>
+                    <p>
+                        @x.SerieCommentText
+                    </p>
+                </div>
+                <div class="date">
+                    @{
+                        //Saati duzelt
+                        DateTime now = DateTime.Now;
+                        TimeSpan time = now - x.CommentDate;
+                        string str;
+                        int day = time.Days;
+                        if (day > 365)
+                        {
+                            str = day / 365 + " il";
+                        }
+                        else if (day > 30)
+                        {
+                            str = day / 30 + " ay";
+                        }
+                        else if (day > 0)
+                        {
+                            str = day + " gün";
+                        }
+                        else
+                        {
+                            str = "bu gün";
+                        }
+                        if (str != "bu gün")
+                        {
+                            str += " əvvəl";
+                        }
+                    }
+                    <h4>@str</h4>
+                </div>
+            </div>
+            f++;
+            if (f == 3) { break; }
+        }
+    }
+    @if (f < 2)
+    {
+        int a = ViewBag.id;
+        foreach (var x in c.AnimationComments.Where(x => x.UserID == a).ToList().Take(3))
+        {
+            <div class="comment">
+                <img src="@x.Animation.Image" alt="@x.Animation.Name" class="MovieImg">
+                <div class="MovieNameComTxt">
+                    <h3>@x.Animation.Name</h3>
+                    <p>
+                        @x.MovieCommentText
+                    </p>
+                </div>
+                <div class="date">
+                    @{
+                        //Saati duzelt
+                        DateTime now = DateTime.Now;
+                        TimeSpan time = now - x.CommentDate;
+                        string str;
+                        int day = time.Days;
+                        if (day > 365)
+                        {
+                            str = day / 365 + " il";
+                        }
+                        else if (day > 30)
+                        {
+                            str = day / 30 + " ay";
+                        }
+                        else if (day > 0)
+                        {
+                            str = day + " gün";
+                        }
+                        else
+                        {
+                            str = "bu gün";
+                        }
+                        if (str != "bu gün")
+                        {
+                            str += " əvvəl";
+                        }
+                    }
+                    <h4>@str</h4>
+                </div>
+            </div>
+            f++;
+        }
+    }
+    @if (f == 0)
+    {
+        <div class="nullcomments">
+            <h2>Hələki Rəy yazılmayıb</h2>
+        </div>
+    }
+</div>

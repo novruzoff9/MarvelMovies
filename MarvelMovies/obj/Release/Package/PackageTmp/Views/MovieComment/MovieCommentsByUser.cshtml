@@ -1,0 +1,26 @@
+﻿@using EntityLayer.Concrete
+@model List<MovieComment>
+@foreach (var x in Model)
+{
+    <div class="comment">
+        <img src="@x.Movie.Image" alt="@x.Movie.Name" class="MovieImg">
+        <div class="MovieNameComTxt">
+            <h3>@x.Movie.Name</h3>
+            @if (x.MovieCommentText.Length > 320)
+            {
+                <p>@x.MovieCommentText.Substring(0, 320)...</p>
+            }
+            else
+            {
+                <p>@x.MovieCommentText</p>
+            }
+        </div>
+        <div class="date">
+            <h4>@(((DateTime)x.CommentDate).ToString("dd.MM.yyyy"))</h4>
+        </div>
+        <div class="detdel">
+            <button class="det">Tam bax</button>
+            <button class="del">Sil</button>
+        </div>
+    </div>
+}

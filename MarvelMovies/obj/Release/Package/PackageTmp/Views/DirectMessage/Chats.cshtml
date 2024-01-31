@@ -1,0 +1,89 @@
+﻿@using DataAccessLayer.EntityFrameWork
+@using EntityLayer.Concrete
+@using BusinessLayer.Concrete
+@model List<Chat>
+@{
+    UserManager UserM = new UserManager(new EfUserDal());
+    ChatMessageManager ChatMessage = new ChatMessageManager(new EfChatMessageDal());
+    var messages = ChatMessage.GetList();
+    int userid = ViewBag.id;
+}
+
+<div id="chats">
+    @foreach (var x in Model)
+    {
+        User ChatUser = new User();
+        if (x.User1stID == userid)
+        {
+            ChatUser = UserM.GetById(x.User2ndID);
+        }
+        else
+        {
+            ChatUser = UserM.GetById(x.User1stID);
+        }
+        var chatmessages = messages.Where(y => y.ChatID == x.ChatID);
+        int n = chatmessages.Count();
+        var lastmessage = chatmessages.Last();
+        DateTime lasttime = chatmessages.Last().MessageDate;
+        DateTime now = DateTime.Parse(DateTime.Now.ToLongTimeString());
+        TimeSpan time = now - lasttime;
+        string classname;
+        if (lastmessage.WriterID == userid)
+        {
+            classname = "passivemessage";
+        }
+        else if (lastmessage.Seen == true)
+        {
+            classname = "passivemessage";
+        }
+        else
+        {
+            classname = "activemessage";
+        }
+        <div class="@classname chat">
+            <a href="/DirectMessage/Direct/@x.ChatID" class="chatlink">
+                <img src="@ChatUser.UserImage" alt="ProfileImg"
+                     class="UserImg">
+                <div class="UserNameMessage">
+                    <h4>@ChatUser.UserName</h4>
+                    <div class="MessageDate">
+                        @if (lastmessage.Message.Length > 30)
+                        {
+                            <p>@lastmessage.Message.Substring(0, 27)...</p>
+                        }
+                        else
+                        {
+                            <p>@lastmessage.Message</p>
+                        }
+                        @if (time.TotalSeconds < 60)
+                        {
+                            <p class="MessageTime">@time.Seconds san</p>
+                        }
+                        else if (time.TotalMinutes < 60)
+                        {
+                            <p class="MessageTime">@time.Minutes dəq</p>
+                        }
+                        else if (time.TotalHours < 24)
+                        {
+                            <p class="MessageTime">@time.Hours saat</p>
+                        }
+                        else if (time.TotalDays < 30)
+                        {
+                            <p class="MessageTime">@time.Days gün</p>
+                        }
+                        else if (time.TotalDays < 365)
+                        {
+                            int months = ((int)(time.TotalDays / 30));
+                            <p class="MessageTime">@months ay</p>
+                        }
+                        else
+                        {
+                            int years = ((int)(time.TotalDays / 365));
+                            <p class="MessageTime">@years il</p>
+                        }
+                    </div>
+                </div>
+            </a>
+        </div>
+    }
+</div>

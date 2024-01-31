@@ -1,0 +1,134 @@
+﻿#article {
+    padding: 0 20px;
+}
+
+#articlehead {
+    position: sticky;
+    top: 61px;
+    background-color: #202020;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+    border-bottom: 1px solid #393939;
+}
+
+.mediaitem {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #393939;
+}
+
+.mediaimg {
+    width: 200px;
+    height: 300px;
+}
+
+.hd {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 500px;
+}
+
+.movielink :hover {
+    color: #ee171f;
+}
+
+.medidesc {
+    margin-bottom: 0;
+    width: 500px;
+    color: rgb(131, 131, 131);
+    font-size: 20px;
+}
+
+.about {
+    width: 240px;
+    margin-left: 50px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.ictxt {
+    display: flex;
+    flex-direction: row;
+}
+
+    .ictxt h4 {
+        margin-left: 10px;
+    }
+
+.about i {
+    font-size: 32px;
+}
+
+.button {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+    .button button {
+        outline: none;
+        border: none;
+        width: 215px;
+        color: white;
+        padding: 5px;
+        height: 40px;
+        border-radius: 8px;
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+        .button button i {
+            margin-right: 10px;
+        }
+
+.watch {
+    background-color: #244bf7;
+}
+
+.favorite {
+    background-color: rgb(238, 183, 31);
+}
+
+@media only screen and (max-width: 500px) {
+    #articlehead {
+        top: 41px;
+    }
+    .mediaitem{
+        margin-top: 10px;
+        padding-bottom: 10px;
+    }
+    .mediaimg {
+        width: 100px;
+        height: 150px;
+    }
+    .hd {
+        margin-left: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 150px;
+        overflow: hidden;
+        width: calc(100% - 100px);
+    }
+    .hd h2{
+        font-size: 24px;
+    }
+    .medidesc {
+        margin-bottom: 0;
+        font-size: 16px;
+        width: 100%;
+        color: rgb(131, 131, 131);
+        font-size: 20px;
+    }
+    .about, .button {
+        display: none;
+    }
+}

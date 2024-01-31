@@ -1,0 +1,120 @@
+﻿@using EntityLayer.Concrete
+@model List<UserMessages>
+@{
+    string messageclass;
+    ViewBag.Title = "Inbox";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+<link href="~/web-MarvelKopat/web-marvel movies 2/CSS/Messages.css" rel="stylesheet" />
+<div id="pagecontent">
+    <div id="messages">
+        @foreach (var x in Model)
+        {
+            if (x.Status == "passive")
+            {
+                messageclass = "passivemessage";
+            }
+            else
+            {
+                messageclass = "activemessage";
+            }
+            <div class="@messageclass message">
+
+                <a href="#" class="messagelink">
+                    <img src="Images/The-Art-Of-Batman-Arkham-Knight-1 (2).jpg" alt="ProfileImg"
+                         class="UserImg">
+                    <div class="UserNameMessage">
+                        @if (x.ReceiverMail == ViewBag.mail)
+                        {
+                            <h4>@x.SenderMail</h4>
+                        }
+                        else if (x.SenderMail == ViewBag.mail)
+                        {
+                            <h4>@x.ReceiverMail</h4>
+                        }
+                        <div class="MessageDate">
+                            <p>@x.MessageContent</p>
+                            @{
+                                //Saati duzelt
+                                DateTime now = DateTime.Now;
+                                TimeSpan time = now - x.MessageDate;
+                                string str;
+                                int day = time.Days;
+                                if (day > 365)
+                                {
+                                    str = day / 365 + "il";
+                                }
+                                else if (day > 30)
+                                {
+                                    str = day / 30 + "ay";
+                                }
+                                else if (day > 0)
+                                {
+                                    str = day + "gün";
+                                }
+                                else
+                                {
+                                    str = "bu gün";
+                                }
+                            }
+                            <p class="MessageTime">@str</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        }
+    </div>
+    @*@Html.Action("MessagesPanel", "UserMessage")
+        <div id="messages">
+            <div id="messagesheader">
+                <h2>Gələn mesajlar</h2>
+            </div>
+            @foreach (var x in Model)
+            {
+                if (x.Status == "passive")
+                {
+                    <div class="message">
+                        <a href="/UserMessage/InboxMessageDetails/@x.MessageID" class="messagelink">
+                            <h4>@x.SenderMail.ToString().Substring(0, 12)...</h4>
+                            <h4>@x.MessageHeader</h4>
+                            <h4>@(((DateTime)x.MessageDate).ToString("dd.MM.yyyy"))</h4>
+                        </a>
+                        <div class="buttons">
+                            @if (x.RecieverStatus == "select")
+                            {
+                                <a class="selectlink" href="/UserMessage/ActiveMessage/@x.MessageID"><i class="fas fa-bookmark select"></i></a>
+                            }
+                            else
+                            {
+                                <a class="selectlink" href="/UserMessage/SelectMessage/@x.MessageID"><i class="far fa-bookmark select"></i></a>
+                            }
+                            <a href="/UserMessage/TrashMessage/@x.MessageID"><i class="fas fa-trash-alt"></i></a>
+                            <a href="/UserMessage/UnReadMessage/@x.MessageID"><i class="fas fa-times"></i></a>
+                        </div>
+                    </div>
+                }
+                else if (x.Status == "active")
+                {
+                    <div class="message activemessage">
+                        <a href="/UserMessage/InboxMessageDetails/@x.MessageID" class="messagelink">
+                            <h4>@x.SenderMail.ToString().Substring(0,12)...</h4>
+                            <h4>@x.MessageHeader</h4>
+                            <h4>@(((DateTime)x.MessageDate).ToString("dd.MM.yyyy"))</h4>
+                        </a>
+                        <div class="buttons">
+                            @if (x.RecieverStatus == "select")
+                            {
+                                <a class="selectlink" href="/UserMessage/ActiveMessage/@x.MessageID"><i class="fas fa-bookmark select"></i></a>
+                            }
+                            else
+                            {
+                                <a class="selectlink" href="/UserMessage/SelectMessage/@x.MessageID"><i class="far fa-bookmark select"></i></a>
+                            }
+                            <a href="/UserMessage/TrashMessage/@x.MessageID"><i class="fas fa-trash-alt"></i></a>
+                            <a href="/UserMessage/ReadMessage/@x.MessageID"><i class="fas fa-check-double"></i></a>
+                        </div>
+                    </div>
+                }
+            }
+        </div>*@
+</div>

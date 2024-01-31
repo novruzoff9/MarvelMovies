@@ -1,0 +1,100 @@
+﻿@using DataAccessLayer.Concrete 
+@model EntityLayer.Concrete.Movie
+@{
+    Context c = new Context();
+    ViewBag.Title = "DetailsMovie";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<link href="~/web-MarvelKopat/web-marvel-movies 2 admin/CSS/MovieDetails.css" rel="stylesheet" />
+
+<style>
+    #films {
+        display: block;
+    }
+
+    #moviep {
+        list-style: none;
+        margin: 10px 0;
+        font-size: 26px;
+        border-right: 2px solid #ee171f;
+        background-color: rgba(156, 156, 156, 0.2);
+        color: white;
+    }
+
+    #moviep a {
+        color: white;
+    }
+</style>
+
+
+<div class="mediaitem">
+    <img src="@Model.Image" class="mediaimg">
+    <div class="hd">
+        <h2 class="mediah">@Model.Name</h2>
+        <p class="medidesc">
+            @Model.Description
+        </p>
+    </div>
+    <div class="about">
+        <h3>@Model.Producer</h3>
+        <div class="ictxt">
+            <i class="fas fa-calendar-alt"></i>
+            <h4>@(((DateTime)Model.ReleaseDate).ToString("dd MMMM yyyy"))</h4>
+        </div>
+        <div class="ictxt">
+            <i class="far fa-clock"></i>
+            <h4>@Model.Duration</h4>
+        </div>
+        <div class="ictxt">
+            <i class="fab fa-imdb"></i>
+            <h4>@Model.IMDB</h4>
+        </div>
+    </div>
+    <div class="universe">
+        <div class="ictxt">
+            <i class="fas fa-globe-americas"></i>
+            <h4>@Model.Universe</h4>
+        </div>
+        <div>
+            @if (Model.Broadcast == true)
+            {
+                <h3>Yayımlanıb</h3>
+            }
+            else
+            {
+                <h3>Yayımlanmayıb...</h3>
+            }
+        </div>
+    </div>
+    <div id="trailerlink">
+        <div class="labelinpt">
+            <label for="fragman1">Fragman 1:</label>
+            <a href="https://www.youtube.com/watch?v=@Model.Trailer1">Treyler 1</a>
+        </div>
+        <div class="labelinpt">
+            <label for="fragman2">Fragman 2:</label>
+            <a href="https://www.youtube.com/watch?v=@Model.Trailer2">Treyler 2</a>
+        </div>
+        <div class="labelinpt">
+            <label for="fragman3">Fragman 3:</label>
+            <a href="https://www.youtube.com/watch?v=@Model.Trailer3">Treyler 3</a>
+        </div>
+    </div>
+</div>
+<div id="properties">
+    <a href="/MovieComment/CommentByMovie/@Model.ID" id="comments" class="propertyofmovie">
+        <i class="fas fa-comments"></i> 
+        @c.MovieComments.Where(x=>x.ID == Model.ID).Count()
+    </a>
+    <a href="#" id="favorites" class="propertyofmovie">
+        <i class="fas fa-heart"></i>
+        @c.Favorites.Where(x => x.MovieID == Model.ID).Count()
+    </a>
+    <a href="/MovieComment/AnswersByMovie/@Model.ID" id="answers" class="propertyofmovie">
+        <i class="fas fa-reply"></i>
+        @c.MovieCommentAnswers.Where(x => x.MovieComment.ID == Model.ID).Count()
+    </a>
+</div>
+<br>
+<a href="/Movie/MoviesList" class="cancelbtn">Çıxış</a>

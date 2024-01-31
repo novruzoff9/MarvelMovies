@@ -1,0 +1,526 @@
+﻿@using DataAccessLayer.Concrete;
+@using DataAccessLayer.EntityFrameWork
+@using EntityLayer.Concrete
+@using BusinessLayer.Concrete
+@{
+    Context c = new Context();
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MarvelKopat</title>
+    <link rel="icon"
+          type="image/png"
+          href="~/MarvelIcon.png">
+    <link href="~/web-MarvelKopat/web-marvel movies 2/CSS/UserLayout.css" rel="stylesheet" />
+    <link href="~/web-MarvelKopat/web-marvel movies 2/CSS/StyleSheetUniverse.css" rel="stylesheet" />
+    <link href="~/web-MarvelKopat/web-marvel movies 2/CSS/FormFW.css" rel="stylesheet" />
+    <link href="~/web-MarvelKopat/web-marvel movies 2/CSS/SignModal.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+          integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+</head>
+<body id="body">
+    <style>
+        .BloggerRole {
+            color: #ee171f !important;
+        }
+
+        .EditorRole {
+            color: #244bf7 !important;
+        }
+
+        .menuitem {
+            color: rgb(151, 151, 151);
+        }
+
+            .menuitem:hover {
+                color: #ee171f;
+                cursor: pointer;
+            }
+
+        .activemenuitem {
+            color: white;
+        }
+
+        #userlogin, #usersignup {
+            overflow-y: hidden;
+        }
+    </style>
+    <div id="container">
+        <div id="sidebar">
+            <ul>
+                <li id="menuhead">
+                    <img src="~/web-MarvelKopat/web-marvel movies 2/Images/Marvel_Logo.svg.png" id="logo" alt="logo" />
+                </li>
+                <li class="menuitem" id="marvelp"><a href="/Universe/MarvelUniverse">Marvel Dünyası</a></li>
+                <li class="menuitem" id="xmenp"><a href="/Universe/XMenUniverse">X-Men Dünyası</a></li>
+                <li class="menuitem" id="sonyp"><a href="/Universe/SonyUniverse">Sony Dünyası</a></li>
+                <li class="menuitem" id="otherp"><a href="/Universe/OtherUniverse">Digər Filmlər</a></li>
+                <li class="menuitem" id="blogp"><a href="/Blog/Blogs">Bloqlar</a></li>
+
+            </ul>
+        </div>
+
+        <div id="content">
+
+            <div id="header">
+                <i id="menubar" class="fas fa-bars"></i>
+                <img src="~/web-MarvelKopat/web-marvel movies 2/Images/Marvel_Logo.svg.png" id="logo" alt="logo" />
+                @if (c.Users.FirstOrDefault(x => x.UserName == User.Identity.Name) != null)
+                {
+                    var user = c.Users.FirstOrDefault(x => x.UserName == User.Identity.Name);
+                    <div class="links">
+                        @{
+                            int messagecount = 0;
+                            UserManager UserM = new UserManager(new EfUserDal());
+                            ChatManager ChatM = new ChatManager(new EfChatDal());
+                            ChatMessageManager ChatMessageM = new ChatMessageManager(new EfChatMessageDal());
+                            var chats = ChatM.GetList();
+                            var user1stchats = chats.Where(x => x.User1stID == user.UserID).ToList();
+                            var user2ndchats = chats.Where(x => x.User2ndID == user.UserID).ToList();
+                            List<Chat> userchats = new List<Chat>();
+                            userchats.AddRange(user1stchats);
+                            userchats.AddRange(user2ndchats);
+                            var messages = ChatMessageM.GetList();
+                            foreach (var chat in userchats)
+                            {
+                                var chatmessages = messages.Where(x => x.ChatID == chat.ChatID).ToList();
+                                var lastmessage = chatmessages.Last();
+                                if (lastmessage.WriterID != user.UserID && lastmessage.Seen == false)
+                                {
+                                    messagecount += 1;
+                                }
+                            }
+                        }
+                        <a id="searchuser" href="/Profile/SearchUser">
+                            <i class="fas fa-user-plus"></i>
+                        </a>
+                        @if (messagecount > 0)
+                        {
+                            <a id="mymessages" href="/DirectMessage/EmptyDirect">
+                                <i class="fas fa-comments"></i>
+                                <p class="messagecount">@messagecount</p>
+                            </a>
+                        }
+                        else
+                        {
+                            <a id="mymessages" href="/DirectMessage/EmptyDirect">
+                                <i class="fas fa-comments"></i>
+                            </a>
+                        }
+
+
+                        <button id="myprofile">
+                            <img src="@user.UserImage" alt="Profile Photo">
+                        </button>
+
+                        <div id="profilemenu">
+                            <a href="/Profile/MyProfile">Profilim</a>
+                            <a href="/Profile/UpdateProfile">Parametrlər</a>
+                            <a href="/Login/UserLogout">Çıxış</a>
+                        </div>
+
+                        <style>
+                            #profilemenu {
+                                position: absolute;
+                                width: 180px;
+                                top: 60px;
+                                right: 0;
+                                flex-direction: column;
+                                align-items: center;
+                                background-color: #393939;
+                                display: none;
+                                z-index: 5 !important;
+                            }
+
+                                /*#articlehead{
+                                z-index: 4 !important;
+                            }*/
+
+                                #profilemenu a {
+                                    color: white;
+                                    font-size: 26px;
+                                    font-weight: 500;
+                                }
+
+                                    #profilemenu a:hover {
+                                        align-items: center;
+                                        color: #ee171f;
+                                        cursor: pointer;
+                                    }
+                        </style>
+
+                        @*<button id="login">Çıxış</button>*@
+                        @*<a id="logout" href="/Login/UserLogout">Çıxış</a>*@
+                    </div>
+                }
+                else
+                {
+                    <div class="links">
+                        <a id="searchuser" href="/Profile/SearchUser">
+                            <i class="fas fa-user-plus"></i>
+                        </a>
+                        <button id="signup">Qeydiyyat</button>
+                        <button id="login">Giriş</button>
+                    </div>
+                }
+
+
+                <datalist id="movielist">
+                    @foreach (var x in c.Movies)
+                    {
+                        <option value="@x.Name"></option>
+                    }
+                    @foreach (var x in c.Series)
+                    {
+                        <option value="@x.Name"></option>
+                    }
+                    @foreach (var x in c.Animations)
+                    {
+                        <option value="@x.Name"></option>
+                    }
+                </datalist>
+
+
+
+            </div>
+            @using (Html.BeginForm("UserLogin", "Login", FormMethod.Post))
+            {
+                <div id="userlogin" class="modal">
+
+                    <div class="modal-content loginmodal">
+                        <span id="closelogin" class="close">&times;</span>
+                        <h6>Hesabınıza giriş edin...</h6>
+                        <br />
+                        <h6>İstifadəçi adı:</h6>
+                        <input type="text" class="blackinput" name="UserName" />
+                        <br />
+                        <h6>Şifrə:</h6>
+                        <input type="password" class="blackinput" name="UserPassword" />
+                        <br />
+                        <button class="successbtn">Giriş</button>
+                    </div>
+
+                </div>
+            }
+            @using (Html.BeginForm("UserSignUp", "Login", FormMethod.Post))
+            {
+                <div id="usersignup" class="modal">
+
+                    <div class="modal-content loginmodal">
+                        <span id="closesignup" class="close">&times;</span>
+                        <h6>Qeydiyyatdan keçin...</h6>
+                        <br />
+                        <h6>İstifadəçi adı:</h6>
+                        <input type="text" class="blackinput" name="UserName" />
+                        <br />
+                        <h6>E-Mail:</h6>
+                        <input type="text" class="blackinput" name="UserMail" />
+                        <br />
+                        <h6>Şifrə:</h6>
+                        <input type="password" class="blackinput" name="UserPassword" />
+                        <br />
+                        <button class="successbtn">Qeydiyyatdan Keç</button>
+                    </div>
+
+                </div>
+            }
+
+            @RenderBody()
+
+        </div>
+        @*<a href="#body"><button id="up"><i class="fas fa-chevron-up"></i></button></a>*@
+    </div>
+    <script>
+        var modal1 = document.getElementById("userlogin");
+
+        var modal2 = document.getElementById("usersignup");
+
+        var btn1 = document.getElementById("login");
+
+        var btn2 = document.getElementById("signup");
+
+        var span = document.getElementsByClassName("close")[0];
+
+        btn1.onclick = function () {
+            modal1.style.display = "block";
+        }
+
+        btn2.onclick = function () {
+            modal2.style.display = "block";
+        }
+
+
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal1.style.display = "none";
+                modal2.style.display = "none";
+            }
+        }
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="~/web-MarvelKopat/web-marvel movies 2/Script/Login.js"></script>
+    <script>
+        function AddFavoriteMovie(movie) {
+            $.ajax({
+                type: "POST",
+                url: "/MovieDetails/AddFavorite/" + movie,
+                success: function (result) {
+
+                }
+            });
+        }
+        function DeleteFavoriteMovie(movie) {
+            $.ajax({
+                type: "POST",
+                url: "/MovieDetails/DeleteFavorite/" + movie,
+                success: function (result) {
+
+                }
+            });
+        }
+        function AddFavoriteSerie(serie) {
+            $.ajax({
+                type: "POST",
+                url: "/SerieDetails/AddFavorite/" + serie,
+                success: function (result) {
+
+                }
+            });
+        }
+        function DeleteFavoriteSerie(serie) {
+            $.ajax({
+                type: "POST",
+                url: "/SerieDetails/DeleteFavorite/" + serie,
+                success: function (result) {
+
+                }
+            });
+        }
+    </script>
+    <script>
+        function LikeMovieComment(comment) {
+            $.ajax({
+                type: "POST",
+                url: "/MovieDetails/LikeComment/" + comment,
+                success: function (result) {
+
+                }
+            });
+        }
+        function DisLikeMovieComment(comment) {
+            $.ajax({
+                type: "POST",
+                url: "/MovieDetails/DisLikeComment/" + comment,
+                success: function (result) {
+
+                }
+            });
+        }
+        function DeleteMovieCommentReaction(comment) {
+            $.ajax({
+                type: "POST",
+                url: "/MovieDetails/DeleteReaction/" + comment,
+                success: function (result) {
+
+                }
+            });
+        }
+        function LikeSerieComment(comment) {
+            $.ajax({
+                type: "POST",
+                url: "/SerieDetails/LikeComment/" + comment,
+                success: function (result) {
+
+                }
+            });
+        }
+        function DisLikeSerieComment(comment) {
+            $.ajax({
+                type: "POST",
+                url: "/SerieDetails/DisLikeComment/" + comment,
+                success: function (result) {
+
+                }
+            });
+        }
+        function DeleteSerieCommentReaction(comment) {
+            $.ajax({
+                type: "POST",
+                url: "/SerieDetails/DeleteReaction/" + comment,
+                success: function (result) {
+
+                }
+            });
+        }
+    </script>
+    <script>
+        function LikeMovieCommentAnswer(comment) {
+            $.ajax({
+                type: "POST",
+                url: "/MovieDetails/LikeCommentAnswer/" + comment,
+                success: function (result) {
+
+                }
+            });
+        }
+        function DisLikeMovieCommentAnswer(comment) {
+            $.ajax({
+                type: "POST",
+                url: "/MovieDetails/DisLikeCommentAnswer/" + comment,
+                success: function (result) {
+
+                }
+            });
+        }
+        function DeleteMovieCommentAnswerReaction(comment) {
+            $.ajax({
+                type: "POST",
+                url: "/MovieDetails/DeleteCommentAnswerReaction/" + comment,
+                success: function (result) {
+
+                }
+            });
+        }
+        function LikeSerieCommentAnswer(comment) {
+            $.ajax({
+                type: "POST",
+                url: "/SerieDetails/LikeCommentAnswer/" + comment,
+                success: function (result) {
+
+                }
+            });
+        }
+        function DisLikeSerieCommentAnswer(comment) {
+            $.ajax({
+                type: "POST",
+                url: "/SerieDetails/DisLikeCommentAnswer/" + comment,
+                success: function (result) {
+
+                }
+            });
+        }
+        function DeleteSerieCommentAnswerReaction(comment) {
+            $.ajax({
+                type: "POST",
+                url: "/SerieDetails/DeleteCommentAnswerReaction/" + comment,
+                success: function (result) {
+
+                }
+            });
+        }
+    </script>
+    <script>
+        $(function () {
+            $("#menubar").click(function () {
+                $("#sidebar").animate({ width: 'toggle' })
+            });
+            $("#myprofile").hover(function () {
+                if ($("#profilemenu").css("display") != "flex") {
+                    $("#profilemenu").css("display", "flex");
+                    $("#articlehead").css("z-index", "-1");
+                }
+                else {
+                    $("#profilemenu").css("display", "none");
+                    $("#articlehead").css("z-index", "4");
+                }
+            });
+            $("#profilemenu").hover(function () {
+                if ($("#profilemenu").css("display") != "flex") {
+                    $("#profilemenu").css("display", "flex");
+                    $("#articlehead").css("z-index", "-1");
+                }
+                else {
+                    $("#profilemenu").css("display", "none");
+                    $("#articlehead").css("z-index", "4");
+                }
+            });
+            $("#closelogin").click(function () {
+                $("#userlogin").css("display", "none");
+            });
+            $("#closesignup").click(function () {
+                $("#usersignup").css("display", "none");
+            });
+            $("#searchmovie").keyup(function () {
+                if ($(this).val().length > 0) {
+                    $("#searchmovie").attr("list", "movielist");
+                }
+                else {
+                    $("#searchmovie").removeAttr("list");
+                }
+            });
+            $("#movietab").click(function () {
+                $(".tab").css("display", "none");
+                $("#tabmovie").css("display", "block");
+            });
+            $("#seriestab").click(function () {
+                $(".tab").css("display", "none");
+                $("#tabserie").css("display", "block");
+            });
+            //$(".menuitem").click(function () {
+            //    $(".activemenuitem").addClass("menuitem");
+            //    $(".activemenuitem").removeClass("activemenuitem");
+            //    $(this).addClass("activemenuitem");
+            //});
+            $(".watch").click(function () {
+                if ($(this).html() == '<i class="fas fa-check"></i>İzləmə siyahısında') {
+                    $(this).html('<i class="fas fa-plus"></i>İzləmə siyahısına artır');
+                }
+                else {
+                    $(this).html('<i class="fas fa-check"></i>İzləmə siyahısında');
+                }
+            });
+            //$(".favorite").click(function () {
+            //    var col = $(this).css("background-color");
+            //    if (col == "rgb(238, 183, 31)") {
+            //        $(this).html('<i class="fas fa-heart"></i>Sevimli');
+            //        $(this).css("background-color", "#ee171f");
+            //    }
+            //    else {
+            //        $(this).html('<i class="far fa-heart"></i>Sevimlilərə artır');
+            //        $(this).css("background-color", "rgb(238, 183, 31)");
+            //    }
+            //});
+            $(scroll).scroll(function () {
+                var t = $("#header").offset().top;
+                if (t >= "220") {
+                    $("#up").fadeIn(300);
+                }
+                else {
+                    $("#up").fadeOut(300);
+                }
+            });
+        });
+    </script>
+    <!-- Default Statcounter code for MarvelKopat
+    http://novruzoff-001-site1.btempurl.com/ -->
+    <script type="text/javascript">
+        var sc_project = 12713506;
+        var sc_invisible = 1;
+        var sc_security = "2c79aacd";
+    </script>
+    <script type="text/javascript"
+            src="https://www.statcounter.com/counter/counter.js" async></script>
+    <noscript>
+        <div class="statcounter">
+            <a title="Web Analytics"
+               href="https://statcounter.com/" target="_blank">
+                <img class="statcounter"
+                     src="https://c.statcounter.com/12713506/0/2c79aacd/1/" alt="Web Analytics"
+                     referrerPolicy="no-referrer-when-downgrade">
+            </a>
+        </div>
+    </noscript>
+    <!-- End of Statcounter Code -->
+</body>
+</html>

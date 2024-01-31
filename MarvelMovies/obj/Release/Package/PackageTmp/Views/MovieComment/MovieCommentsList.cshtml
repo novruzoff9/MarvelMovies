@@ -1,0 +1,65 @@
+﻿@using EntityLayer.Concrete
+@model List<MovieComment>
+@{
+    ViewBag.Title = "MovieCommentsList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<link href="~/web-MarvelKopat/web-marvel-movies 2 admin/CSS/comment.css" rel="stylesheet" />
+<style>
+    .moviedate{
+        width: 400px;
+    }
+    hr {
+        color: #393939;
+    }
+    #comments {
+        display: block;
+    }
+    #moviecomp {
+        list-style: none;
+        margin: 10px 0;
+        font-size: 26px;
+        border-right: 2px solid #ee171f;
+        background-color: rgba(156, 156, 156, 0.2);
+        color: white;
+    }
+
+    #moviecomp a {
+        color: white;
+    }
+</style>
+
+<h2>Film Rəyləri</h2>
+<hr />
+
+@foreach (var x in Model)
+{
+    <div class="comment">
+        <div class="id">
+            @x.MovieCommentID
+        </div>
+        <img src="@x.User.UserImage" class="ProfImg">
+        <div class="UserNameComTxt">
+            <h2>@x.User.UserName</h2>
+            <p>
+                @x.MovieCommentText
+            </p>
+        </div>
+        <img src="@x.Movie.Image" class="MovieImg">
+        <div class="moviedate">
+            <h2>@x.Movie.Name</h2>
+            <h3>@(((DateTime)x.CommentDate).ToString("dd.MM.yyyy"))</h3>
+        </div>
+        <div class="date">
+            <h3>@x.CommentStatus</h3>
+        </div>
+        <div class="detdel">
+            <a href="#" class="btn btn-warning">Tam bax</a>
+            <a href="/MovieComment/ActiveMovieComment/@x.MovieCommentID" class="btn btn-primary">Aktiv et</a>
+            <a href="/MovieComment/DelMovieComment/@x.MovieCommentID" class="btn btn-danger">Sil</a>
+        </div>
+    </div>
+}
+<br />
+<a href="/MovieComment/AddMovieComment" class="successbtn">Rəy Artir</a>

@@ -1,0 +1,111 @@
+﻿
+@{
+    int id = ViewBag.userid;
+    ViewBag.Title = "AllFavorites";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    #article{
+        margin: 10px;
+        padding: 0;
+    }
+    .btn-danger {
+        margin-top: 20px;
+    }
+    /*Filmler*/
+    .mediaitem {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: row;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #393939;
+    }
+
+    .mediaimg {
+        width: 200px;
+        height: 300px;
+    }
+
+    .hd {
+        margin-left: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 500px;
+    }
+
+    .movielink :hover {
+        color: #ee171f;
+    }
+
+    .medidesc {
+        margin-bottom: 0;
+        width: 500px;
+        color: rgb(131, 131, 131);
+        font-size: 20px;
+    }
+
+    .about {
+        width: 240px;
+        margin-left: 50px;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .ictxt {
+        display: flex;
+        flex-direction: row;
+    }
+
+        .ictxt h4 {
+            margin-left: 10px;
+        }
+
+    .about i {
+        font-size: 32px;
+    }
+</style>
+<div id="article">
+    <div id="articlehead">
+        <div id="typetab">
+            <input type="radio" id="movietab" name="typetab" checked="checked">
+            <label for="movietab">Film</label>
+
+            <input type="radio" id="seriestab" name="typetab">
+            <label for="seriestab">Serial</label>
+
+        </div>
+    </div>
+
+    <div id="media">
+        <div class="tab" id="tabmovie">
+            @Html.Action("FavoriteMovies", "User", new { @id = id })
+
+        </div>
+
+        <div class="tab" id="tabseries">
+            @Html.Action("FavoriteSeries", "User", new { @id = id })
+
+        </div>
+    </div>
+    <br />
+    <a href="/User/UserList" class="cancelbtn">Çıxış</a>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+        $(function () {
+            $("#movietab").click(function () {
+                $(".tab").css("display", "none");
+                $("#tabmovie").css("display", "block");
+            });
+            $("#seriestab").click(function () {
+                $(".tab").css("display", "none");
+                $("#tabseries").css("display", "block");
+            });
+            
+        });
+</script>
+

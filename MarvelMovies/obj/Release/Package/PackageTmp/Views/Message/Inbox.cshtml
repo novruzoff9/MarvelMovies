@@ -1,0 +1,54 @@
+﻿@using EntityLayer.Concrete
+@model List<UserMessages>
+@{
+    ViewBag.Title = "Inbox";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<style>
+    th, td {
+        color: #ffffff;
+    }
+
+    #contactp {
+        list-style: none;
+        margin: 10px 0;
+        font-size: 26px;
+        border-right: 2px solid #ee171f;
+        background-color: rgba(156, 156, 156, 0.2);
+        color: white;
+    }
+    
+
+    #contactp a {
+        color: white;
+    }
+</style>
+
+<h2>Mesajlar</h2>
+
+<div id="pagecontent">
+    @Html.Action("MessagesPanel", "Contact")
+    <div id="messages">
+        <div id="messagesheader">
+            <h2>Gələn mesajlar</h2>
+        </div>
+        @foreach (var x in Model)
+        {
+            <div class="message">
+                <a href="/Message/InboxMessageDetails/@x.MessageID" class="messagelink">
+                    <h4>@x.SenderMail.ToString()</h4>
+                    <h4>@x.MessageHeader</h4>
+                    <h4>@(((DateTime)x.MessageDate).ToString("dd.MM.yyyy"))</h4>
+                </a>
+                <div class="buttons">
+                    <i class="far fa-bookmark select"></i>
+                    <i class="fas fa-trash-alt"></i>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+

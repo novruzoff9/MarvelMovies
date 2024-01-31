@@ -1,0 +1,101 @@
+﻿@using EntityLayer.Concrete
+@model List<Blog>
+@{
+    ViewBag.Title = "Blogs";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<style>
+    #blogp {
+        list-style: none;
+        margin: 10px 0;
+        font-size: 26px;
+        border-right: 2px solid #ee171f;
+        background-color: rgba(156, 156, 156, 0.2);
+    }
+
+        #blogp a {
+            color: white;
+            padding-right: 10px;
+        }
+
+            #blogp a:hover {
+                color: white;
+                cursor: default;
+            }
+</style>
+<link href="~/web-MarvelKopat/web-marvel movies 2/CSS/Blogs.css" rel="stylesheet" />
+
+<div id="article">
+    <div id="articlehead">
+        <div id="typetab">
+
+
+        </div>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <a href="/Blog/WriteBlog" class="form-item" id="writeblog">
+                <i class="fas fa-pen-nib"></i>Bloq yaz
+            </a>
+        }
+    </div>
+    <div id="media">
+        <div id="follows">
+            <h2>İzlədikləriniz</h2>
+            <div id="blogs">
+                @foreach (var x in Model)
+                {
+                    string role = x.User.UserRole + "Role";
+                    <div class="blog">
+                        <a href="/Blog/BlogDetails/@x.BlogID">
+                            <img src="@x.BlogImage" alt="@x.BlogName" class="blogimg">
+                        </a>
+                        <div class="blogdetails">
+                            <img src="@x.User.UserImage" alt="@x.User.UserName">
+                            <div class="BlogHeader">
+                                <a href="/Blog/BlogDetails/@x.BlogID">
+                                    <h4 class="BlogName">@x.BlogName</h4>
+                                </a>
+                                <a href="/Profile/UserProfile/@x.UserID">
+                                    <h5 class="blogwriter @role">@x.User.UserName</h5>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        @*<div id="recommendations">
+                <h2>Tövsiyyələr</h2>
+                <div id="blogs">
+
+                </div>
+            </div>*@
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(function () {
+        $(".blog>a").mouseenter(function () {
+            $(this).parent().find("h4").css("color", "#ee171f");
+        })
+        $(".blog>a").mouseleave(function () {
+            $(this).parent().find("h4").css("color", "white");
+        })
+        $(".BlogName").mouseenter(function () {
+            $(this).parent().find("h4").css("color", "#ee171f");
+        })
+        $(".BlogName").mouseleave(function () {
+            $(this).parent().find("h4").css("color", "white");
+        })
+        $(scroll).scroll(function () {
+            var t = $("#sidebar").offset().top;
+            if (t >= "220") {
+                $("#up").fadeIn(300);
+            }
+            else {
+                $("#up").fadeOut(300);
+            }
+        });
+    });
+</script>

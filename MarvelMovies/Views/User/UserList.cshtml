@@ -1,0 +1,90 @@
+﻿@using DataAccessLayer.Concrete
+@using EntityLayer.Concrete
+@model List<User>
+@{
+    Context c = new Context();
+    ViewBag.Title = "UserList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<link href="~/web-MarvelKopat/web-marvel-movies 2 admin/CSS/ProfileStyle.css" rel="stylesheet" />
+<style>
+
+    #userp {
+        list-style: none;
+        margin: 10px 0;
+        font-size: 26px;
+        border-right: 2px solid #ee171f;
+        background-color: rgba(156, 156, 156, 0.2);
+        color: white;
+    }
+
+        #userp a {
+            color: white;
+        }
+    .creatorrole {
+        color: #ffd700;
+    }
+    .bloggerrole {
+        color: #ee171f;
+    }
+    .editorrole {
+        color: #244bf7;
+    }
+</style>
+<h2>User List</h2>
+
+<div id="profiles">
+    @foreach (var x in Model)
+    {
+        //string roleclass = x.UserRole.ToLower();
+        //roleclass += "role";
+        <div class="profile">
+            <div class="profilecard">
+                <img src="@x.UserImage" class="ProfImg" />
+                <div class="UserId">
+                    <h2>ID</h2>
+                    <h2>#@x.UserID</h2>
+                </div>
+                <h2>@x.UserName</h2>
+                <div class="signdate">
+                    <h5>Qeydiyyat tarixi</h5>
+                    <h5>@(((DateTime)x.UserSignDate).ToString("dd.MM.yyyy"))</h5>
+                </div>
+                <div class="email">
+                    <h5>E-Mail</h5>
+                    <h5>@x.UserMail.ToString().Remove(13).Insert(13, "...")</h5>
+                </div>
+                @{
+                    int moviec = c.MovieComments.Where(y => y.UserID == x.UserID).
+                        Count();
+                    int seriec = c.SerieComments.Where(y => y.UserID == x.UserID).
+                        Count();
+                    int movieansc = c.MovieCommentAnswers.Where(y => y.UserId == x.UserID).
+                        Count();
+                    int serieansc = c.SerieCommentAnswers.Where(y => y.UserId == x.UserID).
+                        Count();
+                    int comments = moviec + seriec + movieansc + serieansc;
+                }
+                <div class="countcomment">
+                    <h5>Rəy sayı</h5>
+                    <h5>@comments</h5>
+                </div>
+                @{
+                    int moviefav = c.Favorites.Where(y => y.UserID == x.UserID).
+                        Count();
+                    int seriefav = c.FavoriteSeries.Where(y => y.UserID == x.UserID).
+                        Count();
+                    int favorites = moviefav + seriefav;
+                }
+                <div class="countfavorites">
+                    <h5>Sevimli sayı</h5>
+                    <h5>@favorites</h5>
+                </div>
+                <a href="/User/CommentByUser/@x.UserID" class="comments">Rəylər</a>
+                <a href="/User/UserDetails/@x.UserID" class="favorites">Tam Bax</a>
+                <a href="/User/AllFavorites/@x.UserID" class="block">Sevimlilər</a>
+            </div>
+        </div>
+    }
+</div>

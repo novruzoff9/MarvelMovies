@@ -1,0 +1,132 @@
+﻿@using DataAccessLayer.Concrete
+@using BusinessLayer.Concrete;
+@using DataAccessLayer.EntityFrameWork;
+@using EntityLayer.Concrete
+@model List<User>
+@{
+    Context c = new Context();
+    ViewBag.Title = "SearchResults";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+<style>
+    .UserImg {
+        width: 120px;
+        height: 120px;
+        border-radius: 60px;
+    }
+
+    .userprofile {
+        display: flex;
+        flex-direction: row;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #393939;
+        margin-left: 20px;
+    }
+
+    .UserNameComTxt h3 {
+        color: white;
+    }
+    .UserNameComTxt h3:hover{
+        color: #ee171f;
+    }
+    .UserNameComTxt {
+        margin-left: 20px;
+        width: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        color: rgb(131, 131, 131);
+    }
+
+    .datelike {
+        width: 140px;
+        margin-left: 20px;
+        text-align: justify;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .likedislike {
+        font-size: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .like, .dislike {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        color: white;
+    }
+
+        .like i, .dislike i {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+    .likedislike :hover {
+        color: white;
+        cursor: pointer;
+    }
+
+    #searchuserinput {
+        margin-top: 20px;
+        width: 400px;
+    }
+
+    #usersearch {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+@using (Html.BeginForm("SearchResults", "Profile"))
+{
+    <div id="usersearch">
+        <input id="searchuserinput" name="searchuser" class="blackinput" />
+    </div>
+}
+
+<datalist id="userlist">
+    @foreach (var x in c.Users)
+    {
+        <option value="@x.UserName"></option>
+    }
+</datalist>
+@foreach (var x in Model)
+{
+    if (x.UserName.ToLower().Contains(ViewBag.search))
+    {
+        <div class="userprofile">
+            <img src="@x.UserImage" alt="@x.UserName" class="UserImg">
+            <div class="UserNameComTxt">
+                <a href="/Profile/UserProfile/@x.UserID">
+                    <h3>@x.UserName</h3>
+                </a>
+            </div>
+        </div>
+    }
+
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(function () {
+        $("#searchuserinput").keyup(function () {
+            if ($(this).val().length > 0) {
+                $("#searchuserinput").attr("list", "userlist");
+            }
+            else {
+                $("#searchuserinput").removeAttr("list");
+            }
+        });
+    });
+</script>

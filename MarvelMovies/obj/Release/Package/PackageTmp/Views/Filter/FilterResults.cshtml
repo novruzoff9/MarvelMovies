@@ -1,0 +1,57 @@
+﻿@using EntityLayer.Concrete
+@using DataAccessLayer.Concrete;
+@using System.Web.WebPages;
+@model List<Movie>
+@{
+    Context c = new Context();
+    ViewBag.Title = "FilterResults";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<style>
+    #movies {
+        margin-left: 20px;
+        margin-bottom: 20px;
+    }
+</style>
+
+
+<div id="article">
+    @*<h2>Filter Results</h2>
+    <h2>Siralama: @ViewBag.sort</h2>
+    <h2>Kemiyyet: @ViewBag.quantity</h2>
+    <h2>Dunya: @ViewBag.universe</h2>
+    <h2>Sirket: @ViewBag.producer</h2>
+    <h2>Min IMDB: @ViewBag.imdb1</h2>
+    <h2>Max IMDB: @ViewBag.imdb2</h2>
+    <h2>Min Tarix: @ViewBag.date1</h2>
+    <h2>Max Tarix: @ViewBag.date2</h2>
+    <h2>Cavab sayi: @ViewBag.count</h2>*@
+    <div id="articlehead">
+        <div id="typetab">
+            <input type="radio" id="movietab" name="typetab" checked="checked">
+            <label for="movietab">Film</label>
+
+            <input type="radio" id="seriestab" name="typetab">
+            <label for="seriestab">Serial</label>
+
+        </div>
+        <button class="form-item" id="filter"><i class="fas fa-filter"></i>Filtrlər</button>
+    </div>
+
+    @Html.Action("Filters", "Filter")
+
+    <div id="media">
+        <div class="tab" id="tabmovie">
+            @Html.Action("FilterResultMovies", "Filter")
+
+        </div>
+
+        <div class="tab" id="tabseries">
+            @Html.Action("FilterResultSeries", "Filter")
+
+        </div>
+    </div>
+</div>
+
+

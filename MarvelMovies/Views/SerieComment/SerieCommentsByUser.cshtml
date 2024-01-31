@@ -1,0 +1,30 @@
+﻿@using EntityLayer.Concrete
+@model List<SerieComment>
+<link href="~/web-MarvelKopat/web-marvel movies 2/CSS/comment.css" rel="stylesheet" />
+
+@foreach (var x in Model)
+{
+    <div class="comment">
+        <img src="@x.Serie.Image" alt="defenders" class="MovieImg">
+        <div class="MovieNameComTxt">
+            <h3>@x.Serie.Name</h3>
+
+            @if (x.SerieCommentText.Length > 320)
+            {
+                <p>@x.SerieCommentText.Substring(0, 320)</p>
+            }
+            else
+            {
+                <p>@x.SerieCommentText</p>
+            }
+
+        </div>
+        <div class="date">
+            <h4>@(((DateTime)x.CommentDate).ToString("dd.MM.yyyy"))</h4>
+        </div>
+        <div class="detdel">
+            <button class="det">Tam bax</button>
+            <button class="del">Sil</button>
+        </div>
+    </div>
+}

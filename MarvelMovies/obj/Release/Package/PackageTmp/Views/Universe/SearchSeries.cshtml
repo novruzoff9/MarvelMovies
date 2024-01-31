@@ -1,0 +1,72 @@
+﻿@using DataAccessLayer.Concrete
+@using BusinessLayer.Concrete;
+@using DataAccessLayer.EntityFrameWork;
+@using EntityLayer.Concrete
+@model List<Serie>
+@{ Context c = new Context();}
+@foreach (var x in Model)
+{
+    if (x.Name.ToLower().Contains(ViewBag.search))
+    {
+        <div class="mediaitem">
+            <img src="@x.Image" class="mediaimg" alt="@x.Name">
+            <div class="hd">
+                <a href="/Universe/DetailsSerie/@x.ID" class="movielink">
+                    <h2 class="mediah">@x.Name</h2>
+                </a>
+                <p class="medidesc">
+                    @x.Description.ToString()
+                </p>
+            </div>
+            <div class="about">
+                <h3>@x.Producer</h3>
+                <div class="ictxt">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h4>@(((DateTime)x.ReleaseDate).ToString("dd MMMM yyyy"))</h4>
+                </div>
+                <div class="ictxt">
+                    <i class="fab fa-imdb"></i>
+                    <h4>@x.IMDB</h4>
+                </div>
+            </div>
+            <div class="button">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    if (c.Users.FirstOrDefault(y => y.UserName == User.Identity.Name) != null)
+                    {
+                        try
+                        {
+                            FavoriteSerieManager favorite = new FavoriteSerieManager(new EfFavoriteSerieDal());
+                            var usersfavorites = favorite.GetList();
+                            int userid = (int)Session["UserID"];
+                            usersfavorites = usersfavorites.FindAll(y => y.UserID == userid);
+                            if (usersfavorites.Any(y => y.SerieID == x.ID))
+                            {
+                                <div class="button">
+                                    @*<button class="watch"><i class="fas fa-plus"></i>İzləmə siyahısına artır</button>*@
+                                    <button class="infavorite"><a href="/SerieDetails/DeleteFavorite/@x.ID"><i class="fas fa-heart"></i>Sevimli</a></button>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="button">
+                                    @*<button class="watch"><i class="fas fa-plus"></i>İzləmə siyahısına artır</button>*@
+                                    <button class="favorite"><a href="/SerieDetails/DeleteFavorite/@x.ID"><i class="far fa-heart"></i>Sevimli</a></button>
+                                </div>
+                            }
+                        }
+                        catch (Exception)
+                        {
+
+                        }
+
+                    }
+
+                }
+            </div>
+
+        </div>
+    }
+
+}
+

@@ -1,0 +1,68 @@
+﻿@using DataAccessLayer.Concrete
+@using BusinessLayer.Concrete;
+@using DataAccessLayer.EntityFrameWork;
+@using EntityLayer.Concrete
+@model List<Favorites>
+@{
+    bool f = false;
+    int n = 0;
+}
+
+<style>
+    .nullfavorites {
+        width: 1440px;
+        height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+<div id="favorites">
+    <div id="favh">
+        <h2>Sevimlilər</h2>
+        <a href="/Profile/AllFavorites"><h2>Hamısına bax</h2></a>
+    </div>
+
+    <div class="movies">
+        @foreach (var x in Model.Take(6))
+        {
+            <div class="movie">
+                <img src="@x.Movie.Image" class="MovieImg">
+                <h2 class="noselect">@x.Movie.Name</h2>
+            </div>
+            f = true;
+            n++;
+        }
+        @if (n < 6)
+        {
+            FavoriteSerieManager favoriteseries = new FavoriteSerieManager(new EfFavoriteSerieDal());
+            SerieManager SerieM = new SerieManager(new EfSerieDal());
+            int t = 6 - n;
+            int id = ViewBag.id;
+            var favoriteserielist = favoriteseries.GetList();
+            favoriteserielist = favoriteserielist.FindAll(x => x.UserID == id).ToList();
+            List<Serie> series = new List<Serie>();
+            foreach (var item in favoriteserielist)
+            {
+                var serie = SerieM.GetByID(item.SerieID);
+                series.Add(serie);
+            }
+            foreach (var y in series.Take(t))
+            {
+                <div class="movie">
+                    <img src="@y.Image" class="MovieImg">
+                    <h2 class="noselect">@y.Name</h2>
+                </div>
+                f = true;
+                n++;
+            }
+        }
+        @if (f == false)
+        {
+            <div class="nullfavorites">
+                <h2>Hələki Sevimli film seçilməyib</h2>
+            </div>
+        }
+    </div>
+    
+</div>

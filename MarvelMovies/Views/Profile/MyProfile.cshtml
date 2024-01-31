@@ -1,0 +1,131 @@
+﻿@model EntityLayer.Concrete.User
+@{
+    ViewBag.Title = "MyProfile";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<link href="~/web-MarvelKopat/web-marvel movies 2/CSS/ProfileStyle.css" rel="stylesheet" />
+<link href="~/web-MarvelKopat/web-marvel movies 2/CSS/comment.css" rel="stylesheet" />
+
+<style>
+    .noselect {
+        -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+        -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+        user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+    }
+    .updateprofile {
+        font-weight: 500;
+    }
+        .updateprofile i {
+            margin-top: 2px !important;
+        }
+        .updateprofile:hover {
+            font-weight: 500;
+            color: white;
+        }
+    #ProfCom{
+        height: 500px;
+    }
+    #profile {
+        height: 480px;
+    }
+</style>
+
+<div id="ProfCom">
+    <div id="profile">
+        <img src="@Model.UserImage" class="ProfImg">
+        <h2>@Model.UserName</h2>
+        <div class="signdate">
+            <h4>Qeydiyyat tarixi</h4>
+            <h4>@(((DateTime)Model.UserSignDate).ToString("dd.MM.yyyy"))</h4>
+        </div>
+        <div class="email">
+            <h4>E-Mail</h4>
+            <h4>@Model.UserMail.ToString().Remove(13).Insert(13, "...")</h4>
+        </div>
+        <div class="countcomment">
+            <h4>Rəy sayı</h4>
+            <h4>@ViewBag.commentscount</h4>
+        </div>
+        <div class="countfavorites">
+            <h4>Sevimli siyahısı</h4>
+            <h4>@ViewBag.favoritescount</h4>
+        </div>
+        @*<div class="countwatchlater">
+            <h4>Sonra izlə siyahısı</h4>
+            <h4>10</h4>
+        </div>*@
+        <a href="/Profile/UpdateProfile" class="updateprofile"><i class="fas fa-cog"></i>&nbsp;Parametrlər</a>
+    </div>
+
+    @Html.Action("MyComments", "Profile")
+</div>
+
+<div id="lists">
+    <div id="favwl">
+        @Html.Action("FavoritesList", "Profile")
+
+
+        @*<div id="watchlater">
+            <div id="wlh">
+                <h2>Sonra izlə</h2>
+                <h2>Hamısına bax</h2>
+            </div>
+            <div class="movies">
+                <div class="movie">
+                    <img src="~/web-MarvelKopat/web-marvel movies 2/Images/Venom  2.jpg" class="MovieImg">
+                    <h2 class="noselect">Venom Let There be carnage</h2>
+                </div>
+                <div class="movie">
+                    <img src="~/web-MarvelKopat/web-marvel movies 2/Images/endgame.jpg" class="MovieImg">
+                    <h2 class="noselect">End Game</h2>
+                </div>
+                <div class="movie">
+                    <img src="~/web-MarvelKopat/web-marvel movies 2/Images/Jessica Jones season 1.jpg" class="MovieImg">
+                    <h2 class="noselect">Jessica Jones</h2>
+                </div>
+                <div class="movie">
+                    <img src="~/web-MarvelKopat/web-marvel movies 2/Images/the-defenders.jpg" class="MovieImg">
+                    <h2 class="noselect">Defenders</h2>
+                </div>
+                <div class="movie">
+                    <img src="~/web-MarvelKopat/web-marvel movies 2/Images/Spider-man into the spider-verse.jpg" class="MovieImg">
+                    <h2 class="noselect">Spider man into the spider verse</h2>
+                </div>
+                <div class="movie">
+                    <img src="~/web-MarvelKopat/web-marvel movies 2/Images/X-men 2.jpg" class="MovieImg">
+                    <h2 class="noselect">X-Men 2</h2>
+                </div>
+            </div>
+        </div>*@
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(function () {
+        $(".movie").mouseenter(function () {
+            $(this).children("h2").css("display", "block");
+            $(this).children("img").css("filter", "brightness(40%)");
+            //$(this).children("img").css("filter", "blur(6px)");
+            //$(this).children("img").css("-webkit-filter", "blur(6px)");
+        });
+        $(".movie").mouseleave(function () {
+            $(this).children("h2").css("display", "none");
+            $(this).children("img").css("filter", "brightness(100%)");
+            //$(this).children("img").css("filter", "blur(0)");
+            //$(this).children("img").css("-webkit-filter", "blur(0)");
+        });
+        $(".movie h2").mouseenter(function () {
+            $(this).siblings().css("filter", "brightness(40%)");
+            //$(this).siblings().css("filter", "blur(6px)");
+            //$(this).siblings().css("-webkit-filter", "blur(6px)");
+        });
+    });
+</script>
+
+
+

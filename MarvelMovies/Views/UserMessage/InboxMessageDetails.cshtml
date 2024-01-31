@@ -1,0 +1,33 @@
+﻿@model EntityLayer.Concrete.UserMessages
+@{
+    ViewBag.Title = "InboxMessageDetails";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<link href="~/web-marvel-movies 2 admin/CSS/MessageDetails.css" rel="stylesheet" />
+
+
+<div id="pagecontent">
+    @Html.Action("MessagesPanel", "UserMessage")
+    <div id="messagedetails">
+        <div id="messageheader">
+            <div class="msgdetail">
+                <label for="msgusername">Kimdən:</label>
+                <h4>@Model.SenderMail</h4>
+            </div>
+            <div class="msgdetail">
+                <label for="msgusername">Tarix:</label>
+                <h4>@(((DateTime)Model.MessageDate).ToString("dd.MM.yyyy"))</h4>
+            </div>
+        </div>
+        <div class="msgdetail">
+            <label for="msgusername">Başlıq:</label>
+            <h4>@Model.MessageHeader</h4>
+        </div>
+        <div class="msgdetail">
+            <label for="msgtext">Mesaj:</label>
+            <p>@Model.MessageContent</p>
+        </div>
+    </div>
+</div>
+

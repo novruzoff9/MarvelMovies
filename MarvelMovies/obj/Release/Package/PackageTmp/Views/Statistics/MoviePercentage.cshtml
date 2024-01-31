@@ -1,0 +1,68 @@
+﻿<div id="Piechart_div"></div>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+        $(document).ready(function () {
+            $.ajax({
+                type: "POST",
+                dataType: "json",
+                contentType: "application/json",
+                url: '@Url.Action("MovieChart", "Statistics")',
+                success: function (result) {
+                    google.charts.load('current', {
+                        'packages': ['corechart']
+                    });
+                    google.charts.setOnLoadCallback(function () {
+                        drawMovieChart(result);
+                    });
+                }
+            });
+        });
+
+        function drawMovieChart(result) {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Tip');
+            data.addColumn('number', 'Sayı');
+            var dataArray = [];
+
+            $.each(result, function (i, obj) {
+                dataArray.push([obj.Name, obj.Count]);
+            });
+            data.addRows(dataArray);
+
+            var columnChartOptions = {
+                width: 500,
+                height: 500,
+                backgroundColor: '#282828',
+                title: 'Film nisbəti',
+                //Basliq
+                titleTextStyle: {
+                    color: "#ffffff",
+                    fontSize: 34
+                },
+                curveType: 'function',
+                colors: ['#244bf7', '#ee171f', '#eeb71f'],
+                //Xett adlari
+                legend: {
+                    position: 'bottom',
+                    textStyle: {
+                        fontSize: 18,
+                        color: '#ffffff'
+                    }
+                },
+                //title: "Film-Serial Qrafiki",
+                //width: 600,
+                //height: 400,
+                //backgroundColor: 'transparent',
+                //titleTextStyle: {color: 'white', },
+                //legendTextStyle: {color: 'white', },
+                //bar: { groupWidth: "20%" },
+            };
+
+            var MovieChart = new google.visualization.PieChart(document
+                .getElementById('Piechart_div'));
+
+            MovieChart.draw(data, columnChartOptions);
+        }
+</script>

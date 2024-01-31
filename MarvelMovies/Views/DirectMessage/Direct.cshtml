@@ -1,0 +1,140 @@
+﻿@using DataAccessLayer.Concrete
+@using DataAccessLayer.EntityFrameWork
+@using EntityLayer.Concrete
+@using BusinessLayer.Concrete
+@model List<ChatMessage>
+@{
+    Context c = new Context();
+    int userid = ViewBag.id;
+    int chatid = ViewBag.chatid;
+    int firstnewmessage = ViewBag.newmessages;
+    int messagecount = ViewBag.messagecount;
+    UserManager UserM = new UserManager(new EfUserDal());
+    ChatManager ChatM = new ChatManager(new EfChatDal());
+    ChatMessageManager ChatMessageM = new ChatMessageManager(new EfChatMessageDal());
+    var Chat = ChatM.GetByID(chatid);
+    var firstmessage = Model.First();
+    string date = firstmessage.MessageDate.ToString("d");
+    var beforemessage = firstmessage;
+    User ChatUser = new User();
+    if (Chat.User1stID == userid)
+    {
+        ChatUser = UserM.GetById(Chat.User2ndID);
+    }
+    else
+    {
+        ChatUser = UserM.GetById(Chat.User1stID);
+    }
+}
+@{
+    ViewBag.Title = "Direct";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+<link href="~/web-MarvelKopat/web-marvel movies 2/CSS/Chat.css" rel="stylesheet" />
+<div id="pagecontent">
+
+    <div id="direct">
+
+        @Html.Action("Chats", "DirectMessage")
+
+        <div id="messages">
+            <div>
+                <div id="messagesheader">
+                    <a href="/Profile/UserProfile/@ChatUser.UserID">
+                        <img src="@ChatUser.UserImage" alt="@ChatUser.UserName" class="UserImg">
+                        <h1>@ChatUser.UserName</h1>
+                    </a>
+                    <a href="#" id="chatinfo">
+                        <h1><i class="fas fa-info-circle"></i></h1>
+                    </a>
+                </div>
+                <div id="channel">
+                    <div class="date"><span>@date</span></div>
+                    @foreach (var x in Model)
+                    {
+                        if (x.MessageDate.Date.ToString("d") != date)
+                        {
+                            <div class="date"><span>@x.MessageDate.Date.ToString("d")</span></div>
+                        }
+                        if (x.MessageID == firstnewmessage)
+                        {
+                            <div class="newmessages"><span>Yeni mesajlar</span></div>
+                        }
+                        if (x.WriterID == userid)
+                        {
+                            <div class="mymessage message">
+                                <p>@x.Message</p>
+                                <p>@(((DateTime)x.MessageDate).ToString("t"))</p>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="message">
+                                <p>@x.Message</p>
+                                <p>@(((DateTime)x.MessageDate).ToString("t"))</p>
+                            </div>
+                        }
+                        date = x.MessageDate.Date.ToString("d");
+                        beforemessage = x;
+                    }
+                    @if (beforemessage.WriterID == userid && beforemessage.Seen == true)
+                    {
+                        <p id="seen">Görüldü</p>
+                    }
+
+                </div>
+            </div>
+
+            @Html.Action("WriteMessage", "DirectMessage", chatid)
+        </div>
+    </div>
+
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    var messagecount;
+    $.ajax({
+        type: "GET",
+        url: "/DirectMessage/MessagesCount/" + ChatId,
+        success: function (result) {
+            messagecount = result;
+        }
+    });
+    $("#messageinput").keyup(function () {
+        if ($(this).val().length > 0) {
+            $("#sendmessage").css("display", "flex");
+        }
+        else {
+            $("#sendmessage").css("display", "none");
+        }
+    });
+    $(function (){
+        var channel = $('#channel');
+        var height = channel[0].scrollHeight;
+        channel.scrollTop(height);
+    });
+    $("#sendmessage").click(function () {
+        $.ajax({
+            type: "POST",
+            url: "/DirectMessage/AddMessage",
+            data: {
+                Message: $("#messageinput").val(),
+                ChatID: $("#ChatId").val()
+            },
+            success: function (result) {
+                messagecount = messagecount + 1;
+                $("#messageinput").val('');
+                $("#seen").remove();
+                $("#channel").append(
+                    '<div class="mymessage message">' +
+                    '<p>' + result.Message + '</p>' +
+                    /*'<p>' + result.MessageDate + '</p>' +*/
+                    '</div>'
+                );
+                var channel = $('#channel');
+                var height = channel[0].scrollHeight;
+                channel.scrollTop(height);
+            }
+        });
+    });
+</script>

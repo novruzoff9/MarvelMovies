@@ -1,0 +1,269 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+
+#body {
+    background-color: #202020;
+}
+
+h2 {
+    color: white;
+}
+
+#logo {
+    display: block;
+    width: 150px;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+#container {
+    display: flex;
+    flex-direction: row;
+}
+
+#sidebar>ul {
+    position: sticky;
+    top: 10px;
+    width: 250px;
+    padding-left: 20px;
+}
+
+#menuhead {
+    display: none;
+    list-style: none;
+    color: white;
+}
+
+.menuitem {
+    list-style: none;
+    margin: 10px 0;
+    color: white;
+    font-size: 26px;
+    font-weight: 500;
+}
+
+    .menuitem a {
+        width: initial;
+        height: inherit;
+        color: rgb(151, 151, 151);
+    }
+
+.activemenuitem {
+    list-style: none;
+    margin: 10px 0;
+    font-size: 26px;
+    font-weight: 500;
+    border-right: 2px solid #ee171f;
+    background-color: rgba(156, 156, 156, 0.2);
+}
+
+    .activemenuitem a {
+        color: white;
+        padding-right: 10px;
+    }
+
+.menuitem a:hover {
+    color: #ee171f;
+}
+
+.activemenuitem a:hover {
+    color: white;
+    cursor: default;
+}
+
+#content {
+    border-left: 1px solid #393939;
+    width: calc(100% - 250px);
+    display: block;
+}
+
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    height: 61px;
+    background-color: #202020;
+    border-bottom: 1px solid #393939;
+}
+
+#menubar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    width: 60px;
+    height: 60px;
+    color: white;
+    border-radius: 8px;
+    font-size: 40px;
+}
+
+    #menubar:hover {
+        background-color: #393939;
+        cursor: pointer;
+    }
+
+.links {
+    display: flex;
+    flex-direction: row;
+}
+
+#signup {
+    width: 150px;
+}
+
+#login {
+    width: 80px;
+}
+
+#mymessages, #myprofile, #searchuser, #signup, #login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    height: 60px;
+    padding: 10px;
+    font-size: 26px;
+    font-weight: 500;
+    border-radius: 6px;
+    color: white;
+    transition: .2s;
+}
+
+#mymessages, #myprofile, #searchuser {
+    width: 60px;
+}
+
+    #myprofile img {
+        height: 50px;
+        width: 50px;
+        border-radius: 25px;
+    }
+
+    #mymessages:hover, #searchuser:hover, #myprofile:hover,
+    #signup:hover, #login:hover {
+        color: white;
+        background-color: #393939;
+        cursor: pointer;
+    }
+
+.messagecount {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    color: white;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    width: 24px;
+    height: 24px;
+    border-radius: 12px;
+    background-color: #ee171f;
+}
+
+#up {
+    position: fixed;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    bottom: 40px;
+    right: 40px;
+    width: 40px;
+    height: 40px;
+    background-color: #ee171f;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+}
+
+@media only screen and (max-width: 500px) {
+    #sidebar {
+        display: none;
+        position: fixed;
+        background-color: #202020;
+        width: 220px;
+        top: 41px;
+        z-index: 1;
+    }
+
+    #menuhead {
+        display: block;
+    }
+
+    #logo {
+        width: 170px;
+    }
+
+    .menuitem {
+        font-size: 22px !important;
+        width: 188px;
+    }
+
+    #header {
+        height: 41px;
+    }
+
+    #menubar {
+        display: flex;
+    }
+
+    #content {
+        border: none;
+        width: 100%;
+    }
+
+    #header > #logo {
+        display: none;
+    }
+
+    #menubar, #mymessages, #myprofile, #searchuser, #signup, #login {
+        width: 40px;
+        height: 40px;
+        padding: 5px;
+        font-size: 16px;
+    }
+
+    .messagecount {
+        margin-left: 12px;
+        margin-bottom: 12px;
+        font-size: 12px;
+        width: 16px;
+        height: 16px;
+        border-radius: 8px;
+    }
+
+    #myprofile img {
+        height: 30px;
+        width: 30px;
+        border-radius: 15px;
+    }
+
+    #signup {
+        width: 80px;
+    }
+
+    #login {
+        width: 60px;
+    }
+
+    #up {
+        bottom: 30px;
+        right: 30px;
+        width: 30px;
+        height: 30px;
+        border-radius: 8px;
+    }
+    .loginmodal {
+        width: 320px !important;
+    }
+}

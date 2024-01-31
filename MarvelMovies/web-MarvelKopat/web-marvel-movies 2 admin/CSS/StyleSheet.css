@@ -1,0 +1,195 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+
+#body {
+    background-color: #202020;
+}
+
+h2 {
+    color: white;
+}
+
+#logotxt {
+    width: 300px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#logo {
+    width: 80px;
+}
+
+#logotxt h2 {
+    text-align: center;
+    color: white;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+#container {
+    display: flex;
+}
+
+#sidebar {
+    width: 250px;
+    padding-left: 10px;
+    position: sticky;
+    top: 0;
+}
+
+.validation {
+    color: white;
+}
+
+.headermenuitem {
+    font-weight: 500;
+    cursor: pointer;
+    color: white;
+    list-style: none;
+    margin: 10px 0;
+    font-size: 26px;
+}
+
+.menuitem {
+    font-weight: 500;
+    cursor: pointer;
+    color: rgb(151, 151, 151);
+    list-style: none;
+    margin: 10px 0;
+    font-size: 26px;
+}
+
+.linklist {
+    padding-left: 20px;
+    display: none;
+}
+
+.rotate-180 {
+    transform: rotate(180deg);
+    transition: .7s;
+}
+
+.rotate--180 {
+    transform: rotate(0deg);
+    transition: .7s;
+}
+
+#menuhead {
+    list-style: none;
+    margin: 0 0 20px 0;
+    color: white;
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.activemenuitem {
+    list-style: none;
+    margin: 10px 0;
+    font-size: 26px;
+    border-right: 2px solid #ee171f;
+    background-color: rgba(156, 156, 156, 0.2);
+}
+
+.activemenuitem {
+    color: white;
+    padding-right: 10px;
+}
+
+.menuitem:hover {
+    color: #ee171f;
+}
+
+.activemenuitem:hover {
+    color: white;
+    cursor: default;
+}
+
+#websitelink {
+    border-right: 2px solid #2bb85a;
+    list-style: none;
+    margin: 10px 0;
+    font-size: 26px;
+    font-weight: 500;
+    background-color: rgba(156, 156, 156, 0.2);
+}
+
+#websitelink {
+    color: #2bb85a;
+}
+
+#logoutlink {
+    border-right: 2px solid #ee171f;
+    list-style: none;
+    margin: 10px 0;
+    font-size: 26px;
+    font-weight: 500;
+    background-color: rgba(156, 156, 156, 0.2);
+}
+
+#logoutlink {
+    color: #ee171f;
+}
+
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    width: 80vw;
+    padding: 20px 20px 20px 20px;
+    background-color: #202020;
+    border-bottom: 1px solid #393939;
+}
+
+
+#searchtext {
+    position: absolute;
+    display: inline-block;
+    color: white;
+    font-size: 26px;
+}
+
+#searchinpt {
+    margin-left: 90px;
+}
+
+#content {
+    border-left: 1px solid #393939;
+    display: block;
+}
+
+#article {
+    width: 80vw;
+    padding: 20px;
+}
+
+#articlehead {
+    position: sticky;
+    top: 81px;
+    background-color: #202020;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0 20px 0;
+    border-bottom: 1px solid #393939;
+}
+
+#up {
+    position: fixed;
+    display: none;
+    bottom: 40px;
+    right: 40px;
+    width: 40px;
+    height: 40px;
+    background-color: #ee171f;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+}

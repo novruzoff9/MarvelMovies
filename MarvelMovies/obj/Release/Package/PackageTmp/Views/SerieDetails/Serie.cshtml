@@ -1,0 +1,357 @@
+﻿@using DataAccessLayer.Concrete
+@using BusinessLayer.Concrete;
+@using DataAccessLayer.EntityFrameWork;
+@model EntityLayer.Concrete.Serie
+@{
+    Context c = new Context();
+    ViewBag.Title = "Serie";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<link href="~/web-MarvelKopat/web-marvel movies 2/CSS/MovieDetails.css" rel="stylesheet" />
+<style>
+    .header_icons {
+        width: 200px;
+    }
+
+    a {
+        color: white;
+    }
+
+        a :hover {
+            color: white;
+        }
+</style>
+<div id="contentheader">
+    <h2>@Model.Name</h2>
+    <div class="header_icons">
+        <div class="headerscore">
+            <i class="fab fa-imdb"></i>
+            <label>@Model.IMDB</label>
+        </div>
+        @*<i class="far fa-bookmark addlist"></i>*@
+        @if (User.Identity.IsAuthenticated)
+        {
+            try
+            {
+                FavoriteSerieManager favorite = new FavoriteSerieManager(new EfFavoriteSerieDal());
+                var usersfavorites = favorite.GetList();
+                int userid = (int)Session["UserID"];
+                usersfavorites = usersfavorites.FindAll(y => y.UserID == userid);
+                if (usersfavorites.Any(y => y.SerieID == Model.ID))
+                {
+                    <i id="favoritebtn" onclick="FavoriteSerie(@Model.ID)"
+                       class="fas fa-heart addlist"></i>
+                }
+                else
+                {
+                    <i id="favoritebtn" onclick="FavoriteSerie(@Model.ID)"
+                       class="far fa-heart addlist"></i>
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+    </div>
+</div>
+<div id="mediaabout">
+    <h3 id="aboutheader">Haqqında <i id="aboutbtn" class="fas fa-chevron-down"></i></h3>
+    <p id="abouttext">
+        @Model.Description
+    </p>
+</div>
+<div id="contentfiles">
+
+    <img src="@Model.Image" class="mediaimg">
+    <div class="about">
+        <h3>@Model.Producer</h3>
+        <div class="ictxt">
+            <i class="fas fa-calendar-alt"></i>
+            <h4>@(((DateTime)Model.ReleaseDate).ToString("dd MMMM yyyy"))</h4>
+        </div>
+        <div class="ictxt">
+            <i class="far fa-clock"></i>
+            <h4>@Model.Duration Dəqiqə</h4>
+        </div>
+    </div>
+    <div id="trailer">
+        <div id="trailerselect">
+            @if (Model.Trailer1 != null)
+            {
+                <input type="radio" id="trailer1" name="trailer" checked="checked">
+                <label for="trailer1">Sezon 1</label>
+            }
+
+            @if (Model.Trailer2 != null)
+            {
+                <input type="radio" id="trailer2" name="trailer">
+                <label for="trailer2">Sezon 2</label>
+            }
+
+            @if (Model.Trailer3 != null)
+            {
+                <input type="radio" id="trailer3" name="trailer">
+                <label for="trailer3">Sezon 3</label>
+            }
+
+        </div>
+        <div id="video1" class="video">
+            <iframe width="532" height="300" src="https://www.youtube.com/embed/@Model.Trailer1"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+            </iframe>
+        </div>
+
+        <div id="video2" class="video">
+            <iframe width="532" height="300" src="https://www.youtube.com/embed/@Model.Trailer2"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+            </iframe>
+        </div>
+
+        <div id="video3" class="video">
+            <iframe width="532" height="300" src="https://www.youtube.com/embed/@Model.Trailer3"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+            </iframe>
+        </div>
+
+    </div>
+</div>
+<div id="moviecomments">
+    <div id="moviecommentsheader">
+        <h2>@ViewBag.commentcount Rəy</h2>
+        @*<div id="sortcomment">
+                <h2 id="SortBtn"><i class="fas fa-sort-amount-down"></i> Sıralama</h2>
+                <div id="SortBy">
+                    <label for="LastDate">Son yazılan</label>
+                    <input type="radio" name="SortCommentBy" class="SortCommentBy" id="LastDate">
+                    <label for="FirstDate">İlk yazılan</label>
+                    <input type="radio" name="SortCommentBy" class="SortCommentBy" id="FirstDate">
+                    <label for="MostReaction">Ən çox bəyənilən</label>
+                    <input type="radio" name="SortCommentBy" class="SortCommentBy" id="MostReaction">
+                    <label for="LeastReaction">Ən az bəyənilən</label>
+                    <input type="radio" name="SortCommentBy" class="SortCommentBy" id="LeastReaction">
+                </div>
+
+            </div>*@
+    </div>
+    @if (c.Users.FirstOrDefault(x => x.UserName == User.Identity.Name) != null)
+    {
+        @Html.Action("WriteComment", Model.ID)
+    }
+
+    @Html.Action("SerieComments", Model.ID)
+
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    function FavoriteSerie(serie) {
+        if ($("#favoritebtn").hasClass("fas")) {
+            DeleteFavoriteSerie(serie);
+        }
+        else {
+            AddFavoriteSerie(serie);
+        }
+    }
+    $(function () {
+        $(".likecomment").click(function () {
+            var comment = $(this).attr("value");
+            if ($(this).siblings(".dislike").children("i").hasClass("fas")) {
+                DeleteSerieCommentReaction(comment);
+                LikeSerieComment(comment);
+            }
+            else {
+                if ($(this).children("i").hasClass("far")) {
+                    LikeSerieComment(comment);
+                }
+                else {
+                    DeleteSerieCommentReaction(comment);
+                }
+            }
+        });
+        $(".dislikecomment").click(function () {
+            var comment = $(this).attr("value");
+            if ($(this).siblings(".like").children("i").hasClass("fas")) {
+                DeleteSerieCommentReaction(comment);
+                DisLikeSerieComment(comment);
+            }
+            else {
+                if ($(this).children("i").hasClass("far")) {
+                    DisLikeSerieComment(comment);
+                }
+                else {
+                    DeleteSerieCommentReaction(comment);
+                }
+            }
+        });
+        $(".likeanswer").click(function () {
+            var comment = $(this).attr("value");
+            if ($(this).siblings(".dislike").children("i").hasClass("fas")) {
+                DeleteSerieCommentAnswerReaction(comment);
+                LikeSerieCommentAnswer(comment);
+            }
+            else {
+                if ($(this).children("i").hasClass("far")) {
+                    LikeSerieCommentAnswer(comment);
+                }
+                else {
+                    DeleteSerieCommentAnswerReaction(comment);
+                }
+            }
+        });
+        $(".dislikeanswer").click(function () {
+            var comment = $(this).attr("value");
+            if ($(this).siblings(".like").children("i").hasClass("fas")) {
+                DeleteSerieCommentAnswerReaction(comment);
+                DisLikeSerieCommentAnswer(comment);
+            }
+            else {
+                if ($(this).children("i").hasClass("far")) {
+                    DisLikeSerieCommentAnswer(comment);
+                }
+                else {
+                    DeleteSerieCommentAnswerReaction(comment);
+                }
+            }
+        });
+        $("#aboutheader").click(function () {
+            if ($("#aboutbtn").hasClass("rotate-180")) {
+                $("#abouttext").slideUp(700);
+                $("#aboutbtn").removeClass("rotate-180");
+                $("#aboutbtn").toggleClass("rotate--180");
+            }
+            else {
+                $("#abouttext").slideDown(700);
+                $("#aboutbtn").removeClass("rotate--180");
+                $("#aboutbtn").toggleClass("rotate-180");
+            }
+        });
+        $(".addlist").click(function () {
+            if ($(this).hasClass("far")) {
+                $(this).addClass("fas");
+                $(this).removeClass("far");
+            }
+            else {
+                $(this).addClass("far");
+                $(this).removeClass("fas");
+            }
+        });
+        $("#trailer1").click(function () {
+            $(".video").css("display", "none");
+            $("#video1").css("display", "flex");
+        });
+        $("#trailer2").click(function () {
+            $(".video").css("display", "none");
+            $("#video2").css("display", "flex");
+        });
+        $("#trailer3").click(function () {
+            $(".video").css("display", "none");
+            $("#video3").css("display", "flex");
+        });
+        $("h2").parents(".video").css({
+            "justify-content": "center",
+            "align-items": "center"
+        });
+        $("#SortBtn").click(function () {
+            $("#SortBy").fadeToggle(300);
+        });
+        $(".readspoiler").css("margin-top", function () {
+            return $(this).siblings("p").height() / 2 + 22;
+        });
+        $(".readspoiler").css("margin-left", function () {
+            return $(this).siblings("p").width() / 2 - 70;
+        });
+        $(".readspoiler").click(function () {
+            $(this).css("display", "none");
+            $(this).siblings("p").css({
+                "filter": "blur(0px)",
+                "-webkit-filter": "blur(0px)"
+            });
+        });
+        $(".commentreply").click(function () {
+            $(this).parent().parent().parent().siblings().children(".replycomment").slideToggle(500);
+        });
+        $(".showanswers").click(function () {
+            if ($(this).children(".answersbtn").hasClass("rotate-180")) {
+                $(this).parent().parent().parent().siblings(".answers").slideUp(700);
+                $(this).children(".answersbtn").removeClass("rotate-180");
+                $(this).children(".answersbtn").toggleClass("rotate--180");
+            }
+            else {
+                $(this).parent().parent().parent().siblings(".answers").slideDown(700);
+                $(this).children(".answersbtn").removeClass("rotate--180");
+                $(this).children(".answersbtn").toggleClass("rotate-180");
+            }
+            $(".readspoiler").css("margin-top", function () {
+                return $(this).siblings("p").height() / 2 + 22;
+            });
+            $(".readspoiler").css("margin-left", function () {
+                return $(this).siblings("p").width() / 2 - 70;
+            });
+        });
+        $(".like").click(function () {
+            var like = parseInt($(this).children(".likecount").text());
+            var dislike = parseInt($(this).siblings(".dislike").children(".dislikecount").text());
+            if ($(this).siblings(".dislike").children("i").hasClass("fas")) {
+                dislike = dislike - 1;
+                $(this).siblings(".dislike").children(".dislikecount").text(dislike);
+                $(this).siblings(".dislike").children("i").addClass("far");
+                $(this).siblings(".dislike").children("i").removeClass("fas");
+            }
+            if ($(this).children("i").hasClass("far")) {
+                $(this).children("i").addClass("fas");
+                $(this).children("i").removeClass("far");
+                like = like + 1;
+                $(this).children(".likecount").text(like);
+            }
+            else {
+                $(this).children("i").addClass("far");
+                $(this).children("i").removeClass("fas");
+                like = like - 1;
+                $(this).children(".likecount").text(like);
+            }
+        });
+        $(".dislike").click(function () {
+            var like = parseInt($(this).siblings(".like").children(".likecount").text());
+            var dislike = parseInt($(this).children(".dislikecount").text());
+            if ($(this).siblings(".like").children("i").hasClass("fas")) {
+                like = like - 1;
+                $(this).siblings(".like").children(".likecount").text(like);
+                $(this).siblings(".like").children("i").addClass("far");
+                $(this).siblings(".like").children("i").removeClass("fas");
+            }
+            if ($(this).children("i").hasClass("far")) {
+                $(this).children("i").addClass("fas");
+                $(this).children("i").removeClass("far");
+                dislike = dislike + 1;
+                $(this).children(".dislikecount").text(dislike);
+            }
+            else {
+                $(this).children("i").addClass("far");
+                $(this).children("i").removeClass("fas");
+                dislike = dislike - 1;
+                $(this).children(".dislikecount").text(dislike);
+            }
+        });
+        $(".like").mouseenter(function () {
+            $(this).children("i").css("background-color", "#393939");
+        });
+        $(".like").mouseleave(function () {
+            $(this).children("i").css("background-color", "transparent");
+        });
+        $(".dislike").mouseenter(function () {
+            $(this).children("i").css("background-color", "#393939");
+        });
+        $(".dislike").mouseleave(function () {
+            $(this).children("i").css("background-color", "transparent");
+        });
+    });
+</script>
+
+
