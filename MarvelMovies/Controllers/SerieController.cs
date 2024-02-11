@@ -52,20 +52,6 @@ namespace MarvelMovies.Controllers
                 Request.Files[0].SaveAs(Server.MapPath(adress));
                 p.Image = "/Images/SerieImages/" + filename;
             }
-            /*
-            if (results.IsValid)
-            {
-                serie.SerieAdd(p);
-                return RedirectToAction("MoviesList");
-            }
-            else
-            {
-                foreach (var item in results.Errors)
-                {
-                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
-                }
-            }
-            */
             serie.SerieAdd(p);
             return RedirectToAction("SeriesList");
         }
@@ -110,22 +96,6 @@ namespace MarvelMovies.Controllers
             {
                 p.Image = serieinfo.Image;
             }
-            
-            /*
-            ValidationResult results = MovieValidations.Validate(p);
-            if (results.IsValid)
-            {
-                movie.MovieUpdate(p);
-                return RedirectToAction("MoviesList");
-            }
-            else
-            {
-                foreach (var item in results.Errors)
-                {
-                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
-                }
-            }
-            */
             serie.SerieUpdate(p);
             return RedirectToAction("SeriesList");
         }
