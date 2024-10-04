@@ -1,0 +1,169 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Visual studio fayllar\\MarvelMovies\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D3F8A1F3-C32C-4711-A7FB-B82FED24F261}|MarvelMovies\\MarvelMovies.csproj|d:\\visual studio fayllar\\marvelmovies\\marvelmovies\\views\\universe\\marveluniverse.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D3F8A1F3-C32C-4711-A7FB-B82FED24F261}|MarvelMovies\\MarvelMovies.csproj|solutionrelative:marvelmovies\\views\\universe\\marveluniverse.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3F8A1F3-C32C-4711-A7FB-B82FED24F261}|MarvelMovies\\MarvelMovies.csproj|D:\\Visual studio fayllar\\MarvelMovies\\marvelmovies\\controllers\\universecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3F8A1F3-C32C-4711-A7FB-B82FED24F261}|MarvelMovies\\MarvelMovies.csproj|solutionrelative:marvelmovies\\controllers\\universecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3F8A1F3-C32C-4711-A7FB-B82FED24F261}|MarvelMovies\\MarvelMovies.csproj|D:\\Visual studio fayllar\\MarvelMovies\\marvelmovies\\controllers\\moviecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3F8A1F3-C32C-4711-A7FB-B82FED24F261}|MarvelMovies\\MarvelMovies.csproj|solutionrelative:marvelmovies\\controllers\\moviecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3F8A1F3-C32C-4711-A7FB-B82FED24F261}|MarvelMovies\\MarvelMovies.csproj|D:\\Visual studio fayllar\\MarvelMovies\\marvelmovies\\views\\shared\\_userlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D3F8A1F3-C32C-4711-A7FB-B82FED24F261}|MarvelMovies\\MarvelMovies.csproj|solutionrelative:marvelmovies\\views\\shared\\_userlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3F8A1F3-C32C-4711-A7FB-B82FED24F261}|MarvelMovies\\MarvelMovies.csproj|D:\\Visual studio fayllar\\MarvelMovies\\marvelmovies\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D3F8A1F3-C32C-4711-A7FB-B82FED24F261}|MarvelMovies\\MarvelMovies.csproj|solutionrelative:marvelmovies\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3F8A1F3-C32C-4711-A7FB-B82FED24F261}|MarvelMovies\\MarvelMovies.csproj|D:\\Visual studio fayllar\\MarvelMovies\\marvelmovies\\controllers\\moviedetailscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3F8A1F3-C32C-4711-A7FB-B82FED24F261}|MarvelMovies\\MarvelMovies.csproj|solutionrelative:marvelmovies\\controllers\\moviedetailscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3F8A1F3-C32C-4711-A7FB-B82FED24F261}|MarvelMovies\\MarvelMovies.csproj|D:\\Visual studio fayllar\\MarvelMovies\\marvelmovies\\views\\statistics\\statistics.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D3F8A1F3-C32C-4711-A7FB-B82FED24F261}|MarvelMovies\\MarvelMovies.csproj|solutionrelative:marvelmovies\\views\\statistics\\statistics.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3F8A1F3-C32C-4711-A7FB-B82FED24F261}|MarvelMovies\\MarvelMovies.csproj|D:\\Visual studio fayllar\\MarvelMovies\\marvelmovies\\controllers\\statisticscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3F8A1F3-C32C-4711-A7FB-B82FED24F261}|MarvelMovies\\MarvelMovies.csproj|solutionrelative:marvelmovies\\controllers\\statisticscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3F8A1F3-C32C-4711-A7FB-B82FED24F261}|MarvelMovies\\MarvelMovies.csproj|D:\\Visual studio fayllar\\MarvelMovies\\marvelmovies\\views\\statistics\\moviepercentage.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D3F8A1F3-C32C-4711-A7FB-B82FED24F261}|MarvelMovies\\MarvelMovies.csproj|solutionrelative:marvelmovies\\views\\statistics\\moviepercentage.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MarvelUniverse.cshtml",
+              "DocumentMoniker": "D:\\Visual studio fayllar\\MarvelMovies\\MarvelMovies\\Views\\Universe\\MarvelUniverse.cshtml",
+              "RelativeDocumentMoniker": "MarvelMovies\\Views\\Universe\\MarvelUniverse.cshtml",
+              "ToolTip": "D:\\Visual studio fayllar\\MarvelMovies\\MarvelMovies\\Views\\Universe\\MarvelUniverse.cshtml",
+              "RelativeToolTip": "MarvelMovies\\Views\\Universe\\MarvelUniverse.cshtml",
+              "ViewState": "AQIAABgAAAAAAAAAAAAAAC4AAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-02-02T22:51:50.06Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UniverseController.cs",
+              "DocumentMoniker": "D:\\Visual studio fayllar\\MarvelMovies\\MarvelMovies\\Controllers\\UniverseController.cs",
+              "RelativeDocumentMoniker": "MarvelMovies\\Controllers\\UniverseController.cs",
+              "ToolTip": "D:\\Visual studio fayllar\\MarvelMovies\\MarvelMovies\\Controllers\\UniverseController.cs",
+              "RelativeToolTip": "MarvelMovies\\Controllers\\UniverseController.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAAB4AAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-02T22:51:46.339Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "_UserLayout.cshtml",
+              "DocumentMoniker": "D:\\Visual studio fayllar\\MarvelMovies\\MarvelMovies\\Views\\Shared\\_UserLayout.cshtml",
+              "RelativeDocumentMoniker": "MarvelMovies\\Views\\Shared\\_UserLayout.cshtml",
+              "ToolTip": "D:\\Visual studio fayllar\\MarvelMovies\\MarvelMovies\\Views\\Shared\\_UserLayout.cshtml",
+              "RelativeToolTip": "MarvelMovies\\Views\\Shared\\_UserLayout.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002242|",
+              "WhenOpened": "2023-10-16T05:48:45.636Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "_AdminLayout.cshtml",
+              "DocumentMoniker": "D:\\Visual studio fayllar\\MarvelMovies\\MarvelMovies\\Views\\Shared\\_AdminLayout.cshtml",
+              "RelativeDocumentMoniker": "MarvelMovies\\Views\\Shared\\_AdminLayout.cshtml",
+              "ToolTip": "D:\\Visual studio fayllar\\MarvelMovies\\MarvelMovies\\Views\\Shared\\_AdminLayout.cshtml",
+              "RelativeToolTip": "MarvelMovies\\Views\\Shared\\_AdminLayout.cshtml",
+              "ViewState": "AQIAAHIAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002242|",
+              "WhenOpened": "2023-10-16T05:48:36.497Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MovieController.cs",
+              "DocumentMoniker": "D:\\Visual studio fayllar\\MarvelMovies\\MarvelMovies\\Controllers\\MovieController.cs",
+              "RelativeDocumentMoniker": "MarvelMovies\\Controllers\\MovieController.cs",
+              "ToolTip": "D:\\Visual studio fayllar\\MarvelMovies\\MarvelMovies\\Controllers\\MovieController.cs",
+              "RelativeToolTip": "MarvelMovies\\Controllers\\MovieController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAowB8AAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-10-08T19:19:23.337Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MovieDetailsController.cs",
+              "DocumentMoniker": "D:\\Visual studio fayllar\\MarvelMovies\\MarvelMovies\\Controllers\\MovieDetailsController.cs",
+              "RelativeDocumentMoniker": "MarvelMovies\\Controllers\\MovieDetailsController.cs",
+              "ToolTip": "D:\\Visual studio fayllar\\MarvelMovies\\MarvelMovies\\Controllers\\MovieDetailsController.cs",
+              "RelativeToolTip": "MarvelMovies\\Controllers\\MovieDetailsController.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAACgAAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-10-08T19:18:09.618Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "MoviePercentage.cshtml",
+              "DocumentMoniker": "D:\\Visual studio fayllar\\MarvelMovies\\MarvelMovies\\Views\\Statistics\\MoviePercentage.cshtml",
+              "RelativeDocumentMoniker": "MarvelMovies\\Views\\Statistics\\MoviePercentage.cshtml",
+              "ToolTip": "D:\\Visual studio fayllar\\MarvelMovies\\MarvelMovies\\Views\\Statistics\\MoviePercentage.cshtml",
+              "RelativeToolTip": "MarvelMovies\\Views\\Statistics\\MoviePercentage.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABwAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002242|",
+              "WhenOpened": "2023-10-05T16:49:46.49Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Statistics.cshtml",
+              "DocumentMoniker": "D:\\Visual studio fayllar\\MarvelMovies\\MarvelMovies\\Views\\Statistics\\Statistics.cshtml",
+              "RelativeDocumentMoniker": "MarvelMovies\\Views\\Statistics\\Statistics.cshtml",
+              "ToolTip": "D:\\Visual studio fayllar\\MarvelMovies\\MarvelMovies\\Views\\Statistics\\Statistics.cshtml",
+              "RelativeToolTip": "MarvelMovies\\Views\\Statistics\\Statistics.cshtml",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAABkAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002242|",
+              "WhenOpened": "2023-10-05T16:49:40.854Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "StatisticsController.cs",
+              "DocumentMoniker": "D:\\Visual studio fayllar\\MarvelMovies\\MarvelMovies\\Controllers\\StatisticsController.cs",
+              "RelativeDocumentMoniker": "MarvelMovies\\Controllers\\StatisticsController.cs",
+              "ToolTip": "D:\\Visual studio fayllar\\MarvelMovies\\MarvelMovies\\Controllers\\StatisticsController.cs",
+              "RelativeToolTip": "MarvelMovies\\Controllers\\StatisticsController.cs",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAABwAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-10-05T16:49:36.692Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
